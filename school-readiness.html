@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Learning Strategy Library | Student AI Learning Innovation League</title>
-<meta name="description" content="Learning Strategy Library page.">
+<title>School Policy and Technology Readiness | Student AI Learning Innovation League</title>
+<meta name="description" content="Interactive school policy and technology readiness checklist.">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -21,8 +21,8 @@
           </ul>
         </li>
 
-        <li class="nav-item">
-          <button class="nav-toggle" aria-expanded="false">For Advisors</button>
+        <li class="nav-item open">
+          <button class="nav-toggle" aria-expanded="true">For Advisors</button>
           <ul class="dropdown wide">
             <li><a href="advisor-hub.html">Advisor Hub</a></li>
             <li><a href="start-a-club.html">Start a Club</a></li>
@@ -33,7 +33,7 @@
             <li><a href="advisor-role.html">Advisor Role</a></li>
             <li><a href="assessment-feedback.html">Assessment</a></li>
             <li><a href="responsible-ai.html">Safety and Policy</a></li>
-            <li><a href="school-readiness.html">School Readiness</a></li>
+            <li><a href="school-readiness.html" aria-current="page">School Readiness</a></li>
             <li><a href="showcases.html">Showcases</a></li>
             <li><a href="contact-help.html">Help</a></li>
           </ul>
@@ -55,8 +55,8 @@
           </ul>
         </li>
 
-        <li class="nav-item open">
-          <button class="nav-toggle" aria-expanded="true">Curriculum</button>
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Curriculum</button>
           <ul class="dropdown wide">
             <li><a href="curriculum.html">Curriculum Overview</a></li>
             <li><a href="lesson-1.html">Lesson 1: Humans Learn; AI Generates</a></li>
@@ -64,7 +64,7 @@
             <li><a href="lesson-3.html">Lesson 3: Match a Strategy</a></li>
             <li><a href="lesson-4.html">Lesson 4: Design the Tool</a></li>
             <li><a href="lesson-5.html">Lesson 5: Test and Revise</a></li>
-            <li><a href="strategy-library.html" aria-current="page">Learning Strategy Library</a></li>
+            <li><a href="strategy-library.html">Learning Strategy Library</a></li>
             <li><a href="strategy-matcher.html">Interactive Strategy Matcher</a></li>
           </ul>
         </li>
@@ -91,12 +91,12 @@
           </ul>
         </li>
 
-        <li class="nav-item">
-          <button class="nav-toggle" aria-expanded="false">Resources</button>
+        <li class="nav-item open">
+          <button class="nav-toggle" aria-expanded="true">Resources</button>
           <ul class="dropdown wide">
             <li><a href="advisor-resources.html">Advisor Resource Library</a></li>
             <li><a href="technology-platform-guide.html">Technology and Platforms</a></li>
-            <li><a href="school-readiness.html">School Policy and Readiness</a></li>
+            <li><a href="school-readiness.html" aria-current="page">School Policy and Readiness</a></li>
             <li><a href="accessibility-inclusive-design.html">Accessibility and Inclusion</a></li>
             <li><a href="downloads-templates.html">Downloads and Templates</a></li>
             <li><a href="assessment-feedback.html">Assessment and Feedback</a></li>
@@ -108,30 +108,55 @@
     </nav>
   </div>
 </header>
-<main id="main"><section class="hero-mini"><div class="inner"><span class="eyebrow">Learning Strategy Library</span><h1>Choose the strategy that matches the challenge.</h1><p class="lead">A strong AI learning aid is designed around how learning should happen—not around what the technology can generate.</p></div></section>
-<section><div class="grid three">
-<article class="card"><h3>Retrieval practice</h3><p><strong>Use when:</strong> learners need to remember information.<br><strong>AI role:</strong> ask for recall before revealing answers and revisit missed ideas.</p></article>
-<article class="card"><h3>Elaboration</h3><p><strong>Use when:</strong> learners know facts but cannot explain connections.<br><strong>AI role:</strong> ask why, how, for examples, and for comparisons.</p></article>
-<article class="card"><h3>Worked examples and fading</h3><p><strong>Use when:</strong> learners do not understand a process.<br><strong>AI role:</strong> model, then gradually remove support.</p></article>
-<article class="card"><h3>Feedback and error analysis</h3><p><strong>Use when:</strong> the learner repeats a particular mistake.<br><strong>AI role:</strong> identify where reasoning changed and offer a targeted hint.</p></article>
-<article class="card"><h3>Chunking and task decomposition</h3><p><strong>Use when:</strong> a task has too many parts.<br><strong>AI role:</strong> break the task into manageable steps and track progress.</p></article>
-<article class="card"><h3>Visual and verbal representation</h3><p><strong>Use when:</strong> relationships are difficult to organize.<br><strong>AI role:</strong> prompt diagrams, labels, comparisons, and explanation of visuals.</p></article>
-<article class="card"><h3>Self-explanation</h3><p><strong>Use when:</strong> learners can perform steps but cannot explain why.<br><strong>AI role:</strong> ask the learner to justify each step.</p></article>
-<article class="card"><h3>Metacognitive reflection</h3><p><strong>Use when:</strong> learners struggle to plan or monitor.<br><strong>AI role:</strong> ask about goals, strategies, confusion, confidence, and next steps.</p></article>
-<article class="card"><h3>Spaced practice</h3><p><strong>Use when:</strong> learning fades over time.<br><strong>AI role:</strong> schedule repeated practice and vary examples across sessions.</p></article>
-</div></section>
-<section class="section-soft"><div class="inner"><div class="callout"><strong>Design rule:</strong> Students should be able to complete the sentence, “My AI tool uses the strategy ___ by asking the learner to ___.”</div></div></section>
+<main id="main">
+<section class="hero-mini"><div class="inner"><div class="breadcrumbs"><a href="advisor-hub.html">Advisor Hub</a><span>›</span>School Readiness</div><span class="eyebrow">School Policy and Technology Readiness</span><h1>Check what is possible before students begin.</h1><p class="lead">Use this interactive checklist to identify the most realistic implementation format for your school.</p></div></section>
+<section><form id="readiness-form"><div class="readiness-grid">
+<fieldset class="check-panel"><legend><strong>Technology access</strong></legend>
+<label><input type="checkbox" name="device"> Students have access to compatible devices.</label>
+<label><input type="checkbox" name="internet"> Reliable internet is available.</label>
+<label><input type="checkbox" name="accounts"> Student accounts can be created or managed.</label>
+<label><input type="checkbox" name="support"> Technical support is available.</label>
+</fieldset>
+<fieldset class="check-panel"><legend><strong>Policy and permissions</strong></legend>
+<label><input type="checkbox" name="policy"> School AI or acceptable-use policies have been reviewed.</label>
+<label><input type="checkbox" name="platform"> At least one platform is approved.</label>
+<label><input type="checkbox" name="family"> Family permission requirements are clear.</label>
+<label><input type="checkbox" name="data"> Data-sharing and retention rules are understood.</label>
+</fieldset>
+<fieldset class="check-panel"><legend><strong>Instructional readiness</strong></legend>
+<label><input type="checkbox" name="advisor"> An advisor is identified.</label>
+<label><input type="checkbox" name="schedule"> Meeting time and location are available.</label>
+<label><input type="checkbox" name="curriculum"> The five lessons have been reviewed.</label>
+<label><input type="checkbox" name="testing"> A safe user-testing process is available.</label>
+</fieldset>
+<fieldset class="check-panel"><legend><strong>Accessibility and inclusion</strong></legend>
+<label><input type="checkbox" name="accessibility"> Accessibility needs have been considered.</label>
+<label><input type="checkbox" name="language"> Reading level and language supports are available.</label>
+<label><input type="checkbox" name="alternative"> A non-AI or paper-prototype option is available.</label>
+<label><input type="checkbox" name="participation"> Students have multiple ways to participate.</label>
+</fieldset>
+</div><div class="action-row"><button class="button primary" type="submit">Generate readiness summary</button></div></form>
+<div id="readiness-result" style="margin-top:1.5rem" aria-live="polite"></div></section>
+<script>
+document.getElementById("readiness-form").addEventListener("submit",e=>{
+e.preventDefault();
+const checked=e.target.querySelectorAll('input[type="checkbox"]:checked').length;
+let title,body;
+if(checked>=14){title="Ready for a student-led implementation";body="Your school appears ready for students to use an approved platform with advisor oversight. Confirm local approvals before launch."}
+else if(checked>=9){title="Ready with targeted preparation";body="A pilot is feasible, but the unchecked areas should be addressed. Consider a teacher-managed or small-group implementation first."}
+else if(checked>=5){title="Begin with a limited prototype";body="Use paper prototypes, scripted interactions, or advisor demonstrations while technology, policy, and permission issues are resolved."}
+else{title="More preparation is needed";body="Focus first on advisor preparation, school policy, family communication, access, and a safe no-account prototype option."}
+document.getElementById("readiness-result").innerHTML=`<div class="result-card"><h2>${title}</h2><p>${body}</p><p><strong>Items completed:</strong> ${checked} of 16</p></div>`;
+});
+</script>
 
 <section class="section-soft"><div class="inner">
-<span class="kicker">Strategy selection cautions</span>
-<h2>A strategy can be misused</h2>
-<div class="detail-grid">
-<div class="detail-panel"><h3>Retrieval without feedback</h3><p>Repeatedly practicing an incorrect response can strengthen the error. Learners need timely correction.</p></div>
-<div class="detail-panel"><h3>Worked examples without fading</h3><p>If support never decreases, learners may not develop independent skill.</p></div>
-<div class="detail-panel"><h3>Elaboration without focus</h3><p>Too many open-ended questions can overwhelm a learner. Prompts should target the diagnosed challenge.</p></div>
-<div class="detail-panel"><h3>Metacognition without action</h3><p>Reflection should lead to a strategy choice or next step, not only a confidence rating.</p></div>
+<h2>Use the summary to choose an implementation level</h2>
+<div class="grid three">
+<article class="card"><h3>Level 1: Paper prototype</h3><p>No student AI accounts; students script interactions and test learning design through role play.</p></article>
+<article class="card"><h3>Level 2: Advisor-managed AI</h3><p>The advisor operates an approved tool while students design, observe, and revise prompts.</p></article>
+<article class="card"><h3>Level 3: Student-managed prototype</h3><p>Students use approved accounts and tools with documented safety and oversight.</p></article>
 </div>
-<div class="actions"><a class="button primary" href="strategy-matcher.html">Use the strategy matcher</a></div>
 </div></section>
 
 </main>

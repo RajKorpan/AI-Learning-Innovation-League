@@ -1,0 +1,195 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interactive Strategy Matcher | Student AI Learning Innovation League</title>
+<meta name="description" content="Interactive matcher for selecting an evidence-based learning strategy.">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="brand-mark">AI</span><span>Student AI Learning Innovation League</span></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <ul>
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">About</button>
+          <ul class="dropdown">
+            <li><a href="about.html">About the League</a></li>
+            <li><a href="how-it-works.html">How the League Works</a></li>
+            <li><a href="hunter-researchers.html">Hunter College Researchers</a></li>
+            <li><a href="hunter-pathway.html">Hunter College Pathway</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">For Advisors</button>
+          <ul class="dropdown wide">
+            <li><a href="advisor-hub.html">Advisor Hub</a></li>
+            <li><a href="start-a-club.html">Start a Club</a></li>
+            <li><a href="club-roadmap.html">Club Roadmap</a></li>
+            <li><a href="curriculum.html">Curriculum</a></li>
+            <li><a href="project-examples.html">Student Projects</a></li>
+            <li><a href="team-management.html">Team Management</a></li>
+            <li><a href="advisor-role.html">Advisor Role</a></li>
+            <li><a href="assessment-feedback.html">Assessment</a></li>
+            <li><a href="responsible-ai.html">Safety and Policy</a></li>
+            <li><a href="school-readiness.html">School Readiness</a></li>
+            <li><a href="showcases.html">Showcases</a></li>
+            <li><a href="contact-help.html">Help</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item open">
+          <button class="nav-toggle" aria-expanded="true">For Students</button>
+          <ul class="dropdown wide">
+            <li><a href="student-studio.html">Student Studio</a></li>
+            <li><a href="my-project.html">My Project</a></li>
+            <li><a href="curriculum.html">Learn</a></li>
+            <li><a href="prompt-builder.html">Design</a></li>
+            <li><a href="build.html">Build</a></li>
+            <li><a href="testing-revision.html">Test</a></li>
+            <li><a href="testing-revision.html">Revise</a></li>
+            <li><a href="share.html">Share</a></li>
+            <li><a href="student-roles.html">Roles and Collaboration</a></li>
+            <li><a href="project-examples.html">Examples</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item open">
+          <button class="nav-toggle" aria-expanded="true">Curriculum</button>
+          <ul class="dropdown wide">
+            <li><a href="curriculum.html">Curriculum Overview</a></li>
+            <li><a href="lesson-1.html">Lesson 1: Humans Learn; AI Generates</a></li>
+            <li><a href="lesson-2.html">Lesson 2: Diagnose the Challenge</a></li>
+            <li><a href="lesson-3.html">Lesson 3: Match a Strategy</a></li>
+            <li><a href="lesson-4.html">Lesson 4: Design the Tool</a></li>
+            <li><a href="lesson-5.html">Lesson 5: Test and Revise</a></li>
+            <li><a href="strategy-library.html">Learning Strategy Library</a></li>
+            <li><a href="strategy-matcher.html" aria-current="page">Interactive Strategy Matcher</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Projects</button>
+          <ul class="dropdown">
+            <li><a href="tool-creation.html">Tool-Creation Process</a></li>
+            <li><a href="project-examples.html">Project Examples</a></li>
+            <li><a href="student-roles.html">Student Roles</a></li>
+            <li><a href="project-rubric.html">Project Rubric</a></li>
+            <li><a href="showcases.html">Showcases</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="responsible-ai.html">Safety</a></li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Events</button>
+          <ul class="dropdown">
+            <li><a href="events.html">Events Overview</a></li>
+            <li><a href="showcases.html">Student Showcases</a></li>
+            <li><a href="hunter-pathway.html">Hunter College Pathway</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Resources</button>
+          <ul class="dropdown wide">
+            <li><a href="advisor-resources.html">Advisor Resource Library</a></li>
+            <li><a href="technology-platform-guide.html">Technology and Platforms</a></li>
+            <li><a href="school-readiness.html">School Policy and Readiness</a></li>
+            <li><a href="accessibility-inclusive-design.html">Accessibility and Inclusion</a></li>
+            <li><a href="downloads-templates.html">Downloads and Templates</a></li>
+            <li><a href="assessment-feedback.html">Assessment and Feedback</a></li>
+            <li><a href="family-community.html">Family and Community</a></li>
+            <li><a href="contact-help.html">Contact and Help</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero-mini"><div class="inner">
+<div class="breadcrumbs"><a href="strategy-library.html">Learning Strategy Library</a><span>›</span>Strategy Matcher</div>
+<span class="eyebrow">Interactive Strategy Matcher</span>
+<h1>Find learning strategies that match the challenge.</h1>
+<p class="lead">Answer the questions based on evidence about the learner. The matcher suggests strategies, but the student team must make and justify the final choice.</p>
+</div></section>
+<section>
+<form id="matcher-form">
+<fieldset class="matcher-question"><legend>1. What is the main difficulty?</legend>
+<label><input type="radio" name="difficulty" value="remember" required> Remembering information over time</label>
+<label><input type="radio" name="difficulty" value="explain"> Explaining relationships, causes, or meaning</label>
+<label><input type="radio" name="difficulty" value="procedure"> Following or understanding a procedure</label>
+<label><input type="radio" name="difficulty" value="error"> Repeating a particular mistake</label>
+<label><input type="radio" name="difficulty" value="overload"> Managing a task with many parts</label>
+<label><input type="radio" name="difficulty" value="monitor"> Planning, monitoring, or evaluating learning</label>
+</fieldset>
+
+<fieldset class="matcher-question"><legend>2. What can the learner already do?</legend>
+<label><input type="radio" name="current" value="recognize" required> Recognize the information when it is shown</label>
+<label><input type="radio" name="current" value="facts"> Recall some facts but not explain them</label>
+<label><input type="radio" name="current" value="model"> Follow a completed example</label>
+<label><input type="radio" name="current" value="attempt"> Attempt the task but make patterned errors</label>
+<label><input type="radio" name="current" value="little"> Very little without support</label>
+</fieldset>
+
+<fieldset class="matcher-question"><legend>3. What should the learner do more of?</legend>
+<label><input type="radio" name="action" value="recall" required> Recall and practice</label>
+<label><input type="radio" name="action" value="explain"> Explain, compare, and connect</label>
+<label><input type="radio" name="action" value="practice"> Practice a process with decreasing support</label>
+<label><input type="radio" name="action" value="inspect"> Inspect and correct reasoning</label>
+<label><input type="radio" name="action" value="plan"> Plan steps and monitor progress</label>
+</fieldset>
+
+<button class="button primary" type="submit">Match strategies</button>
+</form>
+<div id="matcher-result" style="margin-top:1.5rem" aria-live="polite"></div>
+</section>
+<script>
+const strategyData={
+  retrieval:{name:"Retrieval practice",why:"Useful when the learner needs to recall information without looking and strengthen memory over time.",ai:"Ask for recall first, give brief corrective feedback, and revisit missed ideas later."},
+  elaboration:{name:"Elaboration and self-explanation",why:"Useful when the learner knows facts but has difficulty explaining relationships, causes, or meaning.",ai:"Ask why, how, for examples, and for connections. Require explanation in the learner's own words."},
+  worked:{name:"Worked examples and fading",why:"Useful when the learner needs a model of a process before completing increasingly independent practice.",ai:"Model one example, provide partially completed examples, and gradually remove support."},
+  feedback:{name:"Feedback and error analysis",why:"Useful when the learner attempts the task but repeatedly makes a specific error.",ai:"Ask for reasoning, locate the error, give a targeted hint, and ask the learner to revise."},
+  chunking:{name:"Chunking and task decomposition",why:"Useful when a complex task overwhelms working memory or the learner does not know where to begin.",ai:"Break the task into manageable steps, address one component at a time, and track progress."},
+  metacognition:{name:"Metacognitive reflection",why:"Useful when the learner has difficulty setting goals, choosing strategies, monitoring understanding, or deciding what to do next.",ai:"Ask about goals, confidence, evidence, confusion, strategy use, and next steps."}
+};
+document.getElementById("matcher-form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const data=new FormData(e.target);
+  const d=data.get("difficulty"),c=data.get("current"),a=data.get("action");
+  const scores={retrieval:0,elaboration:0,worked:0,feedback:0,chunking:0,metacognition:0};
+  const maps={
+    remember:["retrieval"], explain:["elaboration"], procedure:["worked"], error:["feedback"],
+    overload:["chunking"], monitor:["metacognition"],
+    recognize:["retrieval"], facts:["elaboration"], model:["worked"], attempt:["feedback"], little:["chunking","worked"],
+    recall:["retrieval"], explain:["elaboration"], practice:["worked"], inspect:["feedback"], plan:["chunking","metacognition"]
+  };
+  [d,c,a].forEach(v=>(maps[v]||[]).forEach(k=>scores[k]+=2));
+  if(d==="overload"||a==="plan") scores.metacognition+=1;
+  if(d==="procedure"&&c==="attempt") scores.feedback+=1;
+  const ranked=Object.entries(scores).sort((x,y)=>y[1]-x[1]).slice(0,3);
+  document.getElementById("matcher-result").innerHTML=
+    `<div class="result-card"><span class="kicker">Suggested matches</span><h2>Consider these strategies</h2>`+
+    ranked.map(([key],i)=>`<article class="card" style="margin-top:.8rem"><h3>${i+1}. ${strategyData[key].name}</h3><p>${strategyData[key].why}</p><p><strong>Possible AI behavior:</strong> ${strategyData[key].ai}</p></article>`).join("")+
+    `<p style="margin-top:1rem"><strong>Your next step:</strong> Choose one strategy and explain why it matches evidence about the learner. The matcher is a design aid, not a diagnosis.</p></div>`;
+});
+</script>
+
+<section class="section-soft"><div class="inner">
+<h2>How to use the result responsibly</h2>
+<ol class="step-list">
+<li>Compare the suggested strategies with evidence about the learner.</li>
+<li>Read the full strategy descriptions in the library.</li>
+<li>Choose one primary strategy and, if needed, one supporting strategy.</li>
+<li>Explain why the strategy fits the challenge.</li>
+<li>Test whether the AI actually behaves according to the strategy.</li>
+</ol>
+</div></section>
+
+</main>
+<footer><div class="footer-inner">
+<div><strong>Student AI Learning Innovation League</strong><br>Helping students design AI-supported tools for deeper STEM learning.</div>
+<div><a href="advisor-hub.html">For Advisors</a> · <a href="student-studio.html">For Students</a> · <a href="downloads-templates.html">Downloads</a> · <a href="contact-help.html">Help</a></div>
+</div></footer><script src="assets/js/main.js"></script></body></html>

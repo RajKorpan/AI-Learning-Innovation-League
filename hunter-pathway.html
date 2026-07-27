@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Learning Strategy Library | Student AI Learning Innovation League</title>
-<meta name="description" content="Learning Strategy Library page.">
+<title>Hunter College Pathway | Student AI Learning Innovation League</title>
+<meta name="description" content="A full pathway from school clubs to Hunter College research, mentoring, and STEM opportunities.">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -11,13 +11,13 @@
     <button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
       <ul>
-        <li class="nav-item">
-          <button class="nav-toggle" aria-expanded="false">About</button>
+        <li class="nav-item open">
+          <button class="nav-toggle" aria-expanded="true">About</button>
           <ul class="dropdown">
             <li><a href="about.html">About the League</a></li>
             <li><a href="how-it-works.html">How the League Works</a></li>
             <li><a href="hunter-researchers.html">Hunter College Researchers</a></li>
-            <li><a href="hunter-pathway.html">Hunter College Pathway</a></li>
+            <li><a href="hunter-pathway.html" aria-current="page">Hunter College Pathway</a></li>
           </ul>
         </li>
 
@@ -55,8 +55,8 @@
           </ul>
         </li>
 
-        <li class="nav-item open">
-          <button class="nav-toggle" aria-expanded="true">Curriculum</button>
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Curriculum</button>
           <ul class="dropdown wide">
             <li><a href="curriculum.html">Curriculum Overview</a></li>
             <li><a href="lesson-1.html">Lesson 1: Humans Learn; AI Generates</a></li>
@@ -64,7 +64,7 @@
             <li><a href="lesson-3.html">Lesson 3: Match a Strategy</a></li>
             <li><a href="lesson-4.html">Lesson 4: Design the Tool</a></li>
             <li><a href="lesson-5.html">Lesson 5: Test and Revise</a></li>
-            <li><a href="strategy-library.html" aria-current="page">Learning Strategy Library</a></li>
+            <li><a href="strategy-library.html">Learning Strategy Library</a></li>
             <li><a href="strategy-matcher.html">Interactive Strategy Matcher</a></li>
           </ul>
         </li>
@@ -82,12 +82,12 @@
 
         <li class="nav-item"><a class="nav-link" href="responsible-ai.html">Safety</a></li>
 
-        <li class="nav-item">
-          <button class="nav-toggle" aria-expanded="false">Events</button>
+        <li class="nav-item open">
+          <button class="nav-toggle" aria-expanded="true">Events</button>
           <ul class="dropdown">
             <li><a href="events.html">Events Overview</a></li>
             <li><a href="showcases.html">Student Showcases</a></li>
-            <li><a href="hunter-pathway.html">Hunter College Pathway</a></li>
+            <li><a href="hunter-pathway.html" aria-current="page">Hunter College Pathway</a></li>
           </ul>
         </li>
 
@@ -108,31 +108,44 @@
     </nav>
   </div>
 </header>
-<main id="main"><section class="hero-mini"><div class="inner"><span class="eyebrow">Learning Strategy Library</span><h1>Choose the strategy that matches the challenge.</h1><p class="lead">A strong AI learning aid is designed around how learning should happen—not around what the technology can generate.</p></div></section>
-<section><div class="grid three">
-<article class="card"><h3>Retrieval practice</h3><p><strong>Use when:</strong> learners need to remember information.<br><strong>AI role:</strong> ask for recall before revealing answers and revisit missed ideas.</p></article>
-<article class="card"><h3>Elaboration</h3><p><strong>Use when:</strong> learners know facts but cannot explain connections.<br><strong>AI role:</strong> ask why, how, for examples, and for comparisons.</p></article>
-<article class="card"><h3>Worked examples and fading</h3><p><strong>Use when:</strong> learners do not understand a process.<br><strong>AI role:</strong> model, then gradually remove support.</p></article>
-<article class="card"><h3>Feedback and error analysis</h3><p><strong>Use when:</strong> the learner repeats a particular mistake.<br><strong>AI role:</strong> identify where reasoning changed and offer a targeted hint.</p></article>
-<article class="card"><h3>Chunking and task decomposition</h3><p><strong>Use when:</strong> a task has too many parts.<br><strong>AI role:</strong> break the task into manageable steps and track progress.</p></article>
-<article class="card"><h3>Visual and verbal representation</h3><p><strong>Use when:</strong> relationships are difficult to organize.<br><strong>AI role:</strong> prompt diagrams, labels, comparisons, and explanation of visuals.</p></article>
-<article class="card"><h3>Self-explanation</h3><p><strong>Use when:</strong> learners can perform steps but cannot explain why.<br><strong>AI role:</strong> ask the learner to justify each step.</p></article>
-<article class="card"><h3>Metacognitive reflection</h3><p><strong>Use when:</strong> learners struggle to plan or monitor.<br><strong>AI role:</strong> ask about goals, strategies, confusion, confidence, and next steps.</p></article>
-<article class="card"><h3>Spaced practice</h3><p><strong>Use when:</strong> learning fades over time.<br><strong>AI role:</strong> schedule repeated practice and vary examples across sessions.</p></article>
+<main id="main">
+<section class="hero-mini"><div class="inner">
+<div class="breadcrumbs"><a href="about.html">About</a><span>›</span>Hunter College Pathway</div>
+<span class="eyebrow">Full Hunter College Pathway</span>
+<h1>From a school club to research, college, and STEM leadership.</h1>
+<p class="lead">The pathway shows how students can progress from introductory League participation to deeper mentoring, campus experiences, research exposure, and future college opportunities.</p>
 </div></section>
-<section class="section-soft"><div class="inner"><div class="callout"><strong>Design rule:</strong> Students should be able to complete the sentence, “My AI tool uses the strategy ___ by asking the learner to ___.”</div></div></section>
+<section><span class="kicker">Pathway overview</span><h2>A sequence that can grow over time</h2><div class="pathway">
+<div class="pathway-item"><span class="badge">Stage 1</span><h3>School or community club</h3><p>Complete the five lessons, identify a real STEM learning challenge, build a responsible AI-supported learning aid, and test it with peers.</p></div>
+<div class="pathway-item"><span class="badge">Stage 2</span><h3>Local showcase</h3><p>Present the learning goal, challenge diagnosis, strategy, prototype, test evidence, revisions, and limitations to teachers, families, and community guests.</p></div>
+<div class="pathway-item"><span class="badge">Stage 3</span><h3>Cross-school League event</h3><p>Exchange feedback with students from other schools, join design challenges, and receive recognition for learning science, safety, accessibility, collaboration, and revision.</p></div>
+<div class="pathway-item"><span class="badge">Stage 4</span><h3>Hunter College campus experience</h3><p>Attend a campus event, meet faculty and student researchers, tour relevant spaces, and connect project work to college study and STEM careers.</p></div>
+<div class="pathway-item"><span class="badge">Stage 5</span><h3>Researcher and near-peer mentoring</h3><p>Work with Hunter College students, educators, and researchers through interviews, design reviews, technical workshops, and structured mentoring.</p></div>
+<div class="pathway-item"><span class="badge">Stage 6</span><h3>Advanced project or summer pathway</h3><p>Develop a more substantial prototype, data-literacy experience, research question, or community learning project with stronger documentation and evaluation.</p></div>
+<div class="pathway-item"><span class="badge">Stage 7</span><h3>College and leadership opportunities</h3><p>Return as a mentor, club leader, judge, student researcher, or undergraduate contributor and help new teams enter the pathway.</p></div>
+</div></section>
+<section class="section-soft"><div class="inner"><span class="kicker">Possible Hunter experiences</span><h2>Programs and supports to develop</h2><div class="grid three">
+<article class="card"><h3>Researcher interviews</h3><p>Short conversations about AI, learning, data, robotics, research methods, and college pathways.</p></article>
+<article class="card"><h3>TIER Lab connections</h3><p>Examples of trustworthy, explainable, ethical, and human-centered technology design.</p></article>
+<article class="card"><h3>Data-literacy storytelling</h3><p>A project connection using robots, data, and narrative to help students interpret and communicate evidence.</p></article>
+<article class="card"><h3>Campus showcase</h3><p>A public event where school teams demonstrate projects and receive feedback from peers, families, educators, and researchers.</p></article>
+<article class="card"><h3>Near-peer mentors</h3><p>Hunter College students support design reviews, technical questions, and college awareness without taking over student work.</p></article>
+<article class="card"><h3>Advanced summer experience</h3><p>A future Development-phase opportunity inspired by university research and apprenticeship programs but tailored to the League.</p></article>
+</div></div></section>
+<section><div class="callout"><strong>Development note:</strong> The current project can pilot small, manageable Hunter connections. A full research-apprenticeship pathway is better suited to a later Development phase with additional time, staffing, partnerships, and infrastructure.</div></section>
 
-<section class="section-soft"><div class="inner">
-<span class="kicker">Strategy selection cautions</span>
-<h2>A strategy can be misused</h2>
-<div class="detail-grid">
-<div class="detail-panel"><h3>Retrieval without feedback</h3><p>Repeatedly practicing an incorrect response can strengthen the error. Learners need timely correction.</p></div>
-<div class="detail-panel"><h3>Worked examples without fading</h3><p>If support never decreases, learners may not develop independent skill.</p></div>
-<div class="detail-panel"><h3>Elaboration without focus</h3><p>Too many open-ended questions can overwhelm a learner. Prompts should target the diagnosed challenge.</p></div>
-<div class="detail-panel"><h3>Metacognition without action</h3><p>Reflection should lead to a strategy choice or next step, not only a confidence rating.</p></div>
-</div>
-<div class="actions"><a class="button primary" href="strategy-matcher.html">Use the strategy matcher</a></div>
-</div></section>
+<section>
+<span class="kicker">Equity and access</span>
+<h2>Pathway design commitments</h2>
+<ul class="check-list">
+<li>Participation should not depend on prior coding experience.</li>
+<li>Students should have multiple entry points and roles.</li>
+<li>Travel, scheduling, device access, and family communication must be considered.</li>
+<li>Near-peer mentoring should supplement—not replace—school-based support.</li>
+<li>Advanced opportunities should have transparent eligibility and selection processes.</li>
+<li>Students should be able to return as mentors and leaders.</li>
+</ul>
+</section>
 
 </main>
 <footer><div class="footer-inner">

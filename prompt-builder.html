@@ -1,60 +1,257 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Prompt Builder | Student AI Learning Innovation League</title>
-<meta name="description" content="Prompt Builder page.">
+<title>Automated Prompt Builder | Student AI Learning Innovation League</title>
+<meta name="description" content="Build structured AI instructions automatically from a student learning design.">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="nav-wrap">
-<a class="brand" href="index.html"><span class="brand-mark">AI</span><span>Student AI Learning Innovation League</span></a>
-<button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-<nav id="site-nav" aria-label="Primary navigation"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="advisor-hub.html">Advisor Hub</a></li><li><a href="student-studio.html">Student Studio</a></li><li><a href="start-a-club.html">Start a Club</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="club-roadmap.html">Club Roadmap</a></li><li><a href="family-community.html">Family & Community</a></li><li><a href="contact-help.html">Contact & Help</a></li></ul></nav>
-</div></header>
-<main id="main"><section class="hero-mini"><div class="inner"><span class="eyebrow">Prompt Builder</span><h1>Turn a learning design into structured AI instructions.</h1><p class="lead">Complete the fields below, then use the generated structure as the basis for a chatbot, no-code tool, or prototype.</p></div></section>
-<section><div class="tool-grid">
-<div class="form-card">
-<label for="role">AI role</label><input id="role" placeholder="Example: learning coach">
-<label for="audience">Intended learner</label><input id="audience" placeholder="Example: Grade 7 science student">
-<label for="goal">Learning goal</label><textarea id="goal"></textarea>
-<label for="challenge">Specific learning challenge</label><textarea id="challenge"></textarea>
-<label for="strategy">Learning strategy</label><select id="strategy"><option>Retrieval practice</option><option>Elaboration</option><option>Worked examples and fading</option><option>Feedback and error analysis</option><option>Chunking and task decomposition</option><option>Self-explanation</option><option>Metacognitive reflection</option></select>
-<label for="steps">Interaction steps</label><textarea id="steps" placeholder="Ask one question at a time..."></textarea>
-<label for="limits">What the AI must not do</label><textarea id="limits"></textarea>
-<button class="button primary" type="button" onclick="buildPrompt()">Build prompt</button>
-</div>
-<div><span class="kicker">Generated prompt</span><div id="prompt-output" class="prompt-output" aria-live="polite">Complete the form and select “Build prompt.”</div></div>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="brand-mark">AI</span><span>Student AI Learning Innovation League</span></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <ul>
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">About</button>
+          <ul class="dropdown">
+            <li><a href="about.html">About the League</a></li>
+            <li><a href="how-it-works.html">How the League Works</a></li>
+            <li><a href="hunter-researchers.html">Hunter College Researchers</a></li>
+            <li><a href="hunter-pathway.html">Hunter College Pathway</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">For Advisors</button>
+          <ul class="dropdown wide">
+            <li><a href="advisor-hub.html">Advisor Hub</a></li>
+            <li><a href="start-a-club.html">Start a Club</a></li>
+            <li><a href="club-roadmap.html">Club Roadmap</a></li>
+            <li><a href="curriculum.html">Curriculum</a></li>
+            <li><a href="project-examples.html">Student Projects</a></li>
+            <li><a href="team-management.html">Team Management</a></li>
+            <li><a href="advisor-role.html">Advisor Role</a></li>
+            <li><a href="assessment-feedback.html">Assessment</a></li>
+            <li><a href="responsible-ai.html">Safety and Policy</a></li>
+            <li><a href="school-readiness.html">School Readiness</a></li>
+            <li><a href="showcases.html">Showcases</a></li>
+            <li><a href="contact-help.html">Help</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item open">
+          <button class="nav-toggle" aria-expanded="true">For Students</button>
+          <ul class="dropdown wide">
+            <li><a href="student-studio.html">Student Studio</a></li>
+            <li><a href="my-project.html">My Project</a></li>
+            <li><a href="curriculum.html">Learn</a></li>
+            <li><a href="prompt-builder.html" aria-current="page">Design</a></li>
+            <li><a href="build.html">Build</a></li>
+            <li><a href="testing-revision.html">Test</a></li>
+            <li><a href="testing-revision.html">Revise</a></li>
+            <li><a href="share.html">Share</a></li>
+            <li><a href="student-roles.html">Roles and Collaboration</a></li>
+            <li><a href="project-examples.html">Examples</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Curriculum</button>
+          <ul class="dropdown wide">
+            <li><a href="curriculum.html">Curriculum Overview</a></li>
+            <li><a href="lesson-1.html">Lesson 1: Humans Learn; AI Generates</a></li>
+            <li><a href="lesson-2.html">Lesson 2: Diagnose the Challenge</a></li>
+            <li><a href="lesson-3.html">Lesson 3: Match a Strategy</a></li>
+            <li><a href="lesson-4.html">Lesson 4: Design the Tool</a></li>
+            <li><a href="lesson-5.html">Lesson 5: Test and Revise</a></li>
+            <li><a href="strategy-library.html">Learning Strategy Library</a></li>
+            <li><a href="strategy-matcher.html">Interactive Strategy Matcher</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Projects</button>
+          <ul class="dropdown">
+            <li><a href="tool-creation.html">Tool-Creation Process</a></li>
+            <li><a href="project-examples.html">Project Examples</a></li>
+            <li><a href="student-roles.html">Student Roles</a></li>
+            <li><a href="project-rubric.html">Project Rubric</a></li>
+            <li><a href="showcases.html">Showcases</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="responsible-ai.html">Safety</a></li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Events</button>
+          <ul class="dropdown">
+            <li><a href="events.html">Events Overview</a></li>
+            <li><a href="showcases.html">Student Showcases</a></li>
+            <li><a href="hunter-pathway.html">Hunter College Pathway</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-toggle" aria-expanded="false">Resources</button>
+          <ul class="dropdown wide">
+            <li><a href="advisor-resources.html">Advisor Resource Library</a></li>
+            <li><a href="technology-platform-guide.html">Technology and Platforms</a></li>
+            <li><a href="school-readiness.html">School Policy and Readiness</a></li>
+            <li><a href="accessibility-inclusive-design.html">Accessibility and Inclusion</a></li>
+            <li><a href="downloads-templates.html">Downloads and Templates</a></li>
+            <li><a href="assessment-feedback.html">Assessment and Feedback</a></li>
+            <li><a href="family-community.html">Family and Community</a></li>
+            <li><a href="contact-help.html">Contact and Help</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero-mini"><div class="inner">
+<div class="breadcrumbs"><a href="student-studio.html">Student Studio</a><span>›</span>Automated Prompt Builder</div>
+<span class="eyebrow">Automated Prompt Builder</span>
+<h1>Turn a learning design into a complete AI instruction set.</h1>
+<p class="lead">The builder updates automatically as you enter the learner, goal, challenge, strategy, interaction steps, feedback rules, and safeguards.</p>
 </div></section>
-<section class="section-soft"><div class="inner"><h2>Prompt checklist</h2><ul class="check-list"><li>The learner still has to think and respond.</li><li>The AI follows the selected learning strategy.</li><li>Feedback is specific but does not take over.</li><li>The prompt includes privacy, safety, and uncertainty rules.</li><li>The tool states its limits and encourages verification.</li></ul></div></section>
+<section>
+<div class="tool-grid">
+  <div class="form-card">
+    <label for="role">AI role</label>
+    <input id="role" value="learning coach">
+
+    <label for="audience">Intended learner</label>
+    <input id="audience" placeholder="Example: Grade 7 science student">
+
+    <label for="goal">Learning goal</label>
+    <textarea id="goal" placeholder="What should the learner know or be able to do?"></textarea>
+
+    <label for="challenge">Specific learning challenge</label>
+    <textarea id="challenge" placeholder="Where does the learner get stuck?"></textarea>
+
+    <label for="strategy">Learning strategy</label>
+    <select id="strategy">
+      <option value="retrieval">Retrieval practice</option>
+      <option value="elaboration">Elaboration and self-explanation</option>
+      <option value="worked">Worked examples and fading</option>
+      <option value="feedback">Feedback and error analysis</option>
+      <option value="chunking">Chunking and task decomposition</option>
+      <option value="metacognition">Metacognitive reflection</option>
+    </select>
+
+    <label for="steps">Interaction steps</label>
+    <textarea id="steps" placeholder="Example: Ask one question at a time. Wait for the learner to answer."></textarea>
+
+    <label for="feedback">Feedback rules</label>
+    <textarea id="feedback" placeholder="Example: Identify one strength, one gap, and give one hint."></textarea>
+
+    <label for="limits">What the AI must not do</label>
+    <textarea id="limits" placeholder="Example: Do not give the final answer immediately."></textarea>
+
+    <label for="privacy">Privacy or safety requirements</label>
+    <textarea id="privacy" placeholder="Example: Do not request names, school records, or sensitive information."></textarea>
+
+    <div class="action-row">
+      <button class="button primary small" type="button" id="copy-prompt">Copy prompt</button>
+      <button class="button secondary small" type="button" id="download-prompt">Download .txt</button>
+      <button class="button ghost small" type="button" id="reset-prompt">Reset</button>
+    </div>
+    <div id="copy-status" class="copy-status" aria-live="polite"></div>
+  </div>
+
+  <div>
+    <span class="kicker">Generated prompt</span>
+    <div id="prompt-output" class="prompt-output" aria-live="polite"></div>
+    <div class="callout-blue" style="margin-top:1rem">
+      <strong>Quality check:</strong> The prompt should make the learner think, use the selected learning strategy, provide limited and useful support, protect privacy, and acknowledge uncertainty.
+    </div>
+  </div>
+</div>
+</section>
 <script>
-function buildPrompt(){
-const g=id=>document.getElementById(id).value.trim();
-const t=`You are a ${g('role')||'[AI role]'} for ${g('audience')||'[intended learner]'}.
+const fields = ["role","audience","goal","challenge","strategy","steps","feedback","limits","privacy"];
+const strategyInstructions = {
+  retrieval: "Ask the learner to recall before showing information. Revisit missed ideas later and vary the practice.",
+  elaboration: "Ask why, how, for examples, comparisons, and connections. Require the learner to explain in their own words.",
+  worked: "Model one example, then provide partially completed examples and gradually remove support.",
+  feedback: "Ask for the learner's reasoning, identify the point where the reasoning changed, and provide a targeted hint.",
+  chunking: "Break the task into manageable components, focus on one step at a time, and help the learner track progress.",
+  metacognition: "Ask about the learner's goal, strategy, confusion, confidence, evidence, and next step."
+};
+function value(id, fallback){const v=document.getElementById(id).value.trim();return v||fallback;}
+function generatePrompt(){
+  const s=document.getElementById("strategy");
+  const strategyName=s.options[s.selectedIndex].text;
+  const output=`You are a ${value("role","learning coach")} for ${value("audience","the intended learner")}.
 
-Learning goal:
-${g('goal')||'[learning goal]'}
+LEARNING GOAL
+${value("goal","[Describe what the learner should know or be able to do.]")}
 
-Specific challenge:
-${g('challenge')||'[specific challenge]'}
+SPECIFIC LEARNING CHALLENGE
+${value("challenge","[Describe the exact point where the learner gets stuck.]")}
 
-Use this learning strategy:
-${g('strategy')}
+LEARNING STRATEGY
+Use ${strategyName}.
+${strategyInstructions[s.value]}
 
-Interaction process:
-${g('steps')||'[interaction steps]'}
+INTERACTION PROCESS
+${value("steps","Ask one question at a time. Wait for the learner to respond before continuing.")}
 
-Do not:
-${g('limits')||'[limits]'}
+FEEDBACK RULES
+${value("feedback","Identify what the learner did well, identify one gap, and provide one useful hint without taking over.")}
 
-Always:
+LIMITS
+${value("limits","Do not complete the full task or reveal the final answer before the learner has attempted the work.")}
+
+SAFETY AND PRIVACY
+${value("privacy","Do not request or retain unnecessary personal, school, health, contact, or account information.")}
+
+ALWAYS
+- Use age-appropriate and respectful language.
 - Ask for the learner's thinking before giving an answer.
-- Give specific feedback and a hint when needed.
-- Do not request private or sensitive information.
-- Acknowledge uncertainty and encourage verification.
-- Use age-appropriate, respectful language.`;
-document.getElementById('prompt-output').textContent=t;
+- Preserve productive struggle and learner agency.
+- Acknowledge uncertainty.
+- Encourage verification of important factual claims.
+- Remind the user that AI may make mistakes and that a teacher or trusted adult should review important decisions.`;
+  document.getElementById("prompt-output").textContent=output;
+  return output;
 }
-</script></main>
+fields.forEach(id=>document.getElementById(id).addEventListener("input",generatePrompt));
+document.getElementById("copy-prompt").addEventListener("click",async()=>{
+  try{await navigator.clipboard.writeText(generatePrompt());document.getElementById("copy-status").textContent="Prompt copied."}
+  catch(e){document.getElementById("copy-status").textContent="Select the prompt text and copy it manually."}
+});
+document.getElementById("download-prompt").addEventListener("click",()=>{
+  const blob=new Blob([generatePrompt()],{type:"text/plain"});
+  const link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download="ai-learning-tool-prompt.txt";link.click();URL.revokeObjectURL(link.href);
+});
+document.getElementById("reset-prompt").addEventListener("click",()=>{
+  document.querySelectorAll(".form-card input,.form-card textarea").forEach(el=>el.value="");
+  document.getElementById("role").value="learning coach";
+  document.getElementById("strategy").selectedIndex=0;
+  document.getElementById("copy-status").textContent="";
+  generatePrompt();
+});
+generatePrompt();
+</script>
+
+<section class="section-soft"><div class="inner">
+<span class="kicker">Prompt evaluation</span>
+<h2>Review the generated instructions before testing</h2>
+<ul class="check-list">
+<li>The intended learner and learning goal are specific.</li>
+<li>The challenge is defined without private or diagnostic information.</li>
+<li>The interaction requires the learner to explain, practice, decide, or reflect.</li>
+<li>The AI waits for the learner rather than producing a complete solution.</li>
+<li>Feedback rules are specific and age appropriate.</li>
+<li>The prompt explains how to handle uncertainty and important factual claims.</li>
+<li>The design includes privacy, fairness, accessibility, and human-review safeguards.</li>
+</ul>
+</div></section>
+
+</main>
 <footer><div class="footer-inner">
 <div><strong>Student AI Learning Innovation League</strong><br>Helping students design AI-supported tools for deeper STEM learning.</div>
-<div><a href="advisor-hub.html">Advisor Hub</a> · <a href="student-studio.html">Student Studio</a> · <a href="contact-help.html">Help</a></div>
+<div><a href="advisor-hub.html">For Advisors</a> · <a href="student-studio.html">For Students</a> · <a href="downloads-templates.html">Downloads</a> · <a href="contact-help.html">Help</a></div>
 </div></footer><script src="assets/js/main.js"></script></body></html>
