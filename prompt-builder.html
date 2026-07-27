@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompt Builder | Student AI Learning Innovation League</title>
+<meta name="description" content="Prompt Builder page.">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">AI</span><span>Student AI Learning Innovation League</span></a>
+<button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav id="site-nav" aria-label="Primary navigation"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="advisor-hub.html">Advisor Hub</a></li><li><a href="student-studio.html">Student Studio</a></li><li><a href="start-a-club.html">Start a Club</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="club-roadmap.html">Club Roadmap</a></li><li><a href="family-community.html">Family & Community</a></li><li><a href="contact-help.html">Contact & Help</a></li></ul></nav>
+</div></header>
+<main id="main"><section class="hero-mini"><div class="inner"><span class="eyebrow">Prompt Builder</span><h1>Turn a learning design into structured AI instructions.</h1><p class="lead">Complete the fields below, then use the generated structure as the basis for a chatbot, no-code tool, or prototype.</p></div></section>
+<section><div class="tool-grid">
+<div class="form-card">
+<label for="role">AI role</label><input id="role" placeholder="Example: learning coach">
+<label for="audience">Intended learner</label><input id="audience" placeholder="Example: Grade 7 science student">
+<label for="goal">Learning goal</label><textarea id="goal"></textarea>
+<label for="challenge">Specific learning challenge</label><textarea id="challenge"></textarea>
+<label for="strategy">Learning strategy</label><select id="strategy"><option>Retrieval practice</option><option>Elaboration</option><option>Worked examples and fading</option><option>Feedback and error analysis</option><option>Chunking and task decomposition</option><option>Self-explanation</option><option>Metacognitive reflection</option></select>
+<label for="steps">Interaction steps</label><textarea id="steps" placeholder="Ask one question at a time..."></textarea>
+<label for="limits">What the AI must not do</label><textarea id="limits"></textarea>
+<button class="button primary" type="button" onclick="buildPrompt()">Build prompt</button>
+</div>
+<div><span class="kicker">Generated prompt</span><div id="prompt-output" class="prompt-output" aria-live="polite">Complete the form and select “Build prompt.”</div></div>
+</div></section>
+<section class="section-soft"><div class="inner"><h2>Prompt checklist</h2><ul class="check-list"><li>The learner still has to think and respond.</li><li>The AI follows the selected learning strategy.</li><li>Feedback is specific but does not take over.</li><li>The prompt includes privacy, safety, and uncertainty rules.</li><li>The tool states its limits and encourages verification.</li></ul></div></section>
+<script>
+function buildPrompt(){
+const g=id=>document.getElementById(id).value.trim();
+const t=`You are a ${g('role')||'[AI role]'} for ${g('audience')||'[intended learner]'}.
+
+Learning goal:
+${g('goal')||'[learning goal]'}
+
+Specific challenge:
+${g('challenge')||'[specific challenge]'}
+
+Use this learning strategy:
+${g('strategy')}
+
+Interaction process:
+${g('steps')||'[interaction steps]'}
+
+Do not:
+${g('limits')||'[limits]'}
+
+Always:
+- Ask for the learner's thinking before giving an answer.
+- Give specific feedback and a hint when needed.
+- Do not request private or sensitive information.
+- Acknowledge uncertainty and encourage verification.
+- Use age-appropriate, respectful language.`;
+document.getElementById('prompt-output').textContent=t;
+}
+</script></main>
+<footer><div class="footer-inner">
+<div><strong>Student AI Learning Innovation League</strong><br>Helping students design AI-supported tools for deeper STEM learning.</div>
+<div><a href="advisor-hub.html">Advisor Hub</a> · <a href="student-studio.html">Student Studio</a> · <a href="contact-help.html">Help</a></div>
+</div></footer><script src="assets/js/main.js"></script></body></html>
