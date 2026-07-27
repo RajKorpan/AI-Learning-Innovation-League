@@ -11,6 +11,12 @@ if (menuButton && siteNav) {
 
 const dropdownToggles = document.querySelectorAll(".nav-toggle");
 
+// Dropdowns are closed on initial load. The current page is identified by
+// aria-current on its link, not by claiming that its parent menu is expanded.
+dropdownToggles.forEach(toggle => {
+  toggle.setAttribute("aria-expanded", "false");
+});
+
 function closeDropdowns(except = null) {
   document.querySelectorAll(".nav-item.open").forEach(item => {
     if (item !== except) {
@@ -38,8 +44,10 @@ document.addEventListener("click", event => {
 
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") {
+    const openToggle = document.querySelector(".nav-item.open .nav-toggle");
     closeDropdowns();
     if (siteNav) siteNav.classList.remove("open");
     if (menuButton) menuButton.setAttribute("aria-expanded", "false");
+    if (openToggle) openToggle.focus();
   }
 });

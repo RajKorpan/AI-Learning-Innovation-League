@@ -86,7 +86,7 @@ footer{background:var(--navy);color:#fff;margin-top:3rem}.footer-inner{max-width
   border-radius:16px;box-shadow:var(--shadow)
 }
 .dropdown.wide{min-width:285px}
-.nav-item.open>.dropdown,.nav-item:focus-within>.dropdown{display:block}
+.nav-item.open>.dropdown{display:block}
 .dropdown li{display:block}
 .dropdown a{
   display:block;padding:.62rem .72rem;border-radius:10px;color:var(--ink);text-decoration:none;
