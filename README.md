@@ -1,20 +1,14 @@
 # Student AI Learning Innovation League Website
 
-GitHub Pages-ready static site with dropdown navigation.
+Revised GitHub Pages-ready static site.
 
 ## Pages
 - `about.html`
-- `accessibility-inclusive-design.html`
 - `advisor-hub.html`
 - `advisor-resources.html`
-- `advisor-role.html`
-- `assessment-feedback.html`
 - `build.html`
-- `club-roadmap.html`
 - `contact-help.html`
 - `curriculum.html`
-- `downloads-templates.html`
-- `events.html`
 - `family-community.html`
 - `how-it-works.html`
 - `hunter-pathway.html`
@@ -25,31 +19,36 @@ GitHub Pages-ready static site with dropdown navigation.
 - `lesson-3.html`
 - `lesson-4.html`
 - `lesson-5.html`
-- `my-project.html`
 - `project-examples.html`
 - `project-rubric.html`
 - `prompt-builder.html`
 - `responsible-ai.html`
-- `school-readiness.html`
 - `share.html`
 - `showcases.html`
 - `start-a-club.html`
 - `strategy-library.html`
 - `strategy-matcher.html`
-- `student-roles.html`
 - `student-studio.html`
 - `team-management.html`
-- `technology-platform-guide.html`
 - `testing-revision.html`
 - `tool-creation.html`
 
-## Publish with GitHub Pages
-1. Create a GitHub repository.
-2. Upload the contents of this folder.
-3. Go to **Settings → Pages**.
-4. Choose **Deploy from a branch**.
-5. Select `main` and `/ (root)`.
-6. Save.
+## Structural changes
+- Merged Start a Club and Club Roadmap
+- Merged Team Management and Student Roles
+- Merged Advisor Role into Advisor Hub
+- Removed the Assessment page
+- Merged school readiness into Start and Run a Club
+- Merged Events and Showcases
+- Removed My Project
+- Merged Build with Technology and Platforms
+- Removed the Projects navigation dropdown
+- Merged Advisor Resource Library with Downloads and Templates
+- Merged Responsible AI with Accessibility and Inclusive Design
 
-## Detailed content update
-All pages were reviewed and expanded with implementation guidance, examples, decision points, checklists, and next steps.
+## Publish with GitHub Pages
+1. Upload the contents of this folder to a GitHub repository.
+2. Go to **Settings → Pages**.
+3. Choose **Deploy from a branch**.
+4. Select `main` and `/ (root)`.
+5. Save.
