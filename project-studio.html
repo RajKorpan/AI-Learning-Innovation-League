@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Studio | Student AI Learning Innovation League</title>
+<meta name="description" content="Interactive tools for the complete League design process.">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html" aria-label="Student AI Learning Innovation League home">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span>Student AI Learning Innovation League</span>
+    </a>
+    <button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="advisors.html">Advisors</a></li><li><a href="students.html">Students</a></li><li><a href="learning-design.html">Learning Design</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="project-studio.html" aria-current="page">Project Studio</a></li><li><a href="build.html">Build a Tool</a></li><li><a href="competition.html">Competition</a></li><li><a href="families.html">Families</a></li><li><a href="resources.html">Resources</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-header">
+  <div class="inner">
+    <span class="audience-label">Students and advisors</span>
+    <h1>Project Studio</h1>
+    <p class="lead">All interactive project tools are in one place. Work from top to bottom, but return to earlier tools whenever testing changes your understanding.</p>
+    <nav class="page-toc" aria-label="On this page"><strong>On this page</strong><a href="#intro">How to use</a><a href="#problem">Problem Size</a><a href="#task">Task Analysis</a><a href="#evidence">Evidence Record</a><a href="#progression">Learning Progression</a><a href="#matcher">Strategy Matcher</a><a href="#prompt">Prompt Builder</a><a href="#reflection">Reflection</a></nav>
+  </div>
+</section>
+
+<section id="intro">
+<h2>How to use the Studio</h2>
+<ol class="step-list">
+<li>Check whether the learning problem is the right size.</li>
+<li>Analyze the knowledge and actions required.</li>
+<li>Record learning-science claims and sources.</li>
+<li>Map the selected component in a larger progression.</li>
+<li>Compare learning strategies.</li>
+<li>Build a structured prompt when conversational AI fits.</li>
+<li>Reflect after every stage.</li>
+</ol>
+<div class="warning-box"><strong>Privacy:</strong> Do not enter names, grades, medical information, account details, unapproved student work, or other identifying information into these tools.</div>
+</section>
+
+<section class="section-soft" id="problem"><div class="inner">
+<h2>1. Problem Size Check</h2>
+<form id="size-check" class="form-card">
+<label><input type="checkbox" name="size"> Can the component be supported in a short intervention?</label>
+<label><input type="checkbox" name="size"> Can the team observe whether the learner improves?</label>
+<label><input type="checkbox" name="size"> Is it specific enough to connect to learning science?</label>
+<label><input type="checkbox" name="size"> Can the team build and test a prototype within five weeks?</label>
+<label><input type="checkbox" name="size"> Does it describe learner knowledge or action rather than a judgment about ability?</label>
+<label><input type="checkbox" name="size"> Is it small enough for one team product?</label>
+<div class="actions"><button class="button primary" type="submit">Check the problem</button></div>
+</form>
+<div id="size-result" class="status" aria-live="polite"></div>
+</div></section>
+
+<section id="task">
+<h2>2. Task Analysis</h2>
+<div class="tool-grid">
+<form class="form-card">
+<label for="goal">Final learning goal</label><textarea id="goal"></textarea>
+<label for="know">What must a successful learner know?</label><textarea id="know"></textarea>
+<label for="do">What must the learner be able to do?</label><textarea id="do"></textarea>
+<label for="prereq">Prerequisite knowledge</label><textarea id="prereq"></textarea>
+<label for="vocab">Vocabulary and symbols</label><textarea id="vocab"></textarea>
+<label for="concepts">Concepts</label><textarea id="concepts"></textarea>
+<label for="procedures">Procedures or sequences</label><textarea id="procedures"></textarea>
+<label for="decisions">Decision points</label><textarea id="decisions"></textarea>
+<label for="errors">Common errors</label><textarea id="errors"></textarea>
+<label for="load">Where may cognitive load become excessive?</label><textarea id="load"></textarea>
+<label for="bottleneck">Likely bottleneck—the smallest meaningful component</label><textarea id="bottleneck"></textarea>
+<label for="learned">What evidence would show it has been learned?</label><textarea id="learned"></textarea>
+<div class="actions"><button class="button primary" type="button" id="make-task">Generate task map</button><button class="button secondary" type="button" id="download-task">Download</button></div>
+</form>
+<div><h3>Generated task map</h3><div id="task-output" class="tool-output">Complete the fields and generate a task map.</div></div>
+</div>
+</section>
+
+<section class="section-soft" id="evidence"><div class="inner">
+<h2>3. Learning-Science Evidence Record</h2>
+<div class="form-card">
+<label for="claim">Claim</label><textarea id="claim"></textarea>
+<label for="source">Source</label><textarea id="source"></textarea>
+<label for="strength">Evidence strength</label><select id="strength"><option>Strong research support</option><option>Mixed or limited support</option><option>Unsupported claim</option><option>Learning myth</option></select>
+<label for="relevance">Relevance to the learner need</label><textarea id="relevance"></textarea>
+<label for="implication">Design implication</label><textarea id="implication"></textarea>
+<div class="actions"><button class="button primary" id="add-evidence" type="button">Add evidence</button><button class="button secondary" id="download-evidence" type="button">Download CSV</button></div>
+</div>
+<div style="overflow:auto;margin-top:1rem"><table class="mini-table"><thead><tr><th>Claim</th><th>Source</th><th>Strength</th><th>Relevance</th><th>Design implication</th></tr></thead><tbody id="evidence-body"></tbody></table></div>
+</div></section>
+
+<section id="progression">
+<h2>4. Learning-Progression Map</h2>
+<div class="tool-grid">
+<form class="form-card">
+<label for="skill">Selected skill or component</label><textarea id="skill"></textarea>
+<label for="before">What comes before this skill?</label><textarea id="before"></textarea>
+<label for="prerequisite">What prerequisite knowledge is needed?</label><textarea id="prerequisite"></textarea>
+<label for="confused">What related skills are often confused with it?</label><textarea id="confused"></textarea>
+<label for="beginning">Beginning performance</label><textarea id="beginning"></textarea>
+<label for="developing">Developing performance</label><textarea id="developing"></textarea>
+<label for="proficient">Proficient performance</label><textarea id="proficient"></textarea>
+<label for="enables">What does this skill make possible?</label><textarea id="enables"></textarea>
+<label for="advanced">How does it appear in more advanced work?</label><textarea id="advanced"></textarea>
+<div class="actions"><button class="button primary" id="make-progression" type="button">Generate map</button><button class="button secondary" id="download-progression" type="button">Download</button></div>
+</form>
+<div><h3>Generated progression</h3><div id="progression-output" class="tool-output">Complete the fields to generate a progression map.</div></div>
+</div>
+</section>
+
+<section class="section-soft" id="matcher"><div class="inner">
+<h2>5. Strategy Matcher</h2>
+<form id="matcher-form" class="form-card">
+<label for="challenge">Where does the process break down?</label>
+<select id="challenge">
+<option value="question">Understanding what a question is asking</option><option value="steps">Breaking a task into steps</option><option value="retrieve">Retrieving information from memory</option><option value="prior">Connecting new ideas to prior knowledge</option><option value="distinguish">Distinguishing similar concepts</option><option value="explain">Explaining reasoning</option><option value="apply">Applying a concept in a new setting</option><option value="monitor">Monitoring comprehension</option><option value="persist">Persisting after an error</option><option value="load">Managing several pieces of information</option><option value="visual">Interpreting diagrams, graphs, and tables</option><option value="patterns">Recognizing patterns</option><option value="select">Selecting a strategy</option><option value="evaluate">Evaluating whether an answer makes sense</option><option value="vocab">Remembering vocabulary</option><option value="writing">Organizing writing</option><option value="reading">Reading complex text</option><option value="tests">Preparing for tests</option><option value="transfer">Transferring a foundational skill into another subject</option>
+</select>
+<label for="already">What can the learner already do?</label><textarea id="already"></textarea>
+<label for="bottleneck-evidence">What evidence shows this is the bottleneck?</label><textarea id="bottleneck-evidence"></textarea>
+<label for="mental-action">What mental action should the learner practice?</label><select id="mental-action"><option value="recall">Recall</option><option value="explain">Explain or elaborate</option><option value="compare">Compare or discriminate</option><option value="sequence">Sequence or plan</option><option value="apply">Apply or transfer</option><option value="monitor">Monitor and reflect</option><option value="inspect">Inspect and correct an error</option><option value="interpret">Interpret a representation</option></select>
+<label for="feedback-type">What feedback is needed?</label><select id="feedback-type"><option>Immediate corrective feedback</option><option>Graduated hints</option><option>Feedback on reasoning</option><option>Worked example comparison</option><option>Reflection prompt</option></select>
+<label for="fade">How should support fade?</label><textarea id="fade"></textarea>
+<div class="actions"><button class="button primary" type="submit">Match strategies</button></div>
+</form>
+<div id="matcher-results" style="margin-top:1rem" aria-live="polite"></div>
+</div></section>
+
+<section id="prompt">
+<h2>6. Learning-Design Prompt Builder</h2>
+<div class="tool-grid">
+<form class="form-card" id="prompt-form">
+<label for="mode">Design mode</label><select id="mode"><option>Motivational interviewer</option><option>Practice partner</option><option>Reflection coach</option><option>Question-decomposition coach</option><option>Error-analysis coach</option><option>Debate partner</option><option>Retrieval-practice guide</option><option>Reading-comprehension guide</option><option>Writing-outline partner</option><option>Scenario simulator</option><option>Feedback generator</option><option>Learning-progress mapper</option></select>
+<label for="learner">Intended learner</label><textarea id="learner"></textarea>
+<label for="client">Teacher-client need</label><textarea id="client"></textarea>
+<label for="component">Exact learning component</label><textarea id="component"></textarea>
+<label for="knows">What the learner already knows</label><textarea id="knows"></textarea>
+<label for="stuck">Where the learner gets stuck</label><textarea id="stuck"></textarea>
+<label for="principle">Learning-science principle</label><textarea id="principle"></textarea>
+<label for="action">Desired learner action</label><textarea id="action"></textarea>
+<label for="struggle">Productive struggle to preserve</label><textarea id="struggle"></textarea>
+<label for="feedback2">Type and timing of feedback</label><textarea id="feedback2"></textarea>
+<label for="reflection-prompt">Reflection prompt</label><textarea id="reflection-prompt"></textarea>
+<label for="motivation">Motivation or engagement strategy</label><textarea id="motivation"></textarea>
+<label for="access">Accessibility requirements</label><textarea id="access"></textarea>
+<label for="fade2">How support will fade</label><textarea id="fade2"></textarea>
+<label for="avoid">How the tool will avoid simply giving answers</label><textarea id="avoid"></textarea>
+<label for="measure">How effectiveness will be measured</label><textarea id="measure"></textarea>
+<div class="actions"><button class="button primary" id="copy-prompt" type="button">Copy</button><button class="button secondary" id="download-prompt" type="button">Download</button></div>
+<div id="prompt-status" class="status" aria-live="polite"></div>
+</form>
+<div><h3>Generated prompt</h3><div id="prompt-output" class="tool-output"></div></div>
+</div>
+</section>
+
+<section class="section-soft" id="reflection"><div class="inner">
+<h2>7. Reflection Tool</h2>
+<form class="form-card">
+<label for="stage">Stage</label><select id="stage"><option>After empathy</option><option>After problem definition</option><option>After research</option><option>After prototyping</option><option>After testing</option><option>Final reflection</option></select>
+<div id="reflection-prompts" class="callout-blue" style="margin-top:1rem"></div>
+<label for="response">Team reflection</label><textarea id="response" style="min-height:150px"></textarea>
+<label for="next-action">Next action</label><textarea id="next-action"></textarea>
+<div class="actions"><button class="button primary" type="button" id="add-reflection">Add reflection</button><button class="button secondary" type="button" id="download-reflections">Download all</button></div>
+</form>
+<div id="reflection-list" style="margin-top:1rem"></div>
+</div></section>
+<nav class="page-next" aria-label="Page navigation"><a class="button secondary" href="curriculum.html">← Curriculum</a><a class="button primary" href="build.html">Build a Learning Tool →</a></nav>
+</main><script>
+document.getElementById("size-check").addEventListener("submit",e=>{
+ e.preventDefault();const n=e.target.querySelectorAll('input:checked').length;
+ const msg=n===6?"Right-sized problem.":n>=4?"Promising, but narrow it further.":"Return to empathy interviews and task analysis.";
+ document.getElementById("size-result").textContent=`${msg} ${n} of 6 checks completed.`;
+});
+const taskIds=["goal","know","do","prereq","vocab","concepts","procedures","decisions","errors","load","bottleneck","learned"];
+const taskNames=["FINAL LEARNING GOAL","REQUIRED KNOWLEDGE","REQUIRED ACTIONS","PREREQUISITES","VOCABULARY AND SYMBOLS","CONCEPTS","PROCEDURES","DECISION POINTS","COMMON ERRORS","COGNITIVE-LOAD RISKS","SELECTED BOTTLENECK","EVIDENCE OF LEARNING"];
+function taskText(){return taskIds.map((id,i)=>`${taskNames[i]}\n${document.getElementById(id).value.trim()||"[not entered]"}`).join("\n\n")}
+document.getElementById("make-task").onclick=()=>document.getElementById("task-output").textContent=taskText();
+document.getElementById("download-task").onclick=()=>downloadText("task-analysis.txt",taskText());
+const evidence=[];
+document.getElementById("add-evidence").onclick=()=>{
+ const row=["claim","source","strength","relevance","implication"].map(id=>document.getElementById(id).value.trim());
+ if(!row[0]||!row[1]){alert("Enter a claim and source.");return;}
+ evidence.push(row);const tr=document.createElement("tr");row.forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td)});document.getElementById("evidence-body").appendChild(tr);
+ ["claim","source","relevance","implication"].forEach(id=>document.getElementById(id).value="");
+};
+document.getElementById("download-evidence").onclick=()=>{
+ const esc=s=>`"${String(s).replaceAll('"','""')}"`;const rows=[["Claim","Source","Strength","Relevance","Design implication"],...evidence];
+ const csv=rows.map(r=>r.map(esc).join(",")).join("\n");downloadText("learning-science-evidence.csv",csv,"text/csv");
+};
+const pids=["skill","before","prerequisite","confused","beginning","developing","proficient","enables","advanced"];
+const pnames=["SELECTED SKILL","WHAT COMES BEFORE","PREREQUISITES","OFTEN CONFUSED WITH","BEGINNING","DEVELOPING","PROFICIENT","WHAT IT ENABLES","ADVANCED WORK"];
+function progressionText(){return pids.map((id,i)=>`${pnames[i]}\n${document.getElementById(id).value.trim()||"[not entered]"}`).join("\n\n")}
+document.getElementById("make-progression").onclick=()=>document.getElementById("progression-output").textContent=progressionText();
+document.getElementById("download-progression").onclick=()=>downloadText("learning-progression.txt",progressionText());
+const strategies={
+retrieval:{name:"Retrieval practice and spacing",why:"Supports memory retrieval and durable access.",not:"May not fit when the learner does not yet understand the idea.",tool:"Flashcards, question cards, low-stakes quiz, retrieval Gem",test:"Compare unaided recall before and after spaced practice."},
+elaboration:{name:"Elaboration and self-explanation",why:"Supports connections, explanations, and knowledge integration.",not:"May overload a novice when prerequisite knowledge is missing.",tool:"Why/how cards, explanation coach, comparison routine",test:"Ask the learner to explain a new example."},
+worked:{name:"Worked examples and fading",why:"Reduces unnecessary cognitive load while a process is learned.",not:"May not fit when the learner already needs independent problem solving.",tool:"Annotated model, step cards, guided Gem",test:"Remove support gradually and observe independent completion."},
+feedback:{name:"Error analysis and targeted feedback",why:"Makes reasoning visible and supports correction.",not:"Generic feedback or answer-giving will not develop error detection.",tool:"Error sort, correction routine, error-analysis coach",test:"Check whether the learner detects and corrects the same error independently."},
+chunking:{name:"Task decomposition and chunking",why:"Supports planning and working-memory management.",not:"Over-chunking can hide important relationships.",tool:"Checklist, workflow cards, decomposition coach",test:"Observe whether the learner can begin, sequence, and complete the task."},
+metacognition:{name:"Metacognitive monitoring and self-regulation",why:"Supports planning, monitoring, strategy choice, and reflection.",not:"Reflection without action may become superficial.",tool:"Reflection prompts, progress map, strategy checklist",test:"Ask the learner to predict, monitor, and plan a next step."},
+comparison:{name:"Comparison and contrasting cases",why:"Supports discrimination, pattern recognition, and concept boundaries.",not:"Examples must vary on meaningful features.",tool:"Card sort, example/nonexample set, debate partner",test:"Use new cases and ask the learner to justify classification."},
+representation:{name:"Representation interpretation",why:"Supports graph, diagram, table, and disciplinary-literacy demands.",not:"Do not choose a representation based on fixed learning-style identity.",tool:"Graph annotation, data-table guide, visual-verbal routine",test:"Use a new representation and ask the learner to extract and explain information."},
+transfer:{name:"Varied practice and transfer",why:"Supports flexible application across contexts.",not:"Transfer is unlikely before the core concept is accurate.",tool:"Scenario cards, simulator, mixed practice",test:"Apply the skill in a new context without being told which strategy to use."},
+reading:{name:"Text structure and comprehension monitoring",why:"Supports complex text, evidence selection, and monitoring.",not:"A summary generator may hide whether the learner can build meaning.",tool:"Reading guide, annotation routine, comprehension Gem",test:"Use a new passage and examine inference and evidence use."}
+};
+const mapping={question:["chunking","reading","metacognition"],steps:["chunking","worked","metacognition"],retrieve:["retrieval","elaboration"],prior:["elaboration","comparison"],distinguish:["comparison","elaboration"],explain:["elaboration","feedback"],apply:["transfer","worked"],monitor:["metacognition","reading"],persist:["feedback","metacognition"],load:["chunking","worked"],visual:["representation","comparison"],patterns:["comparison","transfer"],select:["metacognition","comparison"],evaluate:["feedback","metacognition"],vocab:["retrieval","elaboration"],writing:["chunking","worked","metacognition"],reading:["reading","elaboration","metacognition"],tests:["retrieval","metacognition","transfer"],transfer:["transfer","elaboration"]};
+document.getElementById("matcher-form").addEventListener("submit",e=>{
+ e.preventDefault();const ch=document.getElementById("challenge").value;const act=document.getElementById("mental-action").value;
+ const amap={recall:"retrieval",explain:"elaboration",compare:"comparison",sequence:"chunking",apply:"transfer",monitor:"metacognition",inspect:"feedback",interpret:"representation"};
+ let keys=[amap[act],...(mapping[ch]||[])];keys=[...new Set(keys)].slice(0,3);
+ document.getElementById("matcher-results").innerHTML=`<div class="result-card"><h3>Suggested strategies</h3><div class="grid three">${keys.map(k=>{const s=strategies[k];return `<article class="card"><h3>${s.name}</h3><p><strong>Why it fits:</strong> ${s.why}</p><p><strong>When it may not fit:</strong> ${s.not}</p><p><strong>Possible tool:</strong> ${s.tool}</p><p><strong>How to test:</strong> ${s.test}</p></article>`}).join("")}</div></div>`;
+});
+const promptIds=["mode","learner","client","component","knows","stuck","principle","action","struggle","feedback2","reflection-prompt","motivation","access","fade2","avoid","measure"];
+function val(id,fb){const v=document.getElementById(id).value.trim();return v||fb}
+function makePrompt(){
+ const t=`ROLE AND MODE
+Act as a ${val("mode","learning-design partner")}.
+
+INTENDED LEARNER
+${val("learner","[Describe the learner without identifying information.]")}
+
+TEACHER-CLIENT NEED
+${val("client","[Describe the authentic need.]")}
+
+EXACT LEARNING COMPONENT
+${val("component","[Name the smallest meaningful component.]")}
+
+WHAT THE LEARNER ALREADY KNOWS
+${val("knows","[Current knowledge or skill.]")}
+
+WHERE THE PROCESS BREAKS DOWN
+${val("stuck","[Specific bottleneck.]")}
+
+LEARNING-SCIENCE PRINCIPLE
+${val("principle","[Evidence-informed principle and limits.]")}
+
+DESIRED LEARNER ACTION
+${val("action","[Recall, explain, compare, apply, monitor, or revise.]")}
+
+PRODUCTIVE STRUGGLE TO PRESERVE
+${val("struggle","[What the learner should attempt before help.]")}
+
+FEEDBACK
+${val("feedback2","[Type, timing, and level.]")}
+
+REFLECTION
+${val("reflection-prompt","[Prompt understanding, strategy, and next step.]")}
+
+MOTIVATION
+${val("motivation","[Relevance, choice, progress, belonging, or persistence.]")}
+
+ACCESSIBILITY
+${val("access","[Reading, visual, hearing, motor, language, cognitive-load, device, and low-tech needs.]")}
+
+FADING
+${val("fade2","[How support will decrease.]")}
+
+AVOID ANSWER SUBSTITUTION
+${val("avoid","[What the tool must not complete.]")}
+
+MEASURE EFFECTIVENESS
+${val("measure","[Target behavior and evidence.]")}
+
+REQUIRED BEHAVIOR
+- Ask before telling.
+- Ask the learner to show and explain thinking.
+- Use graduated hints rather than immediate answers.
+- Give specific, actionable feedback.
+- Prompt reflection and check understanding.
+- Adapt to the response while staying within the defined component.
+- Do not claim that the learner has a fixed visual, auditory, or kinesthetic learning style.
+- Do not request unnecessary personal information.
+- Acknowledge uncertainty and encourage verification.
+- Recommend a teacher or trusted adult when the request exceeds the tool's role.`;
+ document.getElementById("prompt-output").textContent=t;return t;
+}
+promptIds.forEach(id=>document.getElementById(id).addEventListener("input",makePrompt));
+document.getElementById("copy-prompt").onclick=async()=>{try{await navigator.clipboard.writeText(makePrompt());document.getElementById("prompt-status").textContent="Prompt copied."}catch(e){document.getElementById("prompt-status").textContent="Select and copy the generated text manually."}};
+document.getElementById("download-prompt").onclick=()=>downloadText("learning-design-prompt.txt",makePrompt());
+makePrompt();
+const reflectionPrompts={"After empathy":["What surprised us?","What assumptions changed?","What needs did we hear repeatedly?"],"After problem definition":["Why is this the right-sized problem?","What evidence supports our definition?"],"After research":["What changed our thinking?","Which claims are strongest?"],"After prototyping":["What question is this prototype testing?","What are we deliberately not building yet?"],"After testing":["What worked?","What failed?","What did users do that we did not expect?","Does the problem need to be redefined?"],"Final reflection":["What did we learn about learning?","What did we learn about AI and design?","What would we change?","How did our team work together?"]};
+const reflections=[];
+function showReflectionPrompts(){const s=document.getElementById("stage").value;document.getElementById("reflection-prompts").innerHTML=`<strong>Consider:</strong><ul>${reflectionPrompts[s].map(x=>`<li>${x}</li>`).join("")}</ul>`}
+document.getElementById("stage").onchange=showReflectionPrompts;showReflectionPrompts();
+document.getElementById("add-reflection").onclick=()=>{const stage=document.getElementById("stage").value,response=document.getElementById("response").value.trim(),next=document.getElementById("next-action").value.trim();if(!response){alert("Enter a reflection.");return;}reflections.push({stage,response,next});document.getElementById("reflection-list").innerHTML=reflections.map(x=>`<article class="card"><span class="audience-label">${x.stage}</span><p>${escapeHtml(x.response)}</p><p><strong>Next:</strong> ${escapeHtml(x.next)}</p></article>`).join("");document.getElementById("response").value="";document.getElementById("next-action").value=""};
+document.getElementById("download-reflections").onclick=()=>downloadText("design-reflections.txt",reflections.map((x,i)=>`${i+1}. ${x.stage}\n${x.response}\nNEXT: ${x.next}`).join("\n\n"));
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function downloadText(name,text,type="text/plain"){const b=new Blob([text],{type});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+</script>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>Student AI Learning Innovation League</strong>
+      <p>A human-centered learning-design program in which students investigate authentic learning challenges, study how people learn, create learning tools, test them with users, and improve them through feedback.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation"><a href="about.html">About</a><a href="advisors.html">Advisors</a><a href="students.html">Students</a><a href="learning-design.html">Learning Design</a><a href="curriculum.html">Curriculum</a><a href="project-studio.html">Project Studio</a><a href="build.html">Build a Tool</a><a href="competition.html">Competition</a><a href="families.html">Families</a><a href="resources.html">Resources</a></nav>
+    <div class="footer-note">Public-facing program website · Events and participation details are posted when confirmed.</div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+
+
+</body>
+</html>
