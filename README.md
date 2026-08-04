@@ -23,3 +23,8 @@ This version implements the full website review recommendations while retaining 
 ## Adaptive Build Your Club Plan
 
 The Advisor page now uses a transparent deterministic rule engine. It creates recommendations from team size, grade band, student experience, implementation format, schedule, meeting length, meeting frequency, adult support, teacher-client status, technology level, family communication, sharing-event format, available supports, and stated access or logistics needs. It identifies incompatible combinations, proposes team and role structures, adjusts meeting routines and calendars, and produces prioritized setup actions. No planner entries are transmitted or stored.
+
+
+## Adaptive student tools
+
+The Problem Size Check, Strategy Matcher, and Product-Type Decision now use weighted multi-field rules and combination logic. The Prompt Builder is a seventeen-step guided wizard. See `STUDENT_TOOL_LOGIC.md`.
