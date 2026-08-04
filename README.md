@@ -1,9 +1,15 @@
-# Student AI Learning Innovation League — Simplified Navigation with Full Detail
+# Student AI Learning Innovation League — Integrated Public Website
 
-This version keeps the 11-page public navigation while restoring the detailed protocols, examples, schedules, tools, rubrics, safety guidance, family information, Hunter College information, and resource material. Detailed topics are organized in expandable guides on the relevant main page.
+This revision keeps the detailed content integrated into each topic section instead of placing it in a separate “full detailed guides” library.
 
-## Main pages
-Home, About, Advisors, Students, Learning Design, Curriculum, Project Studio, Build a Tool, Competition, Families, and Resources.
+## Navigation
+- Six top-level links only: Home, About, Advisors, Students, Families, Resources
+- A sticky left-hand section panel on every page
+- Secondary guides are grouped under Advisor, Student, Family, or Resource pathways
+- Related-guide links appear in the left panel
 
-## Public-facing content
-The website excludes MVP, grant-planning, proposal, development-phase, internal staffing-plan, and IRB-process language. Participant feedback is described in public-facing terms.
+## Main public pages
+Home, About, Advisors, Students, Families, and Resources.
+
+## Secondary guides
+Learning Design, Curriculum, Project Studio, Build a Tool, and Competition are reached from the appropriate audience guide rather than shown as top-level navigation links.
