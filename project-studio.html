@@ -1,39 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Project Studio | Student AI Learning Innovation League</title>
-<meta name="description" content="Interactive tools for the complete League design process.">
-<link rel="stylesheet" href="assets/css/styles.css">
+<meta content="Interactive tools for the complete League design process." name="description"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
 </head>
 <body>
-
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="nav-wrap">
-    <a class="brand" href="index.html" aria-label="Student AI Learning Innovation League home">
-      <span class="brand-mark" aria-hidden="true">L</span>
-      <span>Student AI Learning Innovation League</span>
-    </a>
-    <button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-      <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="advisors.html">Advisors</a></li><li><a href="students.html">Students</a></li><li><a href="learning-design.html">Learning Design</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="project-studio.html" aria-current="page">Project Studio</a></li><li><a href="build.html">Build a Tool</a></li><li><a href="competition.html">Competition</a></li><li><a href="families.html">Families</a></li><li><a href="resources.html">Resources</a></li></ul>
-    </nav>
-  </div>
+<div class="nav-wrap">
+<a aria-label="Student AI Learning Innovation League home" class="brand" href="index.html">
+<span aria-hidden="true" class="brand-mark">L</span>
+<span>Student AI Learning Innovation League</span>
+</a>
+<button aria-controls="site-nav" aria-expanded="false" class="menu-button">Menu</button>
+<nav aria-label="Primary navigation" class="site-nav" id="site-nav">
+<ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="advisors.html">Advisors</a></li><li><a href="students.html">Students</a></li><li><a href="learning-design.html">Learning Design</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a aria-current="page" href="project-studio.html">Project Studio</a></li><li><a href="build.html">Build a Tool</a></li><li><a href="competition.html">Competition</a></li><li><a href="families.html">Families</a></li><li><a href="resources.html">Resources</a></li></ul>
+</nav>
+</div>
 </header>
-
 <main id="main">
-
 <section class="page-header">
-  <div class="inner">
-    <span class="audience-label">Students and advisors</span>
-    <h1>Project Studio</h1>
-    <p class="lead">All interactive project tools are in one place. Work from top to bottom, but return to earlier tools whenever testing changes your understanding.</p>
-    <nav class="page-toc" aria-label="On this page"><strong>On this page</strong><a href="#intro">How to use</a><a href="#problem">Problem Size</a><a href="#task">Task Analysis</a><a href="#evidence">Evidence Record</a><a href="#progression">Learning Progression</a><a href="#matcher">Strategy Matcher</a><a href="#prompt">Prompt Builder</a><a href="#reflection">Reflection</a></nav>
-  </div>
+<div class="inner">
+<span class="audience-label">Students and advisors</span>
+<h1>Project Studio</h1>
+<p class="lead">All interactive project tools are in one place. Work from top to bottom, but return to earlier tools whenever testing changes your understanding.</p>
+<nav aria-label="On this page" class="page-toc"><strong>On this page</strong><a href="#intro">How to use</a><a href="#problem">Problem Size</a><a href="#task">Task Analysis</a><a href="#evidence">Evidence Record</a><a href="#progression">Learning Progression</a><a href="#matcher">Strategy Matcher</a><a href="#prompt">Prompt Builder</a><a href="#reflection">Reflection</a><a href="#full-details">Full detailed guides</a><a href="#product-decision">Product Decision</a><a href="#testing-log">Testing Log</a></nav>
+</div>
 </section>
-
 <section id="intro">
 <h2>How to use the Studio</h2>
 <ol class="step-list">
@@ -47,21 +44,19 @@
 </ol>
 <div class="warning-box"><strong>Privacy:</strong> Do not enter names, grades, medical information, account details, unapproved student work, or other identifying information into these tools.</div>
 </section>
-
 <section class="section-soft" id="problem"><div class="inner">
 <h2>1. Problem Size Check</h2>
-<form id="size-check" class="form-card">
-<label><input type="checkbox" name="size"> Can the component be supported in a short intervention?</label>
-<label><input type="checkbox" name="size"> Can the team observe whether the learner improves?</label>
-<label><input type="checkbox" name="size"> Is it specific enough to connect to learning science?</label>
-<label><input type="checkbox" name="size"> Can the team build and test a prototype within five weeks?</label>
-<label><input type="checkbox" name="size"> Does it describe learner knowledge or action rather than a judgment about ability?</label>
-<label><input type="checkbox" name="size"> Is it small enough for one team product?</label>
+<form class="form-card" id="size-check">
+<label><input name="size" type="checkbox"/> Can the component be supported in a short intervention?</label>
+<label><input name="size" type="checkbox"/> Can the team observe whether the learner improves?</label>
+<label><input name="size" type="checkbox"/> Is it specific enough to connect to learning science?</label>
+<label><input name="size" type="checkbox"/> Can the team build and test a prototype within five weeks?</label>
+<label><input name="size" type="checkbox"/> Does it describe learner knowledge or action rather than a judgment about ability?</label>
+<label><input name="size" type="checkbox"/> Is it small enough for one team product?</label>
 <div class="actions"><button class="button primary" type="submit">Check the problem</button></div>
 </form>
-<div id="size-result" class="status" aria-live="polite"></div>
+<div aria-live="polite" class="status" id="size-result"></div>
 </div></section>
-
 <section id="task">
 <h2>2. Task Analysis</h2>
 <div class="tool-grid">
@@ -78,12 +73,11 @@
 <label for="load">Where may cognitive load become excessive?</label><textarea id="load"></textarea>
 <label for="bottleneck">Likely bottleneck—the smallest meaningful component</label><textarea id="bottleneck"></textarea>
 <label for="learned">What evidence would show it has been learned?</label><textarea id="learned"></textarea>
-<div class="actions"><button class="button primary" type="button" id="make-task">Generate task map</button><button class="button secondary" type="button" id="download-task">Download</button></div>
+<div class="actions"><button class="button primary" id="make-task" type="button">Generate task map</button><button class="button secondary" id="download-task" type="button">Download</button></div>
 </form>
-<div><h3>Generated task map</h3><div id="task-output" class="tool-output">Complete the fields and generate a task map.</div></div>
+<div><h3>Generated task map</h3><div class="tool-output" id="task-output">Complete the fields and generate a task map.</div></div>
 </div>
 </section>
-
 <section class="section-soft" id="evidence"><div class="inner">
 <h2>3. Learning-Science Evidence Record</h2>
 <div class="form-card">
@@ -96,7 +90,6 @@
 </div>
 <div style="overflow:auto;margin-top:1rem"><table class="mini-table"><thead><tr><th>Claim</th><th>Source</th><th>Strength</th><th>Relevance</th><th>Design implication</th></tr></thead><tbody id="evidence-body"></tbody></table></div>
 </div></section>
-
 <section id="progression">
 <h2>4. Learning-Progression Map</h2>
 <div class="tool-grid">
@@ -112,13 +105,12 @@
 <label for="advanced">How does it appear in more advanced work?</label><textarea id="advanced"></textarea>
 <div class="actions"><button class="button primary" id="make-progression" type="button">Generate map</button><button class="button secondary" id="download-progression" type="button">Download</button></div>
 </form>
-<div><h3>Generated progression</h3><div id="progression-output" class="tool-output">Complete the fields to generate a progression map.</div></div>
+<div><h3>Generated progression</h3><div class="tool-output" id="progression-output">Complete the fields to generate a progression map.</div></div>
 </div>
 </section>
-
 <section class="section-soft" id="matcher"><div class="inner">
 <h2>5. Strategy Matcher</h2>
-<form id="matcher-form" class="form-card">
+<form class="form-card" id="matcher-form">
 <label for="challenge">Where does the process break down?</label>
 <select id="challenge">
 <option value="question">Understanding what a question is asking</option><option value="steps">Breaking a task into steps</option><option value="retrieve">Retrieving information from memory</option><option value="prior">Connecting new ideas to prior knowledge</option><option value="distinguish">Distinguishing similar concepts</option><option value="explain">Explaining reasoning</option><option value="apply">Applying a concept in a new setting</option><option value="monitor">Monitoring comprehension</option><option value="persist">Persisting after an error</option><option value="load">Managing several pieces of information</option><option value="visual">Interpreting diagrams, graphs, and tables</option><option value="patterns">Recognizing patterns</option><option value="select">Selecting a strategy</option><option value="evaluate">Evaluating whether an answer makes sense</option><option value="vocab">Remembering vocabulary</option><option value="writing">Organizing writing</option><option value="reading">Reading complex text</option><option value="tests">Preparing for tests</option><option value="transfer">Transferring a foundational skill into another subject</option>
@@ -130,9 +122,8 @@
 <label for="fade">How should support fade?</label><textarea id="fade"></textarea>
 <div class="actions"><button class="button primary" type="submit">Match strategies</button></div>
 </form>
-<div id="matcher-results" style="margin-top:1rem" aria-live="polite"></div>
+<div aria-live="polite" id="matcher-results" style="margin-top:1rem"></div>
 </div></section>
-
 <section id="prompt">
 <h2>6. Learning-Design Prompt Builder</h2>
 <div class="tool-grid">
@@ -154,24 +145,132 @@
 <label for="avoid">How the tool will avoid simply giving answers</label><textarea id="avoid"></textarea>
 <label for="measure">How effectiveness will be measured</label><textarea id="measure"></textarea>
 <div class="actions"><button class="button primary" id="copy-prompt" type="button">Copy</button><button class="button secondary" id="download-prompt" type="button">Download</button></div>
-<div id="prompt-status" class="status" aria-live="polite"></div>
+<div aria-live="polite" class="status" id="prompt-status"></div>
 </form>
-<div><h3>Generated prompt</h3><div id="prompt-output" class="tool-output"></div></div>
+<div><h3>Generated prompt</h3><div class="tool-output" id="prompt-output"></div></div>
 </div>
 </section>
-
-<section class="section-soft" id="reflection"><div class="inner">
-<h2>7. Reflection Tool</h2>
+<section id="product-decision"><h2>7. Product-Type Decision</h2><form class="form-card" id="product-decision-form"><label for="problem-description">What problem is being solved?</label><textarea id="problem-description"></textarea><label for="learner-action">What must the learner do?</label><textarea id="learner-action"></textarea><label><input name="decision" type="checkbox"/> AI provides a capability that a simpler tool cannot provide as well.</label><label><input name="decision" type="checkbox"/> The team can verify generated content or feedback.</label><label><input name="decision" type="checkbox"/> Privacy, age, account, and school requirements can be met.</label><label><input name="decision" type="checkbox"/> The interaction preserves productive struggle and learner agency.</label><label><input name="decision" type="checkbox"/> The product can be tested safely and realistically.</label><label><input name="decision" type="checkbox"/> An accessible low-tech alternative is available.</label><div class="actions"><button class="button primary" type="submit">Generate recommendation</button></div></form><div aria-live="polite" class="status" id="product-decision-result"></div></section><section class="section-soft" id="testing-log"><div class="inner"><h2>8. Testing and Revision Log</h2><form class="form-card"><label for="test-stage">Testing stage</label><select id="test-stage"><option>Team self-test</option><option>Peer-team test</option><option>Teacher-client review</option><option>Learner test</option><option>Revised test</option></select><label for="test-question">Question this test should answer</label><textarea id="test-question"></textarea><label for="user-tried">What the user tried to do</label><textarea id="user-tried"></textarea><label for="test-hesitation">Where the user hesitated or misunderstood</label><textarea id="test-hesitation"></textarea><label for="test-used">What the user used successfully or ignored</label><textarea id="test-used"></textarea><label for="test-said-did">What the user said and what the user actually did</label><textarea id="test-said-did"></textarea><label for="learning-change">Did the target learning behavior change?</label><textarea id="learning-change"></textarea><label for="test-revision">Revision that follows from the evidence</label><textarea id="test-revision"></textarea><div class="actions"><button class="button primary" id="add-test-record" type="button">Add test record</button><button class="button secondary" id="download-test-records" type="button">Download all</button></div></form><div id="test-record-list" style="margin-top:1rem"></div></div></section><section class="section-soft" id="reflection"><div class="inner">
+<h2>9. Reflection Tool</h2>
 <form class="form-card">
 <label for="stage">Stage</label><select id="stage"><option>After empathy</option><option>After problem definition</option><option>After research</option><option>After prototyping</option><option>After testing</option><option>Final reflection</option></select>
-<div id="reflection-prompts" class="callout-blue" style="margin-top:1rem"></div>
+<div class="callout-blue" id="reflection-prompts" style="margin-top:1rem"></div>
 <label for="response">Team reflection</label><textarea id="response" style="min-height:150px"></textarea>
 <label for="next-action">Next action</label><textarea id="next-action"></textarea>
-<div class="actions"><button class="button primary" type="button" id="add-reflection">Add reflection</button><button class="button secondary" type="button" id="download-reflections">Download all</button></div>
+<div class="actions"><button class="button primary" id="add-reflection" type="button">Add reflection</button><button class="button secondary" id="download-reflections" type="button">Download all</button></div>
 </form>
 <div id="reflection-list" style="margin-top:1rem"></div>
 </div></section>
-<nav class="page-next" aria-label="Page navigation"><a class="button secondary" href="curriculum.html">← Curriculum</a><a class="button primary" href="build.html">Build a Learning Tool →</a></nav>
+<section class="section-soft full-detail-library" id="full-details"><div class="inner"><h2>Full detailed guides</h2><p>The main page above gives the recommended pathway. Open the detailed topics below when you need complete protocols, examples, checklists, or implementation guidance.</p><details class="accordion detail-accordion"><summary>Task-analysis guidance</summary><div class="accordion-body detailed-content"><section>
+<div class="tool-grid">
+<div><span class="kicker">Generated task map</span><div class="output-box">Complete the fields and generate a task map.</div></div>
+</div>
+</section>
+<section class="section-soft"><div class="inner">
+<h2>Select one bottleneck</h2>
+<ul class="check-list"><li>It is necessary for the larger learning goal.</li><li>It is not merely a symptom of another missing prerequisite.</li><li>The learner can practice a specific mental or physical action.</li><li>Improvement can be observed in a short test.</li><li>A team can prototype a support without solving the entire subject.</li></ul>
+</div></section>
+<section class="safety-checkpoint"><div class="inner">
+<span class="kicker">Responsible AI and accessibility checkpoint</span>
+<h2>Before leaving the task-analysis stage</h2>
+<ul class="check-list"><li>Do not infer disability, motivation, or ability from one error.</li><li>Separate what the learner cannot yet do from what the learner has not yet been taught.</li><li>Consider language, sensory access, device access, and cognitive load.</li><li>Do not upload identifiable work samples to AI tools.</li><li>Verify AI-generated decompositions with the teacher-client.</li></ul>
+</div></section></div></details><details class="accordion detail-accordion"><summary>Evidence and source-verification guidance</summary><div class="accordion-body detailed-content"><section>
+<h2>Research questions</h2>
+<div class="grid three"><article class="card"><h3>Skill development</h3><p>How does the target knowledge or skill typically develop?</p></article><article class="card"><h3>Misconceptions</h3><p>Which errors are common, and what reasoning may produce them?</p></article><article class="card"><h3>Practice</h3><p>What type, sequence, spacing, or variability of practice is effective?</p></article><article class="card"><h3>Memory and retrieval</h3><p>What must be recalled, recognized, or reconstructed?</p></article><article class="card"><h3>Feedback</h3><p>What feedback is useful, and when should it occur?</p></article><article class="card"><h3>Motivation and persistence</h3><p>What supports agency, relevance, confidence, and recovery after error?</p></article><article class="card"><h3>Metacognition and self-regulation</h3><p>What should learners plan, monitor, reflect on, or change?</p></article><article class="card"><h3>Transfer and prior knowledge</h3><p>What prerequisites and varied contexts support flexible use?</p></article><article class="card"><h3>Cognitive load and accessibility</h3><p>What representations, task chunks, sensory access, or alternatives reduce unnecessary barriers?</p></article></div>
+</section>
+<section class="section-soft"><div class="inner">
+<h2>Evidence strength</h2>
+<table class="mini-table">
+<tr><th>Rating</th><th>Meaning</th></tr>
+<tr><td>Strong research support</td><td>Multiple credible studies or research syntheses support the claim in relevant contexts.</td></tr>
+<tr><td>Mixed or limited support</td><td>Evidence is incomplete, context dependent, or not directly matched to the learner and task.</td></tr>
+<tr><td>Unsupported claim</td><td>A source states the claim without adequate evidence, or AI generated it without a verifiable source.</td></tr>
+<tr><td>Common learning myth</td><td>A familiar claim—such as matching instruction to fixed visual, auditory, or kinesthetic learner categories—should not guide design as established science.</td></tr>
+</table>
+</div></section>
+<section>
+<h2>Interactive evidence record</h2>
+<div class="form-card">
+<label for="claim">Claim</label><textarea></textarea>
+<label for="source">Source or citation</label><textarea></textarea>
+<label for="strength">Evidence strength</label><select><option>Strong research support</option><option>Mixed or limited support</option><option>Unsupported claim</option><option>Common learning myth</option></select>
+<label for="relevance">Relevance to the learner need</label><textarea></textarea>
+<label for="implication">Design implication</label><textarea></textarea>
+<div class="actions"></div>
+</div>
+<div style="overflow:auto;margin-top:1rem"><table class="mini-table"><thead><tr><th>Claim</th><th>Source</th><th>Strength</th><th>Relevance</th><th>Design implication</th></tr></thead><tbody></tbody></table></div>
+</section>
+<section class="safety-checkpoint"><div class="inner">
+<span class="kicker">Responsible AI and accessibility checkpoint</span>
+<h2>Before leaving the research stage</h2>
+<ul class="check-list"><li>Verify important claims with credible sources.</li><li>Check AI summaries against the original source.</li><li>Distinguish evidence from suggestion or brainstorming.</li><li>Do not upload private learner information.</li><li>Record uncertainty, limitations, and context.</li></ul>
+</div></section></div></details><details class="accordion detail-accordion"><summary>Learning-progression guidance</summary><div class="accordion-body detailed-content"><section>
+<div class="tool-grid">
+<div><span class="kicker">Progression map</span><div class="output-box">Complete the fields to generate a learning progression.</div></div>
+</div>
+</section>
+<section class="safety-checkpoint"><div class="inner">
+<span class="kicker">Responsible AI and accessibility checkpoint</span>
+<h2>Before leaving the learning-progression stage</h2>
+<ul class="check-list"><li>Do not treat the progression as fixed for every learner.</li><li>Use teacher-client knowledge and credible disciplinary sources.</li><li>Distinguish missing instruction from learner deficit.</li><li>Include accessible ways to demonstrate performance.</li><li>Check that the selected component still connects to the teacher-client need.</li></ul>
+</div></section></div></details><details class="accordion detail-accordion"><summary>Expanded strategy guidance</summary><div class="accordion-body detailed-content"><section>
+<div aria-live="polite" style="margin-top:1.2rem"></div>
+</section>
+<section class="safety-checkpoint"><div class="inner">
+<span class="kicker">Responsible AI and accessibility checkpoint</span>
+<h2>Before leaving the strategy-selection stage</h2>
+<ul class="check-list"><li>Do not select a strategy from a fixed learning-style label.</li><li>Use evidence about the task and learner process.</li><li>Consider accessibility and prior knowledge.</li><li>State when the strategy may not fit.</li><li>Plan how support will fade and how learning will be tested.</li></ul>
+</div></section></div></details><details class="accordion detail-accordion"><summary>Prompt-design guidance</summary><div class="accordion-body detailed-content"><section>
+<div class="tool-grid">
+<div><span class="kicker">Generated instructions</span></div>
+</div>
+</section>
+<section class="section-soft"><div class="inner">
+<h2>Generated-tool behavior</h2>
+<ul class="check-list"><li>Ask before telling.</li><li>Diagnose the learner’s thinking.</li><li>Encourage explanation and evidence.</li><li>Preserve productive struggle.</li><li>Provide graduated hints.</li><li>Offer feedback without completing the task.</li><li>Prompt reflection and strategy selection.</li><li>Check understanding and adapt to the response.</li><li>Avoid unsupported claims about fixed learning styles.</li><li>State limitations and encourage verification.</li></ul>
+</div></section>
+<section class="safety-checkpoint"><div class="inner">
+<span class="kicker">Responsible AI and accessibility checkpoint</span>
+<h2>Before leaving the prompt-design stage</h2>
+<ul class="check-list"><li>Use non-identifying learner descriptions.</li><li>Require age-appropriate and respectful language.</li><li>Add refusal and escalation rules.</li><li>Make uncertainty visible.</li><li>Include accessible formats and low-tech alternatives.</li><li>Test for answer substitution, hallucinations, bias, and frustration.</li></ul>
+</div></section></div></details><details class="accordion detail-accordion"><summary>Testing and revision guidance</summary><div class="accordion-body detailed-content"><section>
+<h2>Five testing stages</h2>
+<div class="pathway">
+<div class="pathway-item"><h3>1. Team self-test</h3><p>Use test cases to identify obvious errors, answer substitution, confusing instructions, and inaccessible interactions.</p></div>
+<div class="pathway-item"><h3>2. Peer-team test</h3><p>A different team tries the prototype without inside knowledge and identifies unclear assumptions.</p></div>
+<div class="pathway-item"><h3>3. Teacher-client review</h3><p>The teacher checks whether the tool addresses the actual need, fits the context, and uses appropriate content.</p></div>
+<div class="pathway-item"><h3>4. Learner test</h3><p>An appropriate learner uses the tool in a realistic context with permission and the option to stop.</p></div>
+<div class="pathway-item"><h3>5. Revised test</h3><p>The team tests the changed behavior using comparable tasks and records what improved or remained unresolved.</p></div>
+</div>
+</section>
+<section class="section-soft"><div class="inner">
+<h2>Required observation record</h2>
+<ul class="check-list"><li>What the user tried to do</li><li>Where the user hesitated</li><li>What the user misunderstood</li><li>What the user ignored</li><li>What the user used successfully</li><li>What the user said</li><li>What the user actually did</li><li>Whether the target learning behavior changed</li><li>What unexpected output or emotion appeared</li><li>What revision follows from the evidence</li></ul>
+<div class="warning-box"><strong>Assume you may be wrong:</strong> The purpose of testing is to challenge—not confirm—the team’s assumptions. A result may require redefining the problem or selecting a different strategy.</div>
+</div></section>
+<section>
+<h2>Evidence-based revision log</h2>
+<table class="mini-table">
+<tr><th>Observation</th><th>Interpretation</th><th>Revision</th><th>Why this revision</th><th>Retest result</th></tr>
+<tr><td>User skipped the reflection prompt.</td><td>Prompt was too long and appeared after the final answer.</td><td>Move a shorter reflection before the answer.</td><td>Preserve monitoring during the task.</td><td>Record new behavior.</td></tr>
+</table>
+</section>
+<section class="safety-checkpoint"><div class="inner">
+<span class="kicker">Responsible AI and accessibility checkpoint</span>
+<h2>Before leaving the testing stage</h2>
+<ul class="check-list"><li>Do not enter identifying student data.</li><li>Obtain permission and allow users to stop.</li><li>Test in a realistic but safe context.</li><li>Observe harm, exclusion, frustration, dependence, and unexpected outputs.</li><li>Do not coach so much that the prototype appears more usable than it is.</li><li>Remove identifying details from evidence shared publicly.</li></ul>
+</div></section></div></details><details class="accordion detail-accordion"><summary>Reflection guidance</summary><div class="accordion-body detailed-content"><section>
+<div style="margin-top:1rem"></div>
+</section>
+<section class="section-soft"><div class="inner">
+<h2>Final reflection themes</h2>
+<ul class="check-list"><li>What did we learn about learning?</li><li>What did we learn about AI?</li><li>What did we learn about human-centered design?</li><li>What would we change in the next cycle?</li><li>How did our team distribute work, disagreement, and leadership?</li><li>What remains uncertain?</li></ul>
+</div></section>
+<section class="safety-checkpoint"><div class="inner">
+<span class="kicker">Responsible AI and accessibility checkpoint</span>
+<h2>Before leaving the reflection stage</h2>
+<ul class="check-list"><li>Do not include identifying details about interviewees or testers.</li><li>Distinguish evidence from interpretation.</li><li>Name uncertainty and limitations honestly.</li><li>Reflect on accessibility, power, and who was not represented.</li><li>Do not use AI to replace the team’s own reflection.</li></ul>
+</div></section></div></details></div></section><nav aria-label="Page navigation" class="page-next"><a class="button secondary" href="curriculum.html">← Curriculum</a><a class="button primary" href="build.html">Build a Learning Tool →</a></nav>
 </main><script>
 document.getElementById("size-check").addEventListener("submit",e=>{
  e.preventDefault();const n=e.target.querySelectorAll('input:checked').length;
@@ -294,20 +393,25 @@ document.getElementById("add-reflection").onclick=()=>{const stage=document.getE
 document.getElementById("download-reflections").onclick=()=>downloadText("design-reflections.txt",reflections.map((x,i)=>`${i+1}. ${x.stage}\n${x.response}\nNEXT: ${x.next}`).join("\n\n"));
 function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function downloadText(name,text,type="text/plain"){const b=new Blob([text],{type});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href)}
-</script>
 
+const productDecisionForm=document.getElementById("product-decision-form");
+if(productDecisionForm){productDecisionForm.addEventListener("submit",e=>{e.preventDefault();const n=e.target.querySelectorAll('input:checked').length;let msg;if(n>=6)msg="Conversational or advanced AI may be appropriate, but compare it with a simpler prototype and complete a platform review.";else if(n>=4)msg="AI may add value, but begin with a paper or low-resolution prototype and resolve the unchecked risks.";else msg="A non-AI or AI-assisted non-AI tool is likely the stronger starting point.";document.getElementById("product-decision-result").textContent=msg;});}
+const testRecords=[];
+const addTest=document.getElementById("add-test-record");
+if(addTest){addTest.onclick=()=>{const ids=["test-stage","test-question","user-tried","test-hesitation","test-used","test-said-did","learning-change","test-revision"];const vals=ids.map(id=>document.getElementById(id).value.trim());if(!vals[1]){alert("Enter the question this test should answer.");return;}testRecords.push(vals);document.getElementById("test-record-list").innerHTML=testRecords.map((x,i)=>`<article class="card"><span class="audience-label">${x[0]}</span><h3>Test ${i+1}: ${x[1]}</h3><p><strong>User tried:</strong> ${x[2]}</p><p><strong>Hesitation or misunderstanding:</strong> ${x[3]}</p><p><strong>Used or ignored:</strong> ${x[4]}</p><p><strong>Said and did:</strong> ${x[5]}</p><p><strong>Learning behavior:</strong> ${x[6]}</p><p><strong>Revision:</strong> ${x[7]}</p></article>`).join("");ids.slice(1).forEach(id=>document.getElementById(id).value="");};}
+const downloadTests=document.getElementById("download-test-records");
+if(downloadTests){downloadTests.onclick=()=>downloadText("testing-revision-log.txt",testRecords.map((x,i)=>`TEST ${i+1}\nSTAGE: ${x[0]}\nQUESTION: ${x[1]}\nUSER TRIED: ${x[2]}\nHESITATED/MISUNDERSTOOD: ${x[3]}\nUSED/IGNORED: ${x[4]}\nSAID/DID: ${x[5]}\nLEARNING CHANGE: ${x[6]}\nREVISION: ${x[7]}`).join("\n\n"));}
+</script>
 <footer>
-  <div class="footer-inner">
-    <div>
-      <strong>Student AI Learning Innovation League</strong>
-      <p>A human-centered learning-design program in which students investigate authentic learning challenges, study how people learn, create learning tools, test them with users, and improve them through feedback.</p>
-    </div>
-    <nav class="footer-links" aria-label="Footer navigation"><a href="about.html">About</a><a href="advisors.html">Advisors</a><a href="students.html">Students</a><a href="learning-design.html">Learning Design</a><a href="curriculum.html">Curriculum</a><a href="project-studio.html">Project Studio</a><a href="build.html">Build a Tool</a><a href="competition.html">Competition</a><a href="families.html">Families</a><a href="resources.html">Resources</a></nav>
-    <div class="footer-note">Public-facing program website · Events and participation details are posted when confirmed.</div>
-  </div>
+<div class="footer-inner">
+<div>
+<strong>Student AI Learning Innovation League</strong>
+<p>A human-centered learning-design program in which students investigate authentic learning challenges, study how people learn, create learning tools, test them with users, and improve them through feedback.</p>
+</div>
+<nav aria-label="Footer navigation" class="footer-links"><a href="about.html">About</a><a href="advisors.html">Advisors</a><a href="students.html">Students</a><a href="learning-design.html">Learning Design</a><a href="curriculum.html">Curriculum</a><a href="project-studio.html">Project Studio</a><a href="build.html">Build a Tool</a><a href="competition.html">Competition</a><a href="families.html">Families</a><a href="resources.html">Resources</a></nav>
+<div class="footer-note">Public-facing program website · Events and participation details are posted when confirmed.</div>
+</div>
 </footer>
 <script src="assets/js/main.js"></script>
-
-
 </body>
 </html>

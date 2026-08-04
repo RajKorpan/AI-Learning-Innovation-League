@@ -1,34 +1,9 @@
-# Student AI Learning Innovation League — Simplified Public Website
+# Student AI Learning Innovation League — Simplified Navigation with Full Detail
 
-This version consolidates the public site into 11 main pages:
+This version keeps the 11-page public navigation while restoring the detailed protocols, examples, schedules, tools, rubrics, safety guidance, family information, Hunter College information, and resource material. Detailed topics are organized in expandable guides on the relevant main page.
 
-- Home
-- About
-- Advisors
-- Students
-- Learning Design
-- Curriculum
-- Project Studio
-- Build a Tool
-- Competition
-- Families
-- Resources
+## Main pages
+Home, About, Advisors, Students, Learning Design, Curriculum, Project Studio, Build a Tool, Competition, Families, and Resources.
 
-## Key changes
-
-- Removed MVP, proposal, grant-planning, IRB-process, staffing-plan, and development-phase language.
-- Reorganized the site around advisors, students, and families.
-- Consolidated small pages into larger guide pages with anchored tables of contents and expandable sections.
-- Placed all interactive tools in one Project Studio.
-- Combined the five lessons on one curriculum page.
-- Simplified the top navigation to 11 destinations.
-- Added clear previous/next navigation and footer links.
-- Preserved detailed content on empathy, task analysis, learning science, AI literacy, prototyping, testing, reflection, competition, safety, accessibility, and family participation.
-
-## Publish with GitHub Pages
-
-1. Upload this folder to a GitHub repository.
-2. Go to **Settings → Pages**.
-3. Choose **Deploy from a branch**.
-4. Select the `main` branch and `/ (root)`.
-5. Save.
+## Public-facing content
+The website excludes MVP, grant-planning, proposal, development-phase, internal staffing-plan, and IRB-process language. Participant feedback is described in public-facing terms.
