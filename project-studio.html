@@ -19,20 +19,30 @@
 <h1>Project Studio</h1>
 <p class="lead">All interactive project tools are in one place. Work from top to bottom, but return to earlier tools whenever testing changes your understanding.</p>
 </div>
-</section><div class="page-layout"><aside aria-label="Page navigation" class="page-sidebar"><p class="sidebar-context">Student tools</p><nav aria-label="On this page" class="page-toc sidebar-toc"><h2>On this page</h2><a href="#intro">How to use</a><a href="#problem">Problem Size</a><a href="#task">Task Analysis</a><a href="#evidence">Evidence Record</a><a href="#progression">Learning Progression</a><a href="#matcher">Strategy Matcher</a><a href="#product-decision">Product Decision</a><a href="#build-guide">Build guidance</a><a href="#prompt">Prompt Builder</a><a href="#testing-log">Testing Log</a><a href="#reflection">Reflection</a></nav><div class="related-guides"><h2>Related pages</h2><ul><li><a href="students.html">Student guide</a></li><li><a href="advisors.html">Advisor guide</a></li><li><a href="resources.html">External resources</a></li></ul></div></aside><div class="page-content"><section id="intro">
+</section><div class="page-layout"><aside aria-label="Page navigation" class="page-sidebar"><p class="sidebar-context">Student tools</p><nav aria-label="On this page" class="page-toc sidebar-toc"><h2>On this page</h2><a href="#intro">How to use</a><a href="#problem">Problem Size</a><a href="#task">Task Analysis</a><a href="#evidence">Evidence Record</a><a href="#progression">Learning Progression</a><a href="#matcher">Strategy Matcher</a><a href="#product-decision">Product Decision</a><a href="#build-guide">Build guidance</a><a href="#prompt">Prompt Builder</a><a href="#testing-log">Testing Log</a></nav><div class="related-guides"><h2>Related pages</h2><ul><li><a href="students.html">Student guide</a></li><li><a href="advisors.html">Advisor guide</a></li><li><a href="resources.html">External resources</a></li></ul></div></aside><div class="page-content"><section id="intro">
 <h2>How to use the Studio</h2>
-<ol class="step-list">
-<li>Check whether the learning problem is the right size.</li>
-<li>Analyze the knowledge and actions required.</li>
-<li>Record learning-science claims and sources.</li>
-<li>Map the selected component in a larger progression.</li>
-<li>Compare learning strategies.</li>
-<li>Build a structured prompt when conversational AI fits.</li>
-<li>Reflect after every stage.</li>
+<p>Each tool supports one project decision or record. Read the description and example before using the form. Work in order during a first cycle, but return to an earlier tool whenever interviews, research, or testing change your understanding.</p>
+<ol class="implementation-list studio-links">
+<li><a href="#problem">Check whether the learning problem is specific and manageable.</a></li>
+<li><a href="#task">Break the task into knowledge, actions, prerequisites, decisions, and errors.</a></li>
+<li><a href="#evidence">Record learning-science claims, sources, evidence strength, and design implications.</a></li>
+<li><a href="#progression">Place the selected component in a larger learning progression.</a></li>
+<li><a href="#matcher">Compare learning strategies that may fit the learner’s bottleneck.</a></li>
+<li><a href="#product-decision">Decide whether the product should use AI and what type of tool to prototype.</a></li>
+<li><a href="#build-guide">Plan a low-resolution prototype, Gem, chatbot, or custom application.</a></li>
+<li><a href="#prompt">Generate structured instructions when a conversational AI tool is appropriate.</a></li>
+<li><a href="#testing-log">Record what users did and connect evidence to revision.</a></li>
 </ol>
 <div class="warning-box"><strong>Privacy:</strong> Do not enter names, grades, medical information, account details, unapproved student work, or other identifying information into these tools.</div>
 </section><section class="section-soft" id="problem"><div class="inner">
-<h2>1. Problem Size Check</h2>
+<h2>1. Problem Size Check</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A six-question check for deciding whether a broad learning challenge has been narrowed enough for a short team project.</p></article>
+<article class="card"><h3>Purpose</h3><p>Prevent the team from trying to solve an entire subject or vague problem and confirm that improvement can be observed.</p></article>
+<article class="card"><h3>How to use it</h3><p>Discuss each statement as a team and check it only when you have evidence. If fewer than six checks are met, return to interviews or task analysis and narrow the problem.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> Replace “students struggle with graphs” with “students can identify the axes but cannot determine the interval between labeled points.”</div>
+</div>
 <form class="form-card" id="size-check">
 <label><input name="size" type="checkbox"/> Can the component be supported in a short intervention?</label>
 <label><input name="size" type="checkbox"/> Can the team observe whether the learner improves?</label>
@@ -44,7 +54,14 @@
 </form>
 <div aria-live="polite" class="status" id="size-result"></div>
 </div></section><section id="task">
-<h2>2. Task Analysis</h2>
+<h2>2. Task Analysis</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A structured map of everything a successful learner must know and do to reach the final learning goal.</p></article>
+<article class="card"><h3>Purpose</h3><p>Identify prerequisites, vocabulary, concepts, procedures, decisions, common errors, cognitive-load points, and the likely bottleneck.</p></article>
+<article class="card"><h3>How to use it</h3><p>Complete the fields using teacher-client and learner evidence. Generate the map, review whether the selected bottleneck is truly necessary, and download it for the design notebook.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> For graph intervals, the learner must recognize labeled values, count spaces, divide the difference by the number of intervals, and check that the scale is consistent.</div>
+</div>
 <div class="tool-grid">
 <form class="form-card">
 <label for="goal">Final learning goal</label><textarea id="goal"></textarea>
@@ -64,7 +81,14 @@
 <div><h3>Generated task map</h3><div class="tool-output" id="task-output">Complete the fields and generate a task map.</div></div>
 </div>
 </section><section class="section-soft" id="evidence"><div class="inner">
-<h2>3. Learning-Science Evidence Record</h2>
+<h2>3. Learning-Science Evidence Record</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A table for connecting a specific claim about learning to its source, evidence strength, learner need, and design implication.</p></article>
+<article class="card"><h3>Purpose</h3><p>Keep the design grounded in verified learning science rather than AI suggestions, familiar myths, or unsupported claims.</p></article>
+<article class="card"><h3>How to use it</h3><p>Enter one claim at a time. Cite the original source, rate the evidence, explain why it matters to this learner, and state what the team will design or test differently.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> Claim: “Retrieval practice can strengthen later recall.” Design implication: include short recall attempts before showing definitions, then test unaided recall.</div>
+</div>
 <div class="form-card">
 <label for="claim">Claim</label><textarea id="claim"></textarea>
 <label for="source">Source</label><textarea id="source"></textarea>
@@ -75,7 +99,14 @@
 </div>
 <div style="overflow:auto;margin-top:1rem"><table class="mini-table"><thead><tr><th>Claim</th><th>Source</th><th>Strength</th><th>Relevance</th><th>Design implication</th></tr></thead><tbody id="evidence-body"></tbody></table></div>
 </div></section><section id="progression">
-<h2>4. Learning-Progression Map</h2>
+<h2>4. Learning-Progression Map</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A map showing what comes before the selected component, what competent performance looks like, and what the component enables later.</p></article>
+<article class="card"><h3>Purpose</h3><p>Avoid treating a small skill in isolation and make sure the tool fits a larger disciplinary pathway.</p></article>
+<article class="card"><h3>How to use it</h3><p>Describe prerequisites and commonly confused skills, then write observable beginning, developing, and proficient performance. Add what the component makes possible in later work.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> Beginning: recognizes axis labels. Developing: calculates intervals with prompts. Proficient: determines and explains an unlabeled interval independently.</div>
+</div>
 <div class="tool-grid">
 <form class="form-card">
 <label for="skill">Selected skill or component</label><textarea id="skill"></textarea>
@@ -92,7 +123,14 @@
 <div><h3>Generated progression</h3><div class="tool-output" id="progression-output">Complete the fields to generate a progression map.</div></div>
 </div>
 </section><section class="section-soft" id="matcher"><div class="inner">
-<h2>5. Strategy Matcher</h2>
+<h2>5. Strategy Matcher</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A guided comparison of learning strategies based on where the learner’s process breaks down, the mental action needed, feedback, and fading.</p></article>
+<article class="card"><h3>Purpose</h3><p>Generate evidence-informed possibilities without treating the result as a diagnosis or automatic instructional decision.</p></article>
+<article class="card"><h3>How to use it</h3><p>Select the challenge and mental action, then describe what the learner can already do and what evidence identifies the bottleneck. Compare the suggested strategies with the task analysis and research record.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> If a learner loses track of multi-step questions, the matcher may suggest task decomposition, worked examples with fading, and metacognitive monitoring.</div>
+</div>
 <form class="form-card" id="matcher-form">
 <label for="challenge">Where does the process break down?</label>
 <select id="challenge">
@@ -106,8 +144,29 @@
 <div class="actions"><button class="button primary" type="submit">Match strategies</button></div>
 </form>
 <div aria-live="polite" id="matcher-results" style="margin-top:1rem"></div>
-</div></section><section id="product-decision"><h2>6. Product-Type Decision</h2><form class="form-card" id="product-decision-form"><label for="problem-description">What problem is being solved?</label><textarea id="problem-description"></textarea><label for="learner-action">What must the learner do?</label><textarea id="learner-action"></textarea><label><input name="decision" type="checkbox"/> AI provides a capability that a simpler tool cannot provide as well.</label><label><input name="decision" type="checkbox"/> The team can verify generated content or feedback.</label><label><input name="decision" type="checkbox"/> Privacy, age, account, and school requirements can be met.</label><label><input name="decision" type="checkbox"/> The interaction preserves productive struggle and learner agency.</label><label><input name="decision" type="checkbox"/> The product can be tested safely and realistically.</label><label><input name="decision" type="checkbox"/> An accessible low-tech alternative is available.</label><div class="actions"><button class="button primary" type="submit">Generate recommendation</button></div></form><div aria-live="polite" class="status" id="product-decision-result"></div></section><section class="section-soft" id="build-guide"><div class="inner"><h2>7. Build Guidance</h2><h3>Prototype before polishing</h3><p>Use a paper conversation flow, storyboard, role-play, flashcard sample, prompt skeleton, mock transcript, one-question test, clickable wireframe, or small sample set. Build only enough to answer one question.</p><h3>Build a Gem</h3><ol class="step-list"><li>Use an existing Gem and identify its strengths and limitations.</li><li>Modify one behavior and test the change.</li><li>Name the new Gem for the learning action.</li><li>Use the Prompt Builder to define the learner, need, component, bottleneck, evidence, productive struggle, feedback, reflection, fading, accessibility, and limits.</li><li>Add example interactions for correct, partially correct, incorrect, repeated-error, irrelevant, and answer-request cases.</li><li>Test edge cases, revise the instructions, and record a new version.</li><li>Share only through advisor-approved settings.</li></ol><h3>Build a custom application</h3><ul class="check-list"><li>Build the smallest testable function first.</li><li>Separate the educational interaction from technical features.</li><li>Use approved data and services.</li><li>Plan human review and failure behavior.</li><li>Provide a low-tech fallback.</li><li>Document AI-generated code, content, and revisions.</li></ul><h3>Build checkpoint</h3><ul class="check-list"><li>Use age-appropriate and respectful language.</li><li>State tool limits.</li><li>Protect privacy and minimize data.</li><li>Preserve learner agency and productive struggle.</li><li>Include accessible formats and alternatives.</li><li>Test answer requests, hallucinations, bias, repeated errors, sensitive disclosures, and frustration.</li></ul></div></section><section id="prompt">
-<h2>8. Learning-Design Prompt Builder</h2>
+</div></section><section id="product-decision"><h2>6. Product-Type Decision</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A decision check for comparing a non-AI tool, an AI-assisted non-AI tool, a conversational AI tool, or a custom application.</p></article>
+<article class="card"><h3>Purpose</h3><p>Ensure that the team chooses technology because it adds educational value—not because it appears more advanced.</p></article>
+<article class="card"><h3>How to use it</h3><p>Describe the problem and learner action, then check each condition only when the team can support it. Use the recommendation as a starting point and compare it with a paper prototype.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> If a static card sort can provide the needed comparison practice, conversational AI may not add enough value to justify its risks and complexity.</div>
+</div><form class="form-card" id="product-decision-form"><label for="problem-description">What problem is being solved?</label><textarea id="problem-description"></textarea><label for="learner-action">What must the learner do?</label><textarea id="learner-action"></textarea><label><input name="decision" type="checkbox"/> AI provides a capability that a simpler tool cannot provide as well.</label><label><input name="decision" type="checkbox"/> The team can verify generated content or feedback.</label><label><input name="decision" type="checkbox"/> Privacy, age, account, and school requirements can be met.</label><label><input name="decision" type="checkbox"/> The interaction preserves productive struggle and learner agency.</label><label><input name="decision" type="checkbox"/> The product can be tested safely and realistically.</label><label><input name="decision" type="checkbox"/> An accessible low-tech alternative is available.</label><div class="actions"><button class="button primary" type="submit">Generate recommendation</button></div></form><div aria-live="polite" class="status" id="product-decision-result"></div></section><section class="section-soft" id="build-guide"><div class="inner"><h2>7. Build Guidance</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A planning guide for moving from a low-resolution prototype to a Gem, chatbot, or custom application when appropriate.</p></article>
+<article class="card"><h3>Purpose</h3><p>Help the team build only what is needed to test the learning interaction and document safe, accessible versions.</p></article>
+<article class="card"><h3>How to use it</h3><p>Begin with the simplest paper, storyboard, role-play, or mock transcript. Test the interaction, then add technology only when the evidence supports it. Record each version and the reason for the change.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> Role-play a question-decomposition coach with index cards before writing Gem instructions. Revise the hint sequence after a peer test.</div>
+</div><h3>Prototype before polishing</h3><p>Use a paper conversation flow, storyboard, role-play, flashcard sample, prompt skeleton, mock transcript, one-question test, clickable wireframe, or small sample set. Build only enough to answer one question.</p><h3>Build a Gem</h3><ol class="step-list"><li>Use an existing Gem and identify its strengths and limitations.</li><li>Modify one behavior and test the change.</li><li>Name the new Gem for the learning action.</li><li>Use the Prompt Builder to define the learner, need, component, bottleneck, evidence, productive struggle, feedback, reflection, fading, accessibility, and limits.</li><li>Add example interactions for correct, partially correct, incorrect, repeated-error, irrelevant, and answer-request cases.</li><li>Test edge cases, revise the instructions, and record a new version.</li><li>Share only through advisor-approved settings.</li></ol><h3>Build a custom application</h3><ul class="check-list"><li>Build the smallest testable function first.</li><li>Separate the educational interaction from technical features.</li><li>Use approved data and services.</li><li>Plan human review and failure behavior.</li><li>Provide a low-tech fallback.</li><li>Document AI-generated code, content, and revisions.</li></ul><h3>Build checkpoint</h3><ul class="check-list"><li>Use age-appropriate and respectful language.</li><li>State tool limits.</li><li>Protect privacy and minimize data.</li><li>Preserve learner agency and productive struggle.</li><li>Include accessible formats and alternatives.</li><li>Test answer requests, hallucinations, bias, repeated errors, sensitive disclosures, and frustration.</li></ul></div></section><section id="prompt">
+<h2>8. Learning-Design Prompt Builder</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A generator for reusable instructions that define the learner, learning need, evidence, desired action, productive struggle, feedback, reflection, fading, accessibility, limits, and measurement.</p></article>
+<article class="card"><h3>Purpose</h3><p>Create a conversational learning tool that asks before telling and supports thinking instead of acting as a conventional answer-giving tutor.</p></article>
+<article class="card"><h3>How to use it</h3><p>Complete each field with information from interviews, task analysis, and research. Review the generated prompt, edit it with the team, test it in an approved platform, and document versions.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> A graph-scale coach asks the learner to explain the labeled values, gives one graduated hint, and asks the learner to check whether the interval is consistent rather than providing the answer.</div>
+</div>
 <div class="tool-grid">
 <form class="form-card" id="prompt-form">
 <label for="mode">Design mode</label><select id="mode"><option>Motivational interviewer</option><option>Practice partner</option><option>Reflection coach</option><option>Question-decomposition coach</option><option>Error-analysis coach</option><option>Debate partner</option><option>Retrieval-practice guide</option><option>Reading-comprehension guide</option><option>Writing-outline partner</option><option>Scenario simulator</option><option>Feedback generator</option><option>Learning-progress mapper</option></select>
@@ -131,17 +190,14 @@
 </form>
 <div><h3>Generated prompt</h3><div class="tool-output" id="prompt-output"></div></div>
 </div>
-</section><section class="section-soft" id="testing-log"><div class="inner"><h2>9. Testing and Revision Log</h2><form class="form-card"><label for="test-stage">Testing stage</label><select id="test-stage"><option>Team self-test</option><option>Peer-team test</option><option>Teacher-client review</option><option>Learner test</option><option>Revised test</option></select><label for="test-question">Question this test should answer</label><textarea id="test-question"></textarea><label for="user-tried">What the user tried to do</label><textarea id="user-tried"></textarea><label for="test-hesitation">Where the user hesitated or misunderstood</label><textarea id="test-hesitation"></textarea><label for="test-used">What the user used successfully or ignored</label><textarea id="test-used"></textarea><label for="test-said-did">What the user said and what the user actually did</label><textarea id="test-said-did"></textarea><label for="learning-change">Did the target learning behavior change?</label><textarea id="learning-change"></textarea><label for="test-revision">Revision that follows from the evidence</label><textarea id="test-revision"></textarea><div class="actions"><button class="button primary" id="add-test-record" type="button">Add test record</button><button class="button secondary" id="download-test-records" type="button">Download all</button></div></form><div id="test-record-list" style="margin-top:1rem"></div></div></section><section class="section-soft" id="reflection"><div class="inner">
-<h2>10. Reflection Tool</h2>
-<form class="form-card">
-<label for="stage">Stage</label><select id="stage"><option>After empathy</option><option>After problem definition</option><option>After research</option><option>After prototyping</option><option>After testing</option><option>Final reflection</option></select>
-<div class="callout-blue" id="reflection-prompts" style="margin-top:1rem"></div>
-<label for="response">Team reflection</label><textarea id="response" style="min-height:150px"></textarea>
-<label for="next-action">Next action</label><textarea id="next-action"></textarea>
-<div class="actions"><button class="button primary" id="add-reflection" type="button">Add reflection</button><button class="button secondary" id="download-reflections" type="button">Download all</button></div>
-</form>
-<div id="reflection-list" style="margin-top:1rem"></div>
-</div></section></div></div><nav aria-label="Page navigation" class="page-next"><a class="button secondary" href="students.html">← Student Guide</a><a class="button primary" href="advisors.html">Advisor Guide →</a></nav></main><script>
+</section><section class="section-soft" id="testing-log"><div class="inner"><h2>9. Testing and Revision Log</h2><div class="tool-guide">
+<div class="grid three">
+<article class="card"><h3>What it is</h3><p>A structured observation and revision record for team, peer, teacher-client, learner, and revised tests.</p></article>
+<article class="card"><h3>Purpose</h3><p>Move beyond “Did you like it?” and capture what the user tried, hesitated over, ignored, used successfully, said, and actually did.</p></article>
+<article class="card"><h3>How to use it</h3><p>State one question for the test, observe without over-coaching, enter the evidence, and write the revision that follows. After revising, use a comparable task and add a new record.</p></article>
+</div>
+<div class="tool-example"><strong>Example:</strong> A learner skipped the reflection prompt because it appeared after the final answer. The team moves it earlier and shortens it, then retests the same interaction pattern.</div>
+</div><form class="form-card"><label for="test-stage">Testing stage</label><select id="test-stage"><option>Team self-test</option><option>Peer-team test</option><option>Teacher-client review</option><option>Learner test</option><option>Revised test</option></select><label for="test-question">Question this test should answer</label><textarea id="test-question"></textarea><label for="user-tried">What the user tried to do</label><textarea id="user-tried"></textarea><label for="test-hesitation">Where the user hesitated or misunderstood</label><textarea id="test-hesitation"></textarea><label for="test-used">What the user used successfully or ignored</label><textarea id="test-used"></textarea><label for="test-said-did">What the user said and what the user actually did</label><textarea id="test-said-did"></textarea><label for="learning-change">Did the target learning behavior change?</label><textarea id="learning-change"></textarea><label for="test-revision">Revision that follows from the evidence</label><textarea id="test-revision"></textarea><div class="actions"><button class="button primary" id="add-test-record" type="button">Add test record</button><button class="button secondary" id="download-test-records" type="button">Download all</button></div></form><div id="test-record-list" style="margin-top:1rem"></div></div></section></div></div><nav aria-label="Page navigation" class="page-next"><a class="button secondary" href="students.html">← Student Guide</a><a class="button primary" href="advisors.html">Advisor Guide →</a></nav></main><script>
 document.getElementById("size-check").addEventListener("submit",e=>{
  e.preventDefault();const n=e.target.querySelectorAll('input:checked').length;
  const msg=n===6?"Right-sized problem.":n>=4?"Promising, but narrow it further.":"Return to empathy interviews and task analysis.";
@@ -255,12 +311,6 @@ promptIds.forEach(id=>document.getElementById(id).addEventListener("input",makeP
 document.getElementById("copy-prompt").onclick=async()=>{try{await navigator.clipboard.writeText(makePrompt());document.getElementById("prompt-status").textContent="Prompt copied."}catch(e){document.getElementById("prompt-status").textContent="Select and copy the generated text manually."}};
 document.getElementById("download-prompt").onclick=()=>downloadText("learning-design-prompt.txt",makePrompt());
 makePrompt();
-const reflectionPrompts={"After empathy":["What surprised us?","What assumptions changed?","What needs did we hear repeatedly?"],"After problem definition":["Why is this the right-sized problem?","What evidence supports our definition?"],"After research":["What changed our thinking?","Which claims are strongest?"],"After prototyping":["What question is this prototype testing?","What are we deliberately not building yet?"],"After testing":["What worked?","What failed?","What did users do that we did not expect?","Does the problem need to be redefined?"],"Final reflection":["What did we learn about learning?","What did we learn about AI and design?","What would we change?","How did our team work together?"]};
-const reflections=[];
-function showReflectionPrompts(){const s=document.getElementById("stage").value;document.getElementById("reflection-prompts").innerHTML=`<strong>Consider:</strong><ul>${reflectionPrompts[s].map(x=>`<li>${x}</li>`).join("")}</ul>`}
-document.getElementById("stage").onchange=showReflectionPrompts;showReflectionPrompts();
-document.getElementById("add-reflection").onclick=()=>{const stage=document.getElementById("stage").value,response=document.getElementById("response").value.trim(),next=document.getElementById("next-action").value.trim();if(!response){alert("Enter a reflection.");return;}reflections.push({stage,response,next});document.getElementById("reflection-list").innerHTML=reflections.map(x=>`<article class="card"><span class="audience-label">${x.stage}</span><p>${escapeHtml(x.response)}</p><p><strong>Next:</strong> ${escapeHtml(x.next)}</p></article>`).join("");document.getElementById("response").value="";document.getElementById("next-action").value=""};
-document.getElementById("download-reflections").onclick=()=>downloadText("design-reflections.txt",reflections.map((x,i)=>`${i+1}. ${x.stage}\n${x.response}\nNEXT: ${x.next}`).join("\n\n"));
 function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function downloadText(name,text,type="text/plain"){const b=new Blob([text],{type});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href)}
 
@@ -272,7 +322,5 @@ if(addTest){addTest.onclick=()=>{const ids=["test-stage","test-question","user-t
 const downloadTests=document.getElementById("download-test-records");
 if(downloadTests){downloadTests.onclick=()=>downloadText("testing-revision-log.txt",testRecords.map((x,i)=>`TEST ${i+1}\nSTAGE: ${x[0]}\nQUESTION: ${x[1]}\nUSER TRIED: ${x[2]}\nHESITATED/MISUNDERSTOOD: ${x[3]}\nUSED/IGNORED: ${x[4]}\nSAID/DID: ${x[5]}\nLEARNING CHANGE: ${x[6]}\nREVISION: ${x[7]}`).join("\n\n"));}
 </script>
-
-
-<footer><div class="footer-inner"><div class="footer-intro"><strong>Student AI Learning Innovation League</strong><p>A human-centered learning-design program in which students investigate authentic learning challenges, study how people learn, create learning tools, test them with users, and improve them through feedback.</p></div><div class="footer-groups"><div class="footer-group"><h3>About</h3><a href="about.html">What the League is</a><a href="about.html#hunter">Hunter College pathways</a><a href="about.html#team">Project team</a></div><div class="footer-group"><h3>Advisors</h3><a href="advisors.html#implementation">Implementation steps</a><a href="advisors.html#schedules">Schedules</a><a href="advisors.html#curriculum">Five-lesson curriculum</a></div><div class="footer-group"><h3>Students</h3><a href="students.html#journey">Student journey</a><a href="students.html#roles">Team roles</a><a href="students.html#presentation">Presentation guidance</a></div><div class="footer-group"><h3>Project Studio</h3><a href="project-studio.html#problem">Problem Size Check</a><a href="project-studio.html#matcher">Strategy Matcher</a><a href="project-studio.html#prompt">Prompt Builder</a></div><div class="footer-group"><h3>Help</h3><a href="families.html">Family guide</a><a href="resources.html">External resources</a><a href="mailto:raj.korpan@hunter.cuny.edu">Contact Raj Korpan</a></div></div><div class="footer-note">Questions: <a href="mailto:raj.korpan@hunter.cuny.edu" style="color:white">raj.korpan@hunter.cuny.edu</a></div></div></footer><script src="assets/js/main.js"></script></body>
+<footer><div class="footer-inner"><div class="footer-intro"><strong>Student AI Learning Innovation League</strong><p>A human-centered learning-design program in which students investigate authentic learning challenges, study how people learn, create learning tools, test them with users, and improve them through feedback.</p></div><div class="footer-groups"><div class="footer-group"><h3>About</h3><a href="about.html">What the League is</a><a href="about.html#hunter">Hunter College pathways</a><a href="about.html#team">Project team</a></div><div class="footer-group"><h3>Advisors</h3><a href="advisors.html#implementation">Implementation steps</a><a href="advisors.html#schedules">Schedules</a><a href="advisors.html#curriculum">Five-lesson curriculum</a></div><div class="footer-group"><h3>Students</h3><a href="students.html#journey">Student journey</a><a href="students.html#roles">Team roles</a><a href="students.html#presentation">Presentation guidance</a></div><div class="footer-group"><h3>Project Studio</h3><a href="project-studio.html#problem">Problem Size Check</a><a href="project-studio.html#matcher">Strategy Matcher</a><a href="project-studio.html#prompt">Prompt Builder</a></div><div class="footer-group"><h3>Help</h3><a href="families.html">Family guide</a><a href="resources.html">External resources</a><a href="resources.html#contact">Contact</a></div></div><div class="footer-note">Questions about the League? <a href="resources.html#contact" style="color:white">See contact information.</a></div></div></footer><script src="assets/js/main.js"></script></body>
 </html>
