@@ -45,3 +45,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
  .evidence-table-wrap{display:none}.record-cards{display:block}.table-scroll table{min-width:680px}
 }
 @media(max-width:480px){.action-path{grid-template-columns:repeat(2,minmax(0,1fr))}.studio-links a{grid-template-columns:1fr}.progress-state{margin-left:0;justify-self:start}}
+
+
+/* Adaptive club planner */
+.planner-logic{margin:1rem 0 1.25rem}.generated-plan{margin-top:1.1rem;display:grid;gap:1rem;color:var(--ink)}
+.generated-plan-placeholder{padding:1rem 1.15rem;border:1px dashed var(--border);border-radius:14px;background:#fff;color:var(--muted)}
+.plan-status-card{padding:1.15rem;border-radius:16px;border:2px solid var(--border);background:#fff}
+.plan-status-card.ready{border-color:#4b8f73;background:#f1faf6}.plan-status-card.adjust{border-color:#c49525;background:#fffaf0}.plan-status-card.blocked{border-color:#b84f4f;background:#fff5f5}
+.plan-status-label{display:inline-block;padding:.25rem .55rem;border-radius:999px;background:var(--navy);color:#fff;font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.plan-status-card h3{margin:.65rem 0 .35rem}.plan-status-card p{margin:.25rem 0}
+.plan-section{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.15rem;box-shadow:0 6px 16px rgba(23,50,77,.05)}
+.plan-section h3{margin-top:0}.plan-section h4{margin:1rem 0 .35rem}.plan-section ul,.plan-section ol{margin-bottom:0}
+.plan-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}.plan-config div{padding:.7rem;border-radius:11px;background:var(--soft);border:1px solid var(--border)}.plan-config strong{display:block;color:var(--navy);font-size:.84rem}
+.plan-calendar{display:grid;gap:.75rem}.plan-calendar-item{padding:.9rem;border-left:5px solid var(--blue);border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:0 13px 13px 0;background:#fff}.plan-calendar-item h4{margin:0 0 .35rem}.plan-calendar-item p{margin:.25rem 0}.plan-calendar-meta{font-size:.9rem;color:var(--muted)}
+.plan-priority-list{display:grid;gap:.65rem}.plan-priority{padding:.85rem 1rem;border-radius:12px;border:1px solid var(--border)}.plan-priority.required{border-left:6px solid #b84f4f;background:#fff5f5}.plan-priority.strong{border-left:6px solid #c49525;background:#fffaf0}.plan-priority.helpful{border-left:6px solid var(--teal);background:#f1faf9}.plan-priority strong{display:block;color:var(--navy)}.plan-priority span{display:block;color:var(--muted);font-size:.92rem;margin-top:.2rem}
+.plan-note{padding:.8rem 1rem;border-radius:12px;background:#eef6fb;border:1px solid #cbdfea}.plan-empty{color:var(--muted);font-style:italic}
+@media(max-width:850px){.plan-config{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.plan-config{grid-template-columns:1fr}.generated-plan{gap:.8rem}.plan-section,.plan-status-card{padding:1rem}}
