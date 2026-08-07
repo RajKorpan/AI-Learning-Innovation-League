@@ -87,3 +87,309 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:480px){.journey-stage-card{padding:.85rem}.journey-stage-copy strong{font-size:1.05rem}.studio-flow-row{grid-template-columns:1fr 1fr}}
 .example-picker{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin:.2rem 0 1rem}.example-picker>span{font-size:.82rem;font-weight:900;color:var(--navy);margin-right:.15rem}.example-picker button{font:inherit;border:1px solid var(--border);background:#fff;color:var(--navy);border-radius:999px;padding:.42rem .68rem;font-size:.84rem;font-weight:800;cursor:pointer}.example-picker button.is-selected{background:var(--navy);border-color:var(--navy);color:#fff}
 .advisor-checkpoint-card{border:2px solid #f0d584;border-radius:18px;background:#fffaf0;padding:1.1rem 1.2rem}.advisor-checkpoint-card h2{font-size:1.5rem;margin:.5rem 0}.advisor-checkpoint-card p{margin:.25rem 0}
+
+
+/* Student journey formatting repair — scoped to the student landing page and six stage pages */
+.student-journey-page .student-hero .inner,
+.student-stage-page .stage-hero .inner{
+  max-width:var(--max);
+  padding-left:1.25rem;
+  padding-right:1.25rem;
+}
+.student-journey-page .student-hero h1,
+.student-stage-page .stage-hero h1{
+  max-width:18ch;
+  font-size:clamp(2.35rem,4.3vw,3.9rem);
+}
+.student-journey-page .student-hero .lead,
+.student-stage-page .stage-hero .lead{
+  max-width:74ch;
+}
+.student-journey-page .page-layout,
+.student-stage-page .page-layout{
+  grid-template-columns:260px minmax(0,1fr);
+  gap:2rem;
+  align-items:start;
+}
+.student-journey-page .page-content,
+.student-stage-page .page-content{
+  min-width:0;
+  width:100%;
+}
+.student-journey-page .page-content>section,
+.student-stage-page .page-content>section{
+  overflow:visible;
+}
+.student-journey-page .page-content>section.section-soft{
+  margin-left:0;
+  margin-right:0;
+  padding:1.5rem;
+}
+.student-journey-page .page-content>section.section-soft>.inner{
+  width:100%;
+}
+.student-journey-page .section-heading-row{
+  align-items:flex-start;
+}
+.student-journey-page .journey-stage-map{
+  gap:.9rem;
+}
+.student-journey-page .journey-stage-card{
+  grid-template-columns:50px minmax(0,1fr) max-content;
+  min-width:0;
+  padding:1.05rem 1.15rem;
+  overflow:hidden;
+}
+.student-journey-page .journey-stage-number{
+  width:46px;
+  height:46px;
+  min-width:46px;
+  aspect-ratio:1;
+  line-height:1;
+  place-self:center;
+}
+.student-journey-page .journey-stage-copy{
+  min-width:0;
+}
+.student-journey-page .journey-stage-copy>span:not(.journey-stage-design),
+.student-journey-page .journey-stage-copy small{
+  line-height:1.45;
+}
+.student-journey-page .journey-stage-state{
+  align-self:center;
+  justify-self:end;
+}
+.student-journey-page .support-mode-grid{
+  align-items:stretch;
+}
+.student-journey-page .support-mode-card{
+  appearance:none;
+  -webkit-appearance:none;
+  min-width:0;
+  min-height:132px;
+  align-content:start;
+  align-items:start;
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+.student-journey-page .support-mode-card strong,
+.student-journey-page .support-mode-card span{
+  display:block;
+  width:100%;
+}
+.student-journey-page .example-team-grid{
+  align-items:stretch;
+}
+.student-journey-page .example-project{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  height:100%;
+}
+.student-journey-page .example-project>a{
+  margin-top:auto;
+  padding-top:.7rem;
+  font-weight:800;
+}
+.student-journey-page .role-chip-grid{
+  gap:.75rem;
+}
+.student-journey-page .role-chip{
+  min-width:0;
+}
+
+.student-stage-page .stage-hero-meta{
+  align-items:stretch;
+  gap:.65rem;
+}
+.student-stage-page .stage-hero-meta span{
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+  min-height:44px;
+}
+.student-stage-page .journey-sidebar{
+  overflow-x:hidden;
+}
+.student-stage-page .stage-sidebar-list{
+  gap:.4rem;
+}
+.student-stage-page .stage-sidebar-link{
+  grid-template-columns:30px minmax(0,1fr);
+  column-gap:.6rem;
+  min-width:0;
+  padding:.62rem;
+}
+.student-stage-page .stage-sidebar-link>span:nth-child(2),
+.student-stage-page .stage-sidebar-link b{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.student-stage-page .stage-sidebar-link b{
+  grid-column:2;
+  margin-top:.15rem;
+}
+.student-stage-page .stage-task-strip{
+  align-items:stretch;
+  margin-bottom:.35rem;
+}
+.student-stage-page .stage-task-strip>div{
+  min-width:0;
+  min-height:105px;
+  align-content:start;
+}
+.student-stage-page .stage-task-strip strong{
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+.student-stage-page .stage-step-stack article{
+  grid-template-columns:42px minmax(0,1fr);
+  align-items:start;
+}
+.student-stage-page .stage-step-stack article>span{
+  flex:none;
+  line-height:1;
+}
+.student-stage-page .stage-step-stack article>div{
+  min-width:0;
+}
+.student-stage-page .grid.two,
+.student-stage-page .grid.three{
+  align-items:stretch;
+}
+.student-stage-page .tool-route-card{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  height:100%;
+}
+.student-stage-page .tool-route-card>.actions,
+.student-stage-page .tool-route-card>a:last-child{
+  margin-top:auto;
+}
+.student-stage-page .example-picker{
+  align-items:center;
+}
+.student-stage-page .example-picker button{
+  line-height:1.25;
+}
+.student-stage-page .example-thread,
+.student-stage-page .advisor-checkpoint-card,
+.student-stage-page .access-check,
+.student-stage-page .stage-complete-zone{
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
+.student-stage-page .build-path-grid button{
+  min-width:0;
+  min-height:116px;
+  align-content:start;
+}
+.student-stage-page .share-story-grid>div{
+  min-width:0;
+  align-content:start;
+}
+.student-stage-page .page-next{
+  max-width:var(--max);
+  padding-left:calc(260px + 3.25rem);
+}
+
+@media(max-width:1050px){
+  .student-journey-page .page-layout,
+  .student-stage-page .page-layout{
+    grid-template-columns:220px minmax(0,1fr);
+    gap:1.25rem;
+  }
+  .student-stage-page .page-next{
+    padding-left:calc(220px + 2.5rem);
+  }
+  .student-journey-page .journey-stage-card{
+    grid-template-columns:46px minmax(0,1fr);
+  }
+  .student-journey-page .journey-stage-state{
+    grid-column:2;
+    justify-self:start;
+    margin-top:.25rem;
+  }
+  .student-journey-page .role-chip-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:780px){
+  .student-journey-page .student-hero .inner,
+  .student-stage-page .stage-hero .inner{
+    padding-top:2.6rem;
+    padding-bottom:2.25rem;
+  }
+  .student-journey-page .student-hero h1,
+  .student-stage-page .stage-hero h1{
+    font-size:clamp(2rem,10vw,3rem);
+  }
+  .student-journey-page .page-layout,
+  .student-stage-page .page-layout{
+    display:block;
+    padding-top:.8rem;
+  }
+  .student-journey-page .page-content>section,
+  .student-stage-page .page-content>section{
+    padding:2rem 0;
+  }
+  .student-journey-page .page-content>section.section-soft{
+    padding:1.15rem;
+  }
+  .student-journey-page .support-mode-grid,
+  .student-journey-page .role-chip-grid,
+  .student-stage-page .stage-task-strip,
+  .student-stage-page .build-path-grid,
+  .student-stage-page .share-story-grid{
+    grid-template-columns:1fr;
+  }
+  .student-journey-page .support-mode-card{
+    min-height:0;
+  }
+  .student-stage-page .page-next{
+    padding-left:1.25rem;
+  }
+  .student-stage-page .stage-sidebar-list{
+    display:grid;
+    gap:.35rem;
+  }
+  .student-stage-page .stage-sidebar-link{
+    grid-template-columns:30px minmax(0,1fr);
+  }
+}
+
+@media(max-width:520px){
+  .student-journey-page .journey-stage-card{
+    grid-template-columns:40px minmax(0,1fr);
+    padding:.9rem;
+    gap:.75rem;
+  }
+  .student-journey-page .journey-stage-number{
+    width:38px;
+    height:38px;
+    min-width:38px;
+  }
+  .student-journey-page .journey-stage-state{
+    grid-column:1 / -1;
+    justify-self:start;
+    margin-left:calc(40px + .75rem);
+  }
+  .student-stage-page .stage-step-stack article{
+    grid-template-columns:36px minmax(0,1fr);
+    gap:.7rem;
+    padding:.9rem;
+  }
+  .student-stage-page .stage-step-stack article>span{
+    width:34px;
+    height:34px;
+  }
+  .student-stage-page .actions{
+    align-items:stretch;
+  }
+  .student-stage-page .actions .button,
+  .student-journey-page .actions .button{
+    text-align:center;
+  }
+}
