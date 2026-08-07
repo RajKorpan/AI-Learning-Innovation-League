@@ -19,7 +19,7 @@ The process is iterative; later stages are not hard-locked.
 
 ## Advisor flow
 
-The Advisor page preserves operational implementation planning while adding a facilitation layer that maps five lessons to the six visible student stages. Each lesson contains Goal, Before You Meet, Core Session Sequence, Questions to Ask, Watch For, Adapt It, Materials, Optional Extension, and a just-in-time background module.
+The Advisor page preserves operational implementation planning while adding a facilitation layer that maps five lessons to the six visible student stages. Each lesson contains Goal, Before You Meet, Core Session Sequence, Questions to Ask, Watch For, Adapt It, Materials, Optional Extension, and a short explanation embedded where the concept is taught module.
 
 ## Project Studio
 

@@ -19,7 +19,7 @@ Student support can be set to Guided, Supported, or Independent. The guided wiza
 
 - Student-led: Interview Coach, Resource Inventor, Idea Board, Prototype Planner, Prompt Builder when relevant, Testing & Revision, Sharing Event Builder.
 - Student + advisor: Learning Breakdown Mapper, Claim & Evidence Tracker, Strategy Explorer, Choose Your Build, major testing/build checkpoints.
-- Advisor: Build Your Club Plan, facilitator guidance, accessibility/family planning, local implementation notes.
+- Advisor: Build Your Club Plan, facilitator guidance, accessibility/family planning.
 
 ## Data behavior
 
@@ -31,7 +31,6 @@ The interactive website is static and does not send tool entries to a server. Jo
 - `assets/js/journey.js` — six-stage progress, project lens, support mode, build-path state, example threads
 - `assets/js/stage-tools.js` — embedded student-stage tools and deterministic recommendation logic
 - `assets/js/club-planner.js` — adaptive advisor club planner
-- `assets/js/advisor-notes.js` — local advisor implementation notes
 
 
 ## Advisor lesson pages
