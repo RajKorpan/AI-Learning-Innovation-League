@@ -1,75 +1,37 @@
-# Student Journey and Project Studio Structure
+# Structure and flow
 
-This revision changes **organization and flow**, not the underlying content or algorithms of the current Project Studio tools. The original tool implementations remain in `tool-lab.html`.
+The website is designed to function as the implementation environment for the League rather than as a separate curriculum manual plus a tool library.
 
-## Student Journey
+## Student flow
 
-The student experience now uses six stage pages:
+Students start at `students.html`, choose whether the project is intended to help themselves or someone else learn, select a scaffolding mode, and move through six stage pages. Each page includes:
 
-1. `student-empathize.html` — Understand the Challenge / Empathize
-2. `student-define.html` — Find the Breakdown / Define
-3. `student-ideate.html` — Invent Possibilities / Ideate
-4. `student-prototype.html` — Build Something Small / Prototype
-5. `student-test.html` — Put It to the Test / Test
-6. `student-share.html` — Tell the Story / Share
+- mission / goal / artifact
+- a short Learning Lab about human learning and AI
+- a visible action path for the stage
+- only the tools needed in that stage
+- a running example thread
+- an advisor checkpoint when the decision is consequential
+- an accessibility check
+- a completion control that updates journey progress locally
 
-`students.html` is now a journey map rather than a long project manual.
+The process is iterative; later stages are not hard-locked.
 
-### Progress logic
+## Advisor flow
 
-`assets/js/journey.js` stores three lightweight settings in browser `localStorage`:
+The Advisor page preserves operational implementation planning while adding a facilitation layer that maps five lessons to the six visible student stages. Each lesson contains Goal, Before You Meet, Core Session Sequence, Questions to Ask, Watch For, Adapt It, Materials, Optional Extension, and a just-in-time background module.
 
-- completed stage numbers
-- preferred support level (Guided / Supported / Independent)
-- selected build path during Prototype
+## Project Studio
 
-This is intentionally a **soft progression**. Later stages are never technically locked. The map marks the first unfinished stage as “Up next” while still allowing students and advisors to preview or revisit any stage.
+`project-studio.html` is now a routing map and ownership guide. It does not present a long all-tools workspace. Student tools link directly to the stage where they are used.
 
-## Tool ownership
+## Build pathways
 
-### Student
-- Interview Coach (new)
-- What Do You Have? Resource Inventor (new)
-- Idea Board (new)
-- Prototype Planner
-- Prompt Builder when the selected build path needs it
-- Testing & Revision
-- Sharing Event Builder (new)
+Prototype uses four non-ranking technical pathways:
 
-### Student + advisor
-- Learning Breakdown Mapper (planned consolidation of Problem Size Check + Task Analysis + relevant Learning Progression)
-- Claim & Evidence Tracker
-- Strategy Explorer
-- Choose Your Build (current Product-Type Decision)
-- Advanced Build Guidance
+- Path A: AI helps you make something; the final learning tool may be non-AI.
+- Path B: Guided AI tool.
+- Path C: Independently design and iterate AI behavior.
+- Path D: Advanced digital build.
 
-### Advisor
-- Build Your Club Plan
-- Accessibility implementation check
-- Implementation Notes (new)
-- Sharing-Event Readiness (new)
-
-## Build paths
-
-Prototype stage separates technical complexity from journey progress:
-
-- Path A — AI helps you make something
-- Path B — Guided AI tool
-- Path C — Design AI behavior more independently
-- Path D — Advanced digital build
-
-The paths are not rankings.
-
-## Support levels
-
-The journey also separates student independence from technical complexity:
-
-- Guided
-- Supported
-- Independent
-
-The selected support mode is currently saved and displayed. Tool content can later adapt to that mode without changing the page architecture.
-
-## Current tool preservation
-
-No current tool algorithm was removed or rewritten in this pass. `tool-lab.html` contains the previous Project Studio so all existing tools remain usable while their future consolidated flows are designed.
+A more technical pathway is not treated as a stronger project.

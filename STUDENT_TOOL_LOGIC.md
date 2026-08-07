@@ -1,78 +1,47 @@
-# Student Tool Logic
+# Embedded student tool logic
 
-The Project Studio uses transparent, deterministic browser logic. It does not send entries to a server, call a generative AI model, or automatically save work.
+All tools run in the browser with deterministic JavaScript. They do not call a generative AI model.
 
-## Adaptive Problem Size Check
+## Empathize — Interview Coach
 
-The tool calculates a feasibility score from:
+Uses project lens (self/other), interview purpose, and learning focus to generate neutral starter questions. Students then record repeated themes, observations, changed assumptions, and unanswered questions.
 
-- Problem focus
-- Observable evidence of learning
-- Evidence sources
-- Timeline-to-scope fit
-- Access to testing
-- Action-based versus deficit language
-- Expected product scope
-- Understanding of prerequisites
-- Breadth of the intended learner group
+## Define — Learning Breakdown Mapper
 
-Essential conditions receive more weight than optional conditions. The tool also applies combination rules, including broad problems in short timelines, varied learner groups without a shared bottleneck, motivation goals without observable behavior, platform-level ambitions, unknown prerequisites, and missing learner or teacher-client evidence.
+A guided 11-step wizard asks for project lens, broad challenge, overall task, step sequence, existing success, first breakdown, possible prerequisite/process, evidence, access explanation, observable success, and scope. It calculates a readiness score and classifies the challenge as Too Broad, Almost There, or Ready to Design. Missing direct evidence, an undefined bottleneck, unchecked access explanations, an unobservable success target, or broad scope can block readiness. It synthesizes “can already,” “breakdown,” evidence, and a focused problem frame.
 
-The output includes a readiness status, score, evidence-base rating, strengths, blockers, tailored next revisions, cautions, a problem-frame template, and a target-specific evidence recommendation.
+## Define — Claim & Evidence Tracker
 
-## Adaptive Strategy Matcher
+Stores claims, evidence/source, evidence type, current evidence strength, and design implication. AI suggestions receive a visible warning that they are not evidence until independently verified.
 
-Twelve strategy profiles are scored against:
+## Ideate — Strategy Explorer
 
-- Learning breakdown
-- Desired mental action
-- Learner stage
-- Current support
-- Error pattern
-- Evidence quality
-- Practice context
-- Practice frequency
-- Feedback type
-- Feedback timing
-- Fading method
-- Access and format constraints
+Scores ten learning-strategy profiles from the reported breakdown, desired learner action, current learner stage, feedback needs, practice context, evidence quality, and access/design constraints. Returns three ranked strategies with explanations, product possibilities, testing ideas, cautions, and an evidence-confidence label.
 
-The text fields affect the confidence rating and evidence recommendations. The highest-scoring profiles are returned as a sequence rather than an isolated list. The tool also generates a feedback plan, fading plan, access and format recommendations, cautions, and a testing recommendation.
+## Ideate — Resource Inventor
 
-The profiles are hypotheses to verify through learning-science research and user testing. They are not diagnoses.
+Combines the chosen strategy, target learner action, and available materials/people/spaces/devices to produce three deliberately different activity directions: low-tech/physical, social/role-based, and digital/AI-assisted or a paper simulation when technology is unavailable.
 
-## Adaptive Product-Type Decision
+## Ideate — Idea Board
 
-The tool compares four paths:
+Requires a five-idea sprint: no AI, use existing resources, people/social, AI-supported, and wild card. Resource Inventor outputs can be loaded as starting directions but students must refine them.
 
-1. Non-AI learning tool
-2. AI-assisted non-AI tool
-3. Conversational AI tool
-4. Custom application
+## Prototype — Choose Your Build
 
-Scores are adjusted using:
+Scores ten concrete product forms: printable resource, physical game, practice routine, interactive activity, AI-generated content, conversational AI, role-play simulation, AI-supported physical activity, multimedia resource, and advanced app. Inputs include learner action, feedback adaptivity, conversation need, build time, technical experience, technology access, specific access needs, platform approval, data sensitivity, and—when available—resources selected in Ideate. It applies blockers to AI/digital paths when platform or data conditions are unresolved and returns three recommended forms plus the smallest prototype for each.
 
-- Learner action
-- Interaction need
-- Response variability
-- Feedback need
-- Data sensitivity
-- Account and platform approval
-- Technical capacity
-- Timeline
-- Testing access
-- Connectivity
-- Maintenance capacity
-- Five explicit decision gates
+## Prototype — Prototype Planner
 
-Hard blockers are applied to conversational or custom paths when sensitive data, prohibited or uncertain platforms, unverified generated feedback, or unsafe testing make those paths inappropriate. The output includes a primary path, backup path, comparison scores, blockers, matched conditions, minimum prototype, safeguards, next decisions, and testing plan.
+Produces a low-resolution plan from one test question, prototype form, required learner attempt, materials, deliberately omitted features, accessibility plan, and first test.
 
-## Guided Prompt Builder
+## Prototype — Guided Prompt Builder
 
-The Prompt Builder asks seventeen questions one at a time. Each question includes:
+Begins with the student's own first prompt. A one-question-at-a-time 13-question wizard then makes explicit the product/interaction format, learner, breakdown, learner action, sequence, productive struggle, feedback, resources, limits, accessibility, fading, evidence of learning, and options mode. Guided/Supported/Independent modes change how much explanation is displayed. The tool assembles Draft 1, shows it beside the student's first prompt, requires test notes, and then creates Draft 2 with the student's revision decision appended. Prompt Builder is visually gated by the selected build pathway.
 
-- Why the decision matters
-- How to respond
-- A concrete example
+## Test — Testing & Revision
 
-Answers are stored only in temporary browser memory and update a live prompt. Students can move backward, jump among completed questions, review all answers, or prefill several questions from completed Project Studio tools. The final prompt includes interaction sequence, productive struggle, feedback, reflection, motivation, accessibility, fading, limits, measurement, verification, and escalation rules.
+Creates a focused test plan from tester, test question, exact task, observable success evidence, observation targets, and stopping rule. Multiple test records capture behavior, confusion/help, learning evidence, access issues, and the evidence-based revision.
+
+## Share — Sharing Event Builder
+
+Creates a presentation outline from the learning challenge, empathy/research findings, what the team learned about human learning, what it learned about AI, design rationale, evidence, testing, revision, demo, limitations, next steps, and accessible backup.

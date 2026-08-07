@@ -1,33 +1,34 @@
-# Student AI Learning Innovation League — Journey Structure Revision
+# Student AI Learning Innovation League website
 
-This revision focuses on **organization, navigation, and flow logic** before the next content/tool-development pass.
+This static public website is organized around three audience pathways—advisors, students, and families—and a six-stage student League Journey:
 
-## What changed
+1. Empathize — Understand the Challenge
+2. Define — Find the Breakdown
+3. Ideate — Invent Possibilities
+4. Prototype — Build Something Small
+5. Test — Put It to the Test
+6. Share — Tell the Story
 
-- The public top navigation remains: Home, About, Advisors, Students, Families, Project Studio, Resources.
-- `students.html` is now a visual **six-stage League Journey map** rather than one long student manual.
-- Six stage pages organize student work around:
-  1. Empathize — Understand the Challenge
-  2. Define — Find the Breakdown
-  3. Ideate — Invent Possibilities
-  4. Prototype — Build Something Small
-  5. Test — Put It to the Test
-  6. Share — Tell the Story
-- Browser-local progress logic marks stages Complete / Up next / Preview without hard-locking later stages.
-- Students can select a scaffolding level: Guided, Supported, or Independent.
-- Prototype has four **build paths** that are explicitly not rankings.
-- Three example projects can be followed across all six stages.
-- Project Studio is now a **role-based hub** rather than the all-tools workspace.
-- Tools are organized as Student, Student + Advisor, or Advisor tools.
-- The previous full interactive Project Studio is preserved as `tool-lab.html`; tool algorithms were intentionally not redesigned in this pass.
-- The Advisor page now includes a concise tool-ownership map.
+## Student experience
 
-## Current tool preservation
+The Student page is a journey map. Each stage has its own page and embeds only the tools needed at that point. Students may design a tool to help themselves or someone else learn. Every stage also includes explicit reflection on human learning and AI.
 
-The adaptive Problem Size Check, Strategy Matcher, Product-Type Decision, Prompt Builder, Testing Log, and other existing interactive tools are still available in `tool-lab.html` and use the existing `assets/js/studio-tools.js` logic.
+Student support can be set to Guided, Supported, or Independent. The guided wizards show more explanation/examples; Independent mode keeps help available on demand.
 
-The adaptive advisor club planner remains unchanged on `advisors.html` and continues to use `assets/js/club-planner.js`.
+## Tool ownership
 
-## Flow documentation
+- Student-led: Interview Coach, Resource Inventor, Idea Board, Prototype Planner, Prompt Builder when relevant, Testing & Revision, Sharing Event Builder.
+- Student + advisor: Learning Breakdown Mapper, Claim & Evidence Tracker, Strategy Explorer, Choose Your Build, major testing/build checkpoints.
+- Advisor: Build Your Club Plan, facilitator guidance, accessibility/family planning, local implementation notes.
 
-See `STRUCTURE_AND_FLOW.md` for the proposed consolidation of tools, ownership, stage routing, support levels, and build paths.
+## Data behavior
+
+The interactive website is static and does not send tool entries to a server. Journey state and selected tool records use browser localStorage when available. Download buttons create local text files in the browser.
+
+## Main scripts
+
+- `assets/js/main.js` — navigation and general page behavior
+- `assets/js/journey.js` — six-stage progress, project lens, support mode, build-path state, example threads
+- `assets/js/stage-tools.js` — embedded student-stage tools and deterministic recommendation logic
+- `assets/js/club-planner.js` — adaptive advisor club planner
+- `assets/js/advisor-notes.js` — local advisor implementation notes

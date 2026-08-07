@@ -40,10 +40,10 @@ function getState(){
     const raw=localStorage.getItem(KEY);
     if(raw){
       const s=JSON.parse(raw);
-      return {completed:Array.isArray(s.completed)?s.completed:[],support:s.support||'guided',buildPath:s.buildPath||''};
+      return {completed:Array.isArray(s.completed)?s.completed:[],support:s.support||'guided',buildPath:s.buildPath||'',projectLens:s.projectLens||'other'};
     }
   }catch(e){}
-  return {completed:[],support:'guided',buildPath:''};
+  return {completed:[],support:'guided',buildPath:'',projectLens:'other'};
 }
 function saveState(s){try{localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}}
 function firstIncomplete(s){for(let i=1;i<=6;i++)if(!s.completed.includes(i))return i;return 6;}
@@ -117,6 +117,15 @@ function update(){
     el.textContent=complete.size===0?'Start Stage 1':complete.size===6?'Review your journey':`Resume: ${stageNames[next-1]}`;
   });
   document.querySelectorAll('[data-support-label]').forEach(el=>el.textContent=supportName(s.support));
+  document.querySelectorAll('[data-project-lens-label]').forEach(el=>el.textContent=s.projectLens==='self'?'Help myself learn':'Help someone else learn');
+  document.querySelectorAll('[data-project-lens-subject]').forEach(el=>el.textContent=s.projectLens==='self'?'I':'The learner');
+  document.querySelectorAll('[data-project-lens]').forEach(el=>{
+    const selected=el.dataset.projectLens===s.projectLens;
+    el.classList.toggle('is-selected',selected);
+    el.setAttribute('aria-checked',String(selected));
+    el.setAttribute('role','radio');
+  });
+  document.body.dataset.projectLens=s.projectLens;
   document.querySelectorAll('[data-support-choice]').forEach(el=>{
     const selected=el.dataset.supportChoice===s.support;
     el.classList.toggle('is-selected',selected);
@@ -133,6 +142,9 @@ function update(){
   updateExample();
 }
 
+document.querySelectorAll('[data-project-lens]').forEach(btn=>btn.addEventListener('click',()=>{
+  const s=getState(); s.projectLens=btn.dataset.projectLens; saveState(s); update();
+}));
 document.querySelectorAll('[data-support-choice]').forEach(btn=>btn.addEventListener('click',()=>{
   const s=getState(); s.support=btn.dataset.supportChoice; saveState(s); update();
 }));
