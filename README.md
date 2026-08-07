@@ -1,30 +1,33 @@
-# Student AI Learning Innovation League — Public Usability Update
+# Student AI Learning Innovation League — Journey Structure Revision
 
-This version implements the full website review recommendations while retaining the seven-page public structure.
+This revision focuses on **organization, navigation, and flow logic** before the next content/tool-development pass.
 
-## Major improvements
-- Collapsible mobile left navigation
-- Responsive student journey
-- Progressive-disclosure Project Studio with tool progress, previous/next controls, consistent copy/download actions, and a combined Project Packet
-- Interactive advisor Build Your Club Plan generator with downloadable schedule and checklist
-- Team roles moved to the start of the student workflow
-- Product tracks integrated into the Imagine stage
-- Standardized sharing-event terminology
-- Participation calls to action for advisors, students, and families
-- Explicit AI literacy, human-versus-machine reasoning, and computational-thinking content
-- Expanded lesson preparation times and materials
-- Responsive tables and mobile evidence cards
-- Grouped checkboxes with fieldsets and legends
-- Visible focus styles
-- Audience labels on external resources
-- No automatic-save warning and consistent Project Studio output controls
+## What changed
 
+- The public top navigation remains: Home, About, Advisors, Students, Families, Project Studio, Resources.
+- `students.html` is now a visual **six-stage League Journey map** rather than one long student manual.
+- Six stage pages organize student work around:
+  1. Empathize — Understand the Challenge
+  2. Define — Find the Breakdown
+  3. Ideate — Invent Possibilities
+  4. Prototype — Build Something Small
+  5. Test — Put It to the Test
+  6. Share — Tell the Story
+- Browser-local progress logic marks stages Complete / Up next / Preview without hard-locking later stages.
+- Students can select a scaffolding level: Guided, Supported, or Independent.
+- Prototype has four **build paths** that are explicitly not rankings.
+- Three example projects can be followed across all six stages.
+- Project Studio is now a **role-based hub** rather than the all-tools workspace.
+- Tools are organized as Student, Student + Advisor, or Advisor tools.
+- The previous full interactive Project Studio is preserved as `tool-lab.html`; tool algorithms were intentionally not redesigned in this pass.
+- The Advisor page now includes a concise tool-ownership map.
 
-## Adaptive Build Your Club Plan
+## Current tool preservation
 
-The Advisor page now uses a transparent deterministic rule engine. It creates recommendations from team size, grade band, student experience, implementation format, schedule, meeting length, meeting frequency, adult support, teacher-client status, technology level, family communication, sharing-event format, available supports, and stated access or logistics needs. It identifies incompatible combinations, proposes team and role structures, adjusts meeting routines and calendars, and produces prioritized setup actions. No planner entries are transmitted or stored.
+The adaptive Problem Size Check, Strategy Matcher, Product-Type Decision, Prompt Builder, Testing Log, and other existing interactive tools are still available in `tool-lab.html` and use the existing `assets/js/studio-tools.js` logic.
 
+The adaptive advisor club planner remains unchanged on `advisors.html` and continues to use `assets/js/club-planner.js`.
 
-## Adaptive student tools
+## Flow documentation
 
-The Problem Size Check, Strategy Matcher, and Product-Type Decision now use weighted multi-field rules and combination logic. The Prompt Builder is a seventeen-step guided wizard. See `STUDENT_TOOL_LOGIC.md`.
+See `STRUCTURE_AND_FLOW.md` for the proposed consolidation of tools, ownership, stage routing, support levels, and build paths.
