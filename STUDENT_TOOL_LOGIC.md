@@ -1,47 +1,43 @@
 # Embedded student tool logic
 
-All tools run in the browser with deterministic JavaScript. They do not call a generative AI model.
+The website's guided tools run in the browser. Most use deterministic JavaScript. The Resource Inventor is different: it teaches students to construct a prompt that they may paste into an advisor-approved AI system; the website does not itself call a generative AI service.
 
 ## Empathize — Interview Coach
 
-Uses project lens (self/other), interview purpose, and learning focus to generate neutral starter questions. Students then record repeated themes, observations, changed assumptions, and unanswered questions.
+Uses project lens (self/other), interview purpose, and learning focus to generate neutral starter questions. Students record patterns, observations, changed assumptions, and unanswered questions.
 
 ## Define — Learning Breakdown Mapper
 
-A guided 11-step wizard asks for project lens, broad challenge, overall task, step sequence, existing success, first breakdown, possible prerequisite/process, evidence, access explanation, observable success, and scope. It calculates a readiness score and classifies the challenge as Too Broad, Almost There, or Ready to Design. Missing direct evidence, an undefined bottleneck, unchecked access explanations, an unobservable success target, or broad scope can block readiness. It synthesizes “can already,” “breakdown,” evidence, and a focused problem frame.
+A guided sequence asks for project lens, broad challenge, overall task, task sequence, existing success, first breakdown, possible prerequisite/process, direct evidence, possible access explanation, observable success, and scope. It calculates readiness and classifies the challenge as **Too broad**, **Almost there**, or **Ready to design**. Missing direct evidence, an undefined bottleneck, unchecked access explanations, an unobservable success target, or broad scope can block readiness. It synthesizes what the learner can already do, the likely breakdown, direct evidence, and a focused problem frame.
 
-## Define — Claim & Evidence Tracker
+## Define — Claim & Evidence Tracker (optional supplement)
 
-Stores claims, evidence/source, evidence type, current evidence strength, and design implication. AI suggestions receive a visible warning that they are not evidence until independently verified.
+This is not required for the core Define stage. Use it when an outside learning-science claim materially affects a design choice or an advisor asks students to verify a claim. It stores claims, support/source, evidence type, strength, and design implication. AI suggestions are explicitly marked as not being evidence until independently verified.
 
-## Ideate — Strategy Explorer
+## Ideate — Guided Strategy Explorer
 
-Scores ten learning-strategy profiles from the reported breakdown, desired learner action, current learner stage, feedback needs, practice context, evidence quality, and access/design constraints. Returns three ranked strategies with explanations, product possibilities, testing ideas, cautions, and an evidence-confidence label.
+Asks one question at a time about the breakdown, learner stage, desired mental action, direct evidence, evidence strength, feedback, practice context, and access/design constraints. It scores strategy profiles and returns three ranked possibilities with explanations, product examples, cautions, test ideas, and confidence calibrated to the quality of the evidence.
 
 ## Ideate — Resource Inventor
 
-Combines the chosen strategy, target learner action, and available materials/people/spaces/devices to produce three deliberately different activity directions: low-tech/physical, social/role-based, and digital/AI-assisted or a paper simulation when technology is unavailable.
+Walks students through the learning target, strategy, materials/resources, additional resources, grouping, available time, access requirements, and desired variety. It then generates a detailed prompt for an advisor-approved AI system. The prompt tells AI to create genuinely different learning-activity possibilities that make meaningful use of the resources on hand, preserve learner thinking, include accessibility considerations, and suggest low-resolution prototypes. Students are told to critique and remix the AI output rather than accept a proposed activity unchanged.
 
-## Ideate — Idea Board
+## Ideate — Five-Idea Sprint
 
-Requires a five-idea sprint: no AI, use existing resources, people/social, AI-supported, and wild card. Resource Inventor outputs can be loaded as starting directions but students must refine them.
+Replaces a large text-box Idea Board with five short creative rounds: no-AI, use-what-you-have, social/people, critique-and-remix an AI possibility, and wild card. Students can request a random design twist and then shortlist up to two ideas for discussion.
 
-## Prototype — Choose Your Build
+## Prototype — Guided Build Planner
 
-Scores ten concrete product forms: printable resource, physical game, practice routine, interactive activity, AI-generated content, conversational AI, role-play simulation, AI-supported physical activity, multimedia resource, and advanced app. Inputs include learner action, feedback adaptivity, conversation need, build time, technical experience, technology access, specific access needs, platform approval, data sensitivity, and—when available—resources selected in Ideate. It applies blockers to AI/digital paths when platform or data conditions are unresolved and returns three recommended forms plus the smallest prototype for each.
-
-## Prototype — Prototype Planner
-
-Produces a low-resolution plan from one test question, prototype form, required learner attempt, materials, deliberately omitted features, accessibility plan, and first test.
+Combines the former product-type decision, technical build-path decision, and prototype planner. The first guided sequence considers learner action, feedback/conversation needs, time, technical experience, technology access, accessibility, platform approval, data sensitivity, and available resources. It ranks concrete product forms and identifies blocked or risky options. After students choose a form, a second guided sequence selects an appropriate technical pathway and creates the smallest testable prototype plan.
 
 ## Prototype — Guided Prompt Builder
 
-Begins with the student's own first prompt. A one-question-at-a-time 13-question wizard then makes explicit the product/interaction format, learner, breakdown, learner action, sequence, productive struggle, feedback, resources, limits, accessibility, fading, evidence of learning, and options mode. Guided/Supported/Independent modes change how much explanation is displayed. The tool assembles Draft 1, shows it beside the student's first prompt, requires test notes, and then creates Draft 2 with the student's revision decision appended. Prompt Builder is visually gated by the selected build pathway.
+Used only when the learning interaction genuinely benefits from generative/conversational AI. The first step explicitly asks students to tell AI what it is supposed to do in their own first prompt. The one-question-at-a-time builder then makes the learning-design decisions more explicit. Students compare their first prompt with Draft 1, test Draft 1 in an approved system, record what happened, and create Draft 2 from their own revision decision.
 
-## Test — Testing & Revision
+## Test — Guided Testing & Revision
 
-Creates a focused test plan from tester, test question, exact task, observable success evidence, observation targets, and stopping rule. Multiple test records capture behavior, confusion/help, learning evidence, access issues, and the evidence-based revision.
+Phase 1 asks one question at a time to establish the tester, test question, exact task, observable success, observation targets, and stopping/redefinition rule. Students then run the test. Phase 2 asks one question at a time about actual behavior, confusion/help, learning evidence, accessibility/usability barriers, and the revision. The record is added to a testing log and students are encouraged to retest.
 
 ## Share — Sharing Event Builder
 
-Creates a presentation outline from the learning challenge, empathy/research findings, what the team learned about human learning, what it learned about AI, design rationale, evidence, testing, revision, demo, limitations, next steps, and accessible backup.
+Asks one question at a time about the challenge, what the team learned by listening, what it learned about human learning, what it learned about AI, the design and rationale, testing, revision, focused demo, limitations, next step, and accessible backup. It assembles these into a sharing-event outline.

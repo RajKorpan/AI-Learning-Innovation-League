@@ -35,3 +35,18 @@ Prototype uses four non-ranking technical pathways:
 - Path D: Advanced digital build.
 
 A more technical pathway is not treated as a stronger project.
+
+## Current guided lesson and tool flow
+
+Advisor lesson pages now begin with a choice between a 45-minute lesson and a 90-minute version delivered as two 45-minute sessions. That choice reveals one matching detailed Lesson Plan; there is no separate generic core activity guide. Teaching background is embedded inside the activity where an advisor needs it. Differentiation appears as vertical, expandable options under Need more?.
+
+The core student tool flow is intentionally stage-specific:
+
+- **Empathize:** Interview Coach.
+- **Define:** Learning Breakdown Mapper. Claim & Evidence Tracker is an optional supplement only when an outside claim needs verification.
+- **Ideate:** guided Strategy Explorer → Resource Inventor prompt builder for an advisor-approved AI system → Five-Idea Sprint.
+- **Prototype:** Guided Build Planner combines product form, technical pathway, and low-resolution prototype planning. Prompt Builder appears when conversational/generative AI behavior is relevant.
+- **Test:** guided test planning → run the test → guided observation and revision record.
+- **Share:** guided Sharing Event Builder assembles the project story and demo plan one decision at a time.
+
+The Resource Inventor does not call an AI service. It teaches students to construct a detailed prompt that asks an approved AI system to propose creative learning activities using the materials, people, spaces, time, learning target, and learning strategy the team actually has. AI output remains design material to critique and remix.
