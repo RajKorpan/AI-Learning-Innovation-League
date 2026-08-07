@@ -32,3 +32,7 @@ The interactive website is static and does not send tool entries to a server. Jo
 - `assets/js/stage-tools.js` — embedded student-stage tools and deterministic recommendation logic
 - `assets/js/club-planner.js` — adaptive advisor club planner
 - `assets/js/advisor-notes.js` — local advisor implementation notes
+
+
+## Advisor lesson pages
+The five facilitator lessons are now separate pages linked beneath Advisors in the primary navigation: lesson-empathize.html, lesson-define.html, lesson-ideate.html, lesson-prototype.html, and lesson-test.html. The Advisor page is the implementation hub rather than the lesson container.
