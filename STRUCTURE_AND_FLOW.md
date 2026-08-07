@@ -19,11 +19,11 @@ The process is iterative; later stages are not hard-locked.
 
 ## Advisor flow
 
-The Advisor page preserves operational implementation planning while adding a facilitation layer that maps five lessons to the six visible student stages. Each lesson contains Goal, Before You Meet, Core Session Sequence, Questions to Ask, Watch For, Adapt It, Materials, Optional Extension, and a short explanation embedded where the concept is taught module.
+The Advisor page now starts with the advisor role and boundaries, including family communication. A step-by-step Build Your Club Plan wizard then integrates readiness, format choice, recruitment and teacher-client connection, team facilitation, and schedule selection before generating an adaptive plan. The page finishes with one five-lesson hub that maps the lessons to the six visible student stages. Safety and accessibility responsibilities are embedded in the relevant lesson rather than isolated on the Advisor hub.
 
-## Project Studio
+## Student stage tools
 
-`project-studio.html` is now a routing map and ownership guide. It does not present a long all-tools workspace. Student tools link directly to the stage where they are used.
+There is no separate Project Studio page. Students begin at `students.html` and open the tool they need inside the relevant stage page. This keeps the tools in context and avoids a separate all-tools workspace.
 
 ## Build pathways
 

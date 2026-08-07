@@ -177,7 +177,7 @@
     };
     const frequency = {
       'Once per week':'Use one combined session each week and assign only short, clearly bounded between-session tasks such as scheduling an interview, verifying one source, or revising one artifact.',
-      'Twice per week':'Use Meeting A for the lesson, modeling, and planning; use Meeting B for Project Studio work, critique, testing, and documentation.',
+      'Twice per week':'Use Meeting A for the lesson, modeling, and planning; use Meeting B for student stage work, critique, testing, and documentation.',
       'During class periods':'Use one class period for the lesson and guided practice, a second for project work, and a third or independent block only when needed for interviews, testing, or revision.',
       'Intensive single-day format':'Move orientation, teacher-client input, family communication, and basic research into prework. Use the intensive day for synthesis, prototyping, testing, revision, and demonstration, followed by a short post-event reflection.',
       'Other':'Document the exact cadence, deadline pattern, and between-session expectations before recruiting students.'
@@ -291,7 +291,7 @@
       recs.push('Use the AI assistant for research questions, candidate examples, critique, and content drafts; require a source and prompt log and verify important claims.');
       recs.push('Do not assume that access to an assistant authorizes students to publish a chatbot or share conversations.');
     } else if(cfg.tech === 'Gem or chatbot building available'){
-      recs.push('Use the Project Studio Prompt Builder, require a paper conversation flow first, test answer requests and repeated errors, document versions, and define how support fades.');
+      recs.push('Use the Prompt Builder in the Prototype stage, require a paper conversation flow first, test answer requests and repeated errors, document versions, and define how support fades.');
       recs.push('Confirm current account, age, school, sharing, retention, and accessibility requirements before building.');
       if(!hasSupport(cfg,'Technical support')) pushPriority(priorities,'strong','Identify a technical support contact or keep the conversational prototype low-resolution.','A Gem or chatbot can be built without a specialist, but troubleshooting and platform changes can consume limited project time.');
     } else if(cfg.tech === 'Advanced application development available'){
@@ -369,7 +369,7 @@
 
   function calendarDelivery(cfg, item){
     const notes = [];
-    if(cfg.frequency === 'Twice per week') notes.push('Meeting A: mini-lesson, model, and planning. Meeting B: Project Studio work, critique, or testing.');
+    if(cfg.frequency === 'Twice per week') notes.push('Meeting A: mini-lesson, model, and planning. Meeting B: student stage work, critique, or testing.');
     else if(cfg.frequency === 'During class periods') notes.push('Use at least one class for instruction and one for project work; schedule interviews or testing in a separate approved block.');
     else if(cfg.frequency === 'Once per week') notes.push('Combine instruction and project work in one meeting and assign only a small between-meeting action.');
     else if(cfg.frequency === 'Intensive single-day format') notes.push('Place this phase in prework, a timed event station, or follow-up; do not attempt the entire phase through lecture during the event.');
@@ -428,7 +428,7 @@
       'Review school permissions, current platform requirements, privacy and data practices, acceptable use, sharing settings, and low-tech alternatives.',
       'Prepare family communication and a clear way to request accessibility, language, device, transportation, or scheduling support.',
       cfg.client === 'Identified and available' ? 'Schedule the teacher-client interview and midpoint review.' : 'Recruit and schedule a teacher-client; use sample cases only for interview practice.',
-      'Prepare the project notebook, interview materials, low-resolution prototyping materials, and a plan for saving or downloading Project Studio work.',
+      'Prepare the project notebook, interview materials, low-resolution prototyping materials, and a plan for saving or downloading work produced in the student stage tools.',
       'Identify peer learners, teacher-client reviewers, or another approved testing pathway and define permission and stopping procedures.'
     ];
 
@@ -546,6 +546,34 @@
     const status = document.getElementById('club-plan-status');
     let currentText = '';
 
+    const wizardSteps = [...form.querySelectorAll('.club-plan-step')];
+    const progressSteps = [...form.querySelectorAll('[data-club-step-jump]')];
+    const stepStatus = document.getElementById('club-plan-step-status');
+    const stepNames = ['Confirm readiness','Choose a format','Recruit students and connect people','Form and facilitate the team','Select a schedule','Review and generate'];
+    let currentStep = 1;
+
+    function showClubStep(step){
+      currentStep = Math.max(1, Math.min(wizardSteps.length || 6, Number(step) || 1));
+      wizardSteps.forEach(panel => {
+        const active = Number(panel.dataset.clubStep) === currentStep;
+        panel.hidden = !active;
+        panel.classList.toggle('is-active', active);
+      });
+      progressSteps.forEach(btn => {
+        const n = Number(btn.dataset.clubStepJump);
+        btn.classList.toggle('is-current', n === currentStep);
+        btn.classList.toggle('is-complete', n < currentStep);
+        btn.setAttribute('aria-current', n === currentStep ? 'step' : 'false');
+      });
+      if(stepStatus) stepStatus.textContent = `Step ${currentStep} of ${wizardSteps.length || 6} · ${stepNames[currentStep-1] || ''}`;
+      form.querySelector(`[data-club-step="${currentStep}"]`)?.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    form.querySelectorAll('.club-step-next').forEach(btn => btn.addEventListener('click', () => showClubStep(currentStep + 1)));
+    form.querySelectorAll('.club-step-back').forEach(btn => btn.addEventListener('click', () => showClubStep(currentStep - 1)));
+    progressSteps.forEach(btn => btn.addEventListener('click', () => showClubStep(Number(btn.dataset.clubStepJump))));
+    showClubStep(1);
+
     function generate(){
       const plan = buildPlan(readForm(form));
       currentText = toText(plan);
@@ -568,8 +596,9 @@
     });
     document.getElementById('reset-club-plan')?.addEventListener('click', () => {
       form.reset(); currentText = '';
-      output.innerHTML = '<p class="generated-plan-placeholder">Complete the planner and select “Generate plan.”</p>';
+      output.innerHTML = '<p class="generated-plan-placeholder">Complete the five setup steps, then generate your plan.</p>';
       status.textContent = 'Planner reset.';
+      showClubStep(1);
     });
   }
 

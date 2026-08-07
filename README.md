@@ -44,3 +44,8 @@ The interactive website is static and does not send tool entries to a server. Jo
 - `assets/js/stage-tools.js` — embedded student-stage tools and recommendation/guidance logic
 - `assets/js/club-planner.js` — adaptive advisor club planner
 - `assets/js/lesson-plans.js` — advisor lesson-length selector and plan switching
+
+
+## Current Advisor organization
+
+The Advisor hub begins with role/boundaries and family communication, then uses a six-step club-planning wizard (readiness, format, recruitment, team facilitation, schedule, generated plan), followed by links to the five lesson pages. Safety/accessibility responsibilities are embedded in each lesson. Testing/revision/presentation approval is part of Lesson 5. The former Project Studio page has been removed; student tools live on their six stage pages.
