@@ -26,10 +26,12 @@ Student support can be set to Guided, Supported, or Independent. Guided tools re
 
 The five facilitator lessons are separate pages linked beneath Advisors: `lesson-empathize.html`, `lesson-define.html`, `lesson-ideate.html`, `lesson-prototype.html`, and `lesson-test.html`.
 
-Each lesson begins with a choice between:
+Each lesson has two views: **Before you facilitate** and **Student meeting**. The preparation view gives advisors a short learn-by-doing experience before they facilitate the same kind of thinking with students.
 
-- a single **45-minute lesson**, or
-- a **90-minute version delivered as two 45-minute sessions**.
+For the Student meeting, advisors choose either:
+
+- **1 × 45-minute meeting** — the minimum viable path, or
+- **2 × 45-minute meetings** — the expanded path.
 
 The selection reveals one matching detailed Lesson Plan. Background ideas advisors need to teach are embedded directly in the relevant activity. Differentiation is presented as expandable, step-by-step options under **Need more?**.
 

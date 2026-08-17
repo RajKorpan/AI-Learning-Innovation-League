@@ -118,6 +118,7 @@ function update(){
     el.classList.toggle('is-current',!complete.has(n)&&n===next);
     el.classList.toggle('is-preview',!complete.has(n)&&n!==next);
   });
+  document.querySelectorAll('[data-process-stage]').forEach(el=>{const n=Number(el.dataset.processStage);el.classList.toggle('is-complete',complete.has(n));el.classList.toggle('is-current',!complete.has(n)&&n===next);});
   document.querySelectorAll('[data-stage-sidebar]').forEach(el=>{
     const n=Number(el.dataset.stageSidebar);
     el.classList.toggle('is-complete',complete.has(n));
