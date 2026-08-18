@@ -51,3 +51,8 @@ The interactive website is static and does not send tool entries to a server. Jo
 ## Current Advisor organization
 
 The Advisor hub begins with role/boundaries and family communication, then uses a six-step club-planning wizard (readiness, format, recruitment, team facilitation, schedule, generated plan), followed by links to the five lesson pages. Safety/accessibility responsibilities are embedded in each lesson. Testing/revision/presentation approval is part of Lesson 5. The former Project Studio page has been removed; student tools live on their six stage pages.
+
+
+## Stage 4 prototype + AI design
+
+The Prototype stage now includes an example-tool gallery, three build paths, a hybrid off-screen/AI learning pattern, a Learning League Design Check, curated reusable AI learning-tool examples, visible prompt iteration, and approved-AI-tool workflows. See `STAGE4_IMPLEMENTATION.md`.

@@ -27,14 +27,13 @@ There is no separate Project Studio page. Students begin at `students.html` and 
 
 ## Build pathways
 
-Prototype uses four non-ranking technical pathways:
+Prototype uses three non-ranking build paths:
 
-- Path A: AI helps you make something; the final learning tool may be non-AI.
-- Path B: Guided AI tool.
-- Path C: Independently design and iterate AI behavior.
-- Path D: Advanced digital build.
+- **Build Path 1:** AI helps students make a learning experience; the learner-facing product may be physical, printable, social, or non-AI.
+- **Build Path 2:** Students design a reusable conversational AI learning tool, such as a Gem or similar approved experience.
+- **Build Path 3:** Advanced optional development using AI Studio, code, APIs, hardware, or similar tools.
 
-A more technical pathway is not treated as a stronger project.
+A more technical path is not treated as a stronger project. Hybrid designs may combine an AI interaction with an off-screen physical or social activity.
 
 ## Current guided lesson and tool flow
 

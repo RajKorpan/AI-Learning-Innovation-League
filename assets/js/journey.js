@@ -61,10 +61,9 @@ function updateBuildPath(s){
   const out=document.querySelector('[data-build-path-output]');
   if(out){
     const data={
-      a:['Path A selected','Keep the learner-facing prototype simple. Use the Prototype Planner; Prompt Builder is usually unnecessary.'],
-      b:['Path B selected','Use the Prototype Planner and reveal the Prompt Builder when the learning interaction needs a guided AI conversation.'],
-      c:['Path C selected','Prototype the interaction first, then use Prompt Builder as a starting point and move toward more independent prompt iteration.'],
-      d:['Path D selected','Review scope and platform requirements with an advisor before building. Use advanced guidance only when the learning problem requires it.']
+      a:['Build Path 1 selected','AI may help the team design or create materials, while the learner-facing experience can stay physical, social, printable, or otherwise simple.'],
+      b:['Build Path 2 selected','Build a reusable conversational AI learning tool only when responsive questioning or feedback adds useful capability.'],
+      c:['Build Path 3 selected','Advanced build is optional. Review scope, platform, privacy, access, and technical readiness with an advisor before investing in development.']
     };
     const x=data[s.buildPath];
     out.innerHTML=x?`<strong>${x[0]}</strong><p>${x[1]}</p>`:'<strong>No build path selected yet.</strong><p>Choose the path that best matches your current idea. You can change paths after prototyping.</p>';
