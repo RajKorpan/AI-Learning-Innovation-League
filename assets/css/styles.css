@@ -579,3 +579,323 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .table-scroll{margin-left:-.25rem;margin-right:-.25rem;padding-bottom:.35rem}
 }
 @media(max-width:360px){.brand span:last-child{font-size:.87rem}.brand-mark{width:36px;height:36px;flex-basis:36px}.nav-wrap{padding:.6rem .7rem}.page-header .inner{padding-left:.85rem;padding-right:.85rem}.page-layout{padding-left:.75rem;padding-right:.75rem}.advanced-option-chips span{flex-basis:100%}}
+
+/* ========================================================================== 
+   Guided one-screen-at-a-time experience — Stage 1 simplification pass
+   ========================================================================== */
+.guided-experience-page .page-layout{
+  display:block;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 1.25rem 3rem;
+}
+.guided-experience-page .page-content,
+.advisor-guided-lesson .lesson-content{
+  width:100%;
+  max-width:1120px;
+  margin:0 auto;
+  min-width:0;
+}
+.guided-experience{
+  position:relative;
+  display:grid;
+  gap:1rem;
+  margin:1.5rem 0 2rem;
+}
+.guided-progress-card{
+  position:sticky;
+  top:74px;
+  z-index:20;
+  display:grid;
+  grid-template-columns:minmax(200px,1fr) minmax(180px,1.25fr) auto;
+  align-items:center;
+  gap:1rem;
+  padding:.8rem 1rem;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:rgba(255,255,255,.96);
+  box-shadow:0 9px 28px rgba(23,50,77,.09);
+  backdrop-filter:blur(9px);
+}
+.guided-progress-card>div:first-child{display:grid;gap:.12rem}
+.guided-progress-card .kicker{font-size:.68rem;margin:0}
+.guided-progress-card strong{font-size:.98rem;color:var(--navy)}
+.guided-meter{height:8px;border-radius:999px;background:#e8eef2;overflow:hidden}
+.guided-meter span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--teal),var(--blue));transition:width .25s ease}
+.guided-overview{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:.55rem;
+  padding:.85rem;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:#f7fbfd;
+}
+.guided-overview[hidden]{display:none!important}
+.guided-overview button{
+  min-height:44px;
+  padding:.65rem .75rem;
+  text-align:left;
+  color:var(--ink);
+  background:white;
+  border:1px solid var(--border);
+  border-radius:11px;
+  font:inherit;
+  font-weight:750;
+  cursor:pointer;
+}
+.guided-overview button:hover,.guided-overview button.is-current{border-color:var(--teal);background:#eef9f6;color:var(--navy)}
+.guided-panel[hidden]{display:none!important}
+.guided-panel{
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 16px 42px rgba(23,50,77,.08);
+  overflow:hidden;
+}
+.guided-screen-grid{
+  display:grid;
+  grid-template-columns:minmax(230px,.72fr) minmax(0,1.6fr);
+  align-items:start;
+  min-height:470px;
+}
+.guided-screen-visual{
+  position:sticky;
+  top:160px;
+  margin:0;
+  padding:1.2rem;
+  align-self:start;
+}
+.guided-screen-visual img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:#f4fafc;
+}
+.guided-screen-visual figcaption{
+  margin:.7rem .15rem 0;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.35;
+}
+.guided-screen-content{
+  min-width:0;
+  padding:1.5rem 1.7rem 1.8rem;
+  border-left:1px solid var(--border);
+}
+.guided-screen-heading{
+  margin:0 0 1.25rem;
+  padding:0 0 1rem;
+  border-bottom:1px solid #e5edf1;
+}
+.guided-screen-step{
+  display:inline-flex;
+  padding:.28rem .58rem;
+  border-radius:999px;
+  background:#eaf6f3;
+  color:#196d63;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.guided-screen-heading h2{margin:.5rem 0 0;font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.08}
+.guided-screen-content>section,
+.guided-screen-content>aside,
+.guided-screen-content>div:not(.guided-screen-heading){
+  margin-top:1rem;
+}
+.guided-screen-content>section:first-of-type,
+.guided-screen-content>aside:first-of-type{margin-top:0}
+.guided-screen-content section[id]{scroll-margin-top:180px}
+.guided-screen-content p{max-width:72ch}
+.guided-screen-content .section-soft{
+  margin-inline:0;
+  border-radius:18px;
+}
+.guided-screen-content .section-soft>.inner{padding-inline:1rem}
+.guided-nav{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:1rem;
+  padding:.35rem .1rem;
+}
+.guided-nav>[data-guided-prev]{justify-self:start}
+.guided-nav>[data-guided-next]{justify-self:end}
+.guided-nav-label{font-weight:850;color:var(--muted);font-size:.9rem}
+.guided-nav button[disabled]{opacity:.35;cursor:not-allowed}
+.guided-nav button[hidden]{visibility:hidden;display:inline-flex!important;pointer-events:none}
+
+/* Student screens: visual first, one decision at a time */
+.student-stage-page.guided-experience-page .stage-hero{padding-bottom:1.2rem}
+.student-stage-page.guided-experience-page .stage-hero-copy .lead{max-width:60ch}
+.student-stage-page.guided-experience-page .student-action-pattern{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.4rem;
+  align-items:center;
+  padding:.75rem .9rem;
+  border-radius:14px;
+  background:#f3f9fc;
+}
+.student-stage-page.guided-experience-page .student-action-pattern span{font-weight:800}
+.student-stage-page.guided-experience-page .stage-task-strip{grid-template-columns:1fr}
+.student-stage-page.guided-experience-page .stage-task-strip>div{
+  display:grid;
+  grid-template-columns:90px minmax(0,1fr);
+  gap:.65rem;
+  align-items:start;
+  padding:.85rem 1rem;
+}
+.student-stage-page.guided-experience-page .learning-lab{
+  border-left:5px solid var(--gold);
+  background:#fffaf0;
+}
+.student-stage-page.guided-experience-page .inline-stage-example{
+  margin:1rem 0 0;
+  box-shadow:none;
+}
+.student-stage-page.guided-experience-page .stage-quick-challenge{
+  margin:0;
+  border:none;
+  background:transparent;
+  padding:.25rem 0;
+}
+.student-stage-page.guided-experience-page .quick-challenge-icon{display:none}
+.student-stage-page.guided-experience-page .quick-choice-grid button{
+  min-height:52px;
+  padding:.82rem .95rem;
+  font-size:1rem;
+}
+.student-stage-page.guided-experience-page .interactive-tool,
+.student-stage-page.guided-experience-page .guided-tool-shell{
+  border-radius:18px;
+  box-shadow:none;
+}
+.student-stage-page.guided-experience-page .stage-complete-zone{
+  margin-top:1rem;
+  border:2px solid #cde7df;
+  background:#f2fbf8;
+}
+.small-is-good{
+  display:flex;
+  gap:.45rem;
+  align-items:flex-start;
+  padding:.8rem 1rem;
+  margin:0 0 1rem!important;
+  border-radius:14px;
+  border:1px solid #ead68d;
+  background:#fff9df;
+  color:var(--ink);
+}
+.small-is-good strong{white-space:nowrap;color:#785c00}
+
+/* Advisor lessons: activity-by-activity rather than a long lesson document */
+.advisor-guided-lesson .lesson-mode-selector{
+  margin:1.25rem auto 0;
+  padding:1rem 1.1rem;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#f8fbfd;
+}
+.advisor-guided-lesson .lesson-mode-selector h2{font-size:1.35rem;margin:.2rem 0 .35rem}
+.advisor-guided-lesson .lesson-mode-selector>p{margin:.2rem 0 .75rem}
+.advisor-guided-lesson .lesson-mode-panel{padding-top:.25rem}
+.advisor-guided-lesson .lesson-plan-panel>.activity-guide-list{
+  margin-top:.75rem;
+}
+.lesson-activity-carousel{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  padding:.8rem 1rem;
+  margin:1rem 0;
+  border-radius:14px;
+  background:#edf7f4;
+  border:1px solid #cde4dd;
+}
+.lesson-activity-carousel>div:first-child{display:grid;gap:.12rem}
+.lesson-activity-carousel .kicker{margin:0;font-size:.67rem}
+.lesson-activity-carousel strong{font-size:.93rem;color:var(--navy)}
+.lesson-activity-buttons{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+.lesson-plan-panel details.activity-guide[hidden]{display:none!important}
+.lesson-plan-panel details.activity-guide:not([hidden]){
+  display:block;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  background:white;
+}
+.lesson-plan-panel details.activity-guide:not([hidden]) summary{display:none}
+.lesson-plan-panel details.activity-guide:not([hidden]) .activity-guide-body{display:block;padding:1rem 1.1rem}
+.lesson-plan-panel .session-divider[hidden]{display:none!important}
+.advisor-guided-lesson .support-accordion-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.7rem;
+}
+.advisor-guided-lesson .support-accordion-list>details{
+  width:100%;
+  max-width:none;
+}
+
+/* Static stage status should invite rather than score incomplete work */
+.journey-stage-state.is-preview,.stage-sidebar-link b.is-preview{color:var(--muted);font-weight:750}
+
+@media(max-width:900px){
+  .guided-progress-card{top:64px;grid-template-columns:1fr auto}
+  .guided-progress-card .guided-meter{grid-column:1/-1;grid-row:2}
+  .guided-screen-grid{grid-template-columns:210px minmax(0,1fr)}
+  .guided-screen-content{padding:1.3rem}
+}
+@media(max-width:720px){
+  .guided-experience-page .page-layout{padding-inline:.75rem}
+  .guided-progress-card{
+    position:relative;
+    top:auto;
+    grid-template-columns:1fr auto;
+    border-radius:14px;
+  }
+  .guided-progress-card .guided-meter{grid-column:1/-1}
+  .guided-screen-grid{display:block;min-height:0}
+  .guided-screen-visual{
+    position:relative;
+    top:auto;
+    display:grid;
+    grid-template-columns:120px minmax(0,1fr);
+    gap:.8rem;
+    align-items:center;
+    padding:.85rem .9rem;
+    border-bottom:1px solid var(--border);
+    background:#f8fbfd;
+  }
+  .guided-screen-visual img{border-radius:14px}
+  .guided-screen-visual figcaption{margin:0;font-size:.87rem}
+  .guided-screen-content{border-left:none;padding:1rem .9rem 1.15rem}
+  .guided-panel{border-radius:18px}
+  .guided-screen-heading{margin-bottom:.9rem;padding-bottom:.75rem}
+  .guided-screen-heading h2{font-size:1.55rem}
+  .guided-nav{grid-template-columns:1fr 1fr}
+  .guided-nav-label{display:none}
+  .guided-nav .button{width:100%;min-height:48px;justify-content:center}
+  .guided-overview{grid-template-columns:1fr}
+  .lesson-activity-carousel{display:grid;gap:.65rem}
+  .lesson-activity-buttons{display:grid;grid-template-columns:1fr 1fr}
+  .student-stage-page.guided-experience-page .stage-task-strip>div{grid-template-columns:1fr;gap:.15rem}
+}
+@media(max-width:480px){
+  .guided-progress-card{padding:.7rem .75rem}
+  .guided-progress-card>[data-guided-overview]{padding:.55rem .65rem;min-height:44px}
+  .guided-screen-visual{grid-template-columns:95px minmax(0,1fr)}
+  .guided-screen-content{padding:.85rem .75rem 1rem}
+  .guided-nav{gap:.55rem}
+  .lesson-activity-buttons{grid-template-columns:1fr}
+  .small-is-good{display:block}
+  .small-is-good strong{display:block;margin-bottom:.2rem}
+}

@@ -109,7 +109,7 @@ function update(){
     el.classList.remove('is-complete','is-current','is-preview');
     if(complete.has(n)){el.textContent='Complete';el.classList.add('is-complete');}
     else if(n===next){el.textContent=n===1?'Start here':'Up next';el.classList.add('is-current');}
-    else{el.textContent='Preview';el.classList.add('is-preview');}
+    else{el.textContent='Coming later';el.classList.add('is-preview');}
   });
   document.querySelectorAll('[data-stage-card]').forEach(el=>{
     const n=Number(el.dataset.stageCard);

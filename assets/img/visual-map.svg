@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-hidden="true">
+<rect width="640" height="360" rx="28" fill="#f5fbff"/>
+
+<path d="M90 175h100M245 175h100M400 175h100" stroke="#2d6f9f" stroke-width="12" stroke-linecap="round"/>
+<path d="M180 160l20 15-20 15M335 160l20 15-20 15M490 160l20 15-20 15" fill="none" stroke="#2d6f9f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="110" width="100" height="130" rx="22" fill="#f3c74f"/><rect x="195" y="110" width="100" height="130" rx="22" fill="#e8f5f1"/><rect x="350" y="110" width="100" height="130" rx="22" fill="#fff8e5"/><rect x="505" y="110" width="95" height="130" rx="22" fill="#e78a6b" opacity=".75"/>
+<circle cx="90" cy="150" r="18" fill="#17324d"/><path d="M68 205h44" stroke="#17324d" stroke-width="10" stroke-linecap="round"/>
+<circle cx="245" cy="150" r="18" fill="#2f8f83"/><path d="M220 205h50" stroke="#2f8f83" stroke-width="10" stroke-linecap="round"/>
+<path d="M383 148l17 17 34-40" fill="none" stroke="#2d6f9f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M548 142l20 20m0-20l-20 20" stroke="#17324d" stroke-width="10" stroke-linecap="round"/>
+<path d="M540 205h30" stroke="#17324d" stroke-width="10" stroke-linecap="round"/>
+
+</svg>
