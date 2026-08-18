@@ -112,7 +112,7 @@
 
     if(cfg.experience==='new'){
       out.push('Model one small example before students begin and keep the first project to one learning breakdown, one main strategy, and one small prototype.');
-      if(cfg.lessonPattern==='one'&&cfg.tech==='Advanced application development available') priority(priorities,'strong','Use a simpler prototype during the five-lesson pilot.','Five 45-minute sessions should prioritize empathy, learning analysis, testing, and revision rather than full application development.');
+      if(cfg.lessonPattern==='one'&&cfg.tech==='Advanced application development available') priority(priorities,'strong','Use a simpler prototype during the five-lesson League sequence.','Five 45-minute sessions should prioritize empathy, learning analysis, testing, and revision rather than full application development.');
     } else if(cfg.experience==='mixed') out.push('Pair experienced and newer students for modeling, but rotate roles so technical experience does not become permanent control of the project.');
     else out.push('Increase challenge through better evidence, comparison of prototype versions, edge cases, and more independent reasoning—not just more features.');
     return out;
@@ -126,7 +126,7 @@
     if(cfg.adults==='tech-mentor') out.push('Keep educational, privacy, and accessibility decisions with the advisor; the technical mentor supports feasibility and debugging.');
     if(cfg.adults==='multiple') out.push('Assign clear adult roles and use one shared set of lesson goals so students do not receive conflicting directions.');
     if(teams.count>capacity) priority(priorities,'required','Reduce the number of simultaneously active teams or add adult support.',`The selected adult support is unlikely to cover ${teams.count} teams during interviews, tool use, testing, and checkpoints.`);
-    if(cfg.adults==='one'&&cfg.teamSize>12) priority(priorities,'strong','Add another adult or reduce the number of students in this pilot cycle.','One advisor will have difficulty giving timely attention to multiple teams during testing and accessibility decisions.');
+    if(cfg.adults==='one'&&cfg.teamSize>12) priority(priorities,'strong','Add another adult or reduce the number of students in this club cycle.','One advisor will have difficulty giving timely attention to multiple teams during testing and accessibility decisions.');
     return out;
   }
 

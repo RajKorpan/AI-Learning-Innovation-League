@@ -46,6 +46,19 @@ $('remix-ai-example')?.addEventListener('click',()=>{
  const out=$('ai-remix-result');out.innerHTML=`<h4>Modified prompt</h4><pre>${esc(text)}</pre><button class="button secondary small" id="copy-ai-remix" type="button">Copy modified prompt</button><p class="status" id="ai-remix-status"></p>`;$('copy-ai-remix')?.addEventListener('click',()=>copy(text,$('ai-remix-status')));
 });
 
+
+// Show one curated AI learning-tool example at a time.
+document.querySelectorAll('[data-ai-example-choice]').forEach(btn=>btn.addEventListener('click',()=>{
+  const key=btn.dataset.aiExampleChoice;
+  document.querySelectorAll('[data-ai-example-choice]').forEach(b=>b.classList.toggle('is-selected',b===btn));
+  document.querySelectorAll('.ai-example-card').forEach(card=>{
+    const selected=card.dataset.aiExample===key;
+    card.hidden=!selected;
+    card.classList.toggle('is-selected',selected);
+  });
+  const select=$('ai-example-select'); if(select) select.value=key;
+}));
+
 // Empathy interview practice prompt
 $('make-empathy-practice')?.addEventListener('click',()=>{
  const topic=($('practice-topic')?.value||'a STEM topic').trim(), level=($('practice-level')?.value||'a secondary student').trim(), difficulty=($('practice-difficulty')?.value||'a realistic learning difficulty').trim();
@@ -55,7 +68,7 @@ $('make-empathy-practice')?.addEventListener('click',()=>{
 
 // Prompt history visual
 function setHistory(step){const h=$('prompt-history');if(!h)return;const order=['first','draft1','test1','draft2','test2'];const idx=order.indexOf(step);[...h.querySelectorAll('span')].forEach((x,i)=>{x.classList.toggle('is-done',i<idx);x.classList.toggle('is-current',i===idx)});}
-document.addEventListener('leaguePromptStep',e=>{setHistory(e.detail?.step||'first');if(e.detail?.step==='draft2'){const x=$('prompt-test2-cycle');if(x)x.hidden=false;}});
+document.addEventListener('leaguePromptStep',e=>{setHistory(e.detail?.step||'first');});
 $('save-prompt-test2')?.addEventListener('click',()=>{const improved=($('prompt-test2-improved')?.value||'').trim(),still=($('prompt-test2-still')?.value||'').trim(),next=($('prompt-test2-next')?.value||'').trim();if(!improved&&!still){$('prompt-test2-result').innerHTML='<div class="warning-box">Record what changed before saving the comparison.</div>';return}save('promptTest2',{improved,still,next});setHistory('test2');$('prompt-test2-result').innerHTML=`<div class="result-summary fit-high"><div><span class="result-kicker">Iteration history</span><h3>Draft 1 → Test 1 → Draft 2 → Test 2</h3><p>You now have evidence about how a design change affected the interaction.</p></div></div><p><strong>What improved:</strong> ${esc(improved||'[not recorded]')}</p><p><strong>What still needs work:</strong> ${esc(still||'[not recorded]')}</p><p><strong>Possible next change:</strong> ${esc(next||'No additional change identified yet.')}</p>`;});
-const saved=load(); if(saved.promptTest2)setHistory('test2'); else if(saved.promptDraft2){setHistory('draft2');const x=$('prompt-test2-cycle');if(x)x.hidden=false;} else if(saved.promptDraft1)setHistory('test1'); else if(saved.firstPrompt)setHistory('first');
+const saved=load(); if(saved.promptTest2)setHistory('test2'); else if(saved.promptDraft2){setHistory('draft2');} else if(saved.promptDraft1)setHistory('test1'); else if(saved.firstPrompt)setHistory('first');
 })();
