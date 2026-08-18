@@ -963,3 +963,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .teacher-interview-explainer{padding:.9rem 1rem;border-left:4px solid var(--teal);background:#f5fbfa;border-radius:0 12px 12px 0;margin:1.5rem 0}
 .teacher-interview-explainer p{margin-top:0}
 .teacher-interview-mini{padding:1rem 1.1rem;border-left:4px solid #537f9c;background:#f4f8fb;border-radius:0 14px 14px 0;margin:1rem 0}
+
+/* Stage 2 integration refinements */
+.interview-phase-callout{margin:1rem 0;padding:1rem 1.1rem;border:1px solid var(--line,#d7e2ea);border-radius:14px;background:var(--soft,#f6f9fb)}
+.interview-phase-callout strong{display:block;margin-bottom:.3rem;color:var(--ink,#17324d)}
+.activity-adaptations{margin-top:1.15rem;padding-top:1rem;border-top:1px solid var(--line,#d7e2ea)}
+.activity-adaptations-label{font-weight:800;margin-bottom:.55rem;color:var(--ink,#17324d)}
+.activity-adaptation{margin:.5rem 0;border:1px solid var(--line,#d7e2ea);border-radius:12px;background:#fff}
+.activity-adaptation>summary{cursor:pointer;padding:.75rem .9rem;font-weight:700}
+.activity-adaptation .support-accordion-body{padding:0 .9rem .9rem}
+.embedded-key-idea{margin:0 0 1rem;padding:1rem;border-radius:14px;background:var(--soft,#f6f9fb);border-left:4px solid var(--accent,#256d7b)}
+.embedded-key-idea .kicker{display:block;margin-bottom:.45rem}
+.design-check-wizard{max-width:780px}
+.design-check-question{padding:.8rem 0}
+.design-check-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:.85rem 0}
+.build-path-wizard-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.build-path-wizard-cards button{text-align:left;min-height:128px;padding:1rem;border:2px solid var(--line,#d7e2ea);border-radius:14px;background:#fff;color:inherit}
+.build-path-wizard-cards button strong,.build-path-wizard-cards button span{display:block}
+.build-path-wizard-cards button span{margin-top:.4rem;font-size:.92rem;line-height:1.35}
+.build-path-wizard-cards button.is-selected{border-color:var(--accent,#256d7b);box-shadow:0 0 0 3px rgba(37,109,123,.12)}
+.ai-example-explorer{margin-top:1rem}
+@media(max-width:760px){.design-check-actions,.build-path-wizard-cards{grid-template-columns:1fr}.build-path-wizard-cards button{min-height:0}}

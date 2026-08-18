@@ -11,25 +11,29 @@ const checked=n=>[...document.querySelectorAll(`input[name="${n}"]:checked`)].ma
 try{const j=journey();if(j.buildPath==='d'){j.buildPath='c';localStorage.setItem(JOURNEY,JSON.stringify(j));}const s=load();if(s.buildWizard?.path==='d'){s.buildWizard.path='c';localStorage.setItem(STORE,JSON.stringify(s));}}catch(e){}
 async function copy(text,status){try{await navigator.clipboard.writeText(text);if(status)status.textContent='Copied. Open the AI tool your advisor or school permits.';}catch(e){if(status)status.textContent='Copy was blocked. Select the prompt text and copy it manually.';}}
 
-// Design check
-$('run-design-check')?.addEventListener('click',()=>{
- const core=checked('league-quality'), ai=checked('ai-quality'), path=journey().buildPath||load().productDecision?.path||'';
- const aiUsed=path==='b'||path==='c'||['conversation','aicontent','aiphysical','app'].includes(load().buildProduct);
- const missingCore=7-core.length, missingAI=aiUsed?5-ai.length:0;
- const rec=[];
- if(!core.includes('goal'))rec.push('Write the learning objective and observable success evidence before polishing.');
- if(!core.includes('thinking'))rec.push('Redesign the interaction so the learner—not the tool—does the important thinking.');
- if(!core.includes('strategy'))rec.push('Name the learning strategy and show where it appears in the interaction.');
- if(!core.includes('testable'))rec.push('Shrink the prototype until one important design claim can be tested.');
- if(!core.includes('access'))rec.push('Add an accessible way to understand instructions, respond, control pacing, or use an alternative format.');
- if(aiUsed&&!ai.includes('reusable'))rec.push('Clarify the repeatable learning process. A single generated answer is not yet a reusable Learning League tool.');
- if(aiUsed&&!ai.includes('learner'))rec.push('Change the AI behavior so it asks for a learner attempt before giving substantial help.');
- if(aiUsed&&!ai.includes('verify'))rec.push('Add a plan to verify generated content/feedback and handle uncertainty.');
- const ready=missingCore===0 && missingAI===0;
- const title=ready?'Strong foundation for testing':missingCore<=2&&missingAI<=1?'Almost ready—make a few design revisions':'Revisit the design before investing in polish';
- const next=path==='b'?'<a class="button primary small" href="#ai-tool-lab">Next: Experience an AI learning tool →</a>':path==='c'?'<a class="button primary small" href="#advisor-check">Next: Review the advanced build with your advisor →</a>':'<a class="button primary small" href="#advisor-check">Next: Review the prototype with your advisor →</a>'; const out=$('design-check-result');out.innerHTML=`<div class="result-summary ${ready?'fit-high':'fit-medium'}"><div><span class="result-kicker">Design check</span><h3>${esc(title)}</h3><p>${core.length}/7 core checks${aiUsed?` and ${ai.length}/5 AI checks`:''} are currently confirmed.</p></div></div>${rec.length?`<div class="note-box"><strong>Best next revisions</strong><ul>${rec.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:'<div class="callout-blue"><strong>Ready for the next decision:</strong> keep the prototype small. Testing may still show that your current hypothesis is wrong—and that is useful.</div>'}<div class="tool-actions">${next}</div>`;
- save('designCheck',{core,ai,aiUsed,ready});
-});
+// Design check — one decision at a time. A "not yet" answer stops the sequence until revised.
+const designCore=[
+ {k:'real',q:'Does this design respond to a real learning challenge you listened to or experienced directly?',why:'A useful tool starts with a real learning need, not a feature idea.',fix:'Return to Empathize and make sure the challenge comes from an interview, observation, or your own documented learning experience.'},
+ {k:'focused',q:'Is the tool focused on one manageable learning challenge?',why:'Small is good. A focused prototype makes it possible to learn what actually helped.',fix:'Shrink the design to one learning breakdown or learner action before adding more features.'},
+ {k:'goal',q:'Can you say what the learner should be able to do and how you will know?',why:'Without a learning target, testing becomes “Did they like it?” instead of “Did learning move?”',fix:'Return to your learning objective and observable evidence of success.'},
+ {k:'thinking',q:'Does the learner have to do important thinking?',why:'The learner should retrieve, explain, compare, decide, make, monitor, or reflect—not only receive answers.',fix:'Change the interaction so the learner makes an attempt before the tool supplies substantial help.'},
+ {k:'strategy',q:'Can you explain the learning strategy built into the design?',why:'The form of the tool should connect to how the learner is expected to practice or think.',fix:'Return to Strategy Explorer and identify what the learner is actually practicing.'},
+ {k:'access',q:'Can the learner understand the directions and participate in the interaction?',why:'A format barrier can hide what the learner actually knows or can do.',fix:'Revise directions, pacing, representation, input method, or provide an equivalent alternative.'},
+ {k:'testable',q:'Can you test one important claim with this small version?',why:'A prototype should answer a question. If it is too large to test, it is too large to build first.',fix:'Choose one uncertainty and make the smallest version that can answer it.'}
+];
+const designAI=[
+ {k:'purpose',q:'Does AI add something useful to this learning experience?',why:'AI should have a reason to be present beyond making the project look technical.',fix:'Name the capability AI adds. If you cannot, use the simpler learning-experience path.'},
+ {k:'reusable',q:'Is this more than a one-time AI answer?',why:'A Learning League AI tool should support a designed, repeatable learning process.',fix:'Design a repeatable interaction: what the learner does, how AI responds, and what happens next.'},
+ {k:'learner',q:'Does the learner still do the important thinking instead of AI doing it for them?',why:'AI should support learning rather than replace the thinking that produces learning.',fix:'Require a learner attempt, explanation, comparison, or decision before AI gives substantial help.'},
+ {k:'feedback',q:'If AI gives feedback, does it respond to a learner attempt instead of simply giving the answer?',why:'Feedback is most useful when it helps the learner interpret and improve an attempt.',fix:'Make AI wait for an attempt, respond specifically, and invite another try.'},
+ {k:'verify',q:'Do you have a way to check important AI-generated content or feedback?',why:'Generative AI can be confidently wrong.',fix:'Add a verification plan, limit high-stakes claims, and tell the tool how to handle uncertainty.'}
+];
+let designIndex=0;
+function designItems(){const path=journey().buildPath||load().productDecision?.path||'';return path==='b'||path==='c'?[...designCore,...designAI]:designCore;}
+function renderDesignCheck(){const box=$('design-check-question');if(!box)return;const items=designItems();designIndex=Math.max(0,Math.min(designIndex,items.length-1));const x=items[designIndex];$('design-check-progress').max=items.length;$('design-check-progress').value=designIndex+1;$('design-check-progress-label').textContent=`Check ${designIndex+1} of ${items.length}`;box.innerHTML=`<span class="wizard-phase-label">Design gate</span><h3>${esc(x.q)}</h3><div class="wizard-guidance"><p><strong>Why this matters:</strong> ${esc(x.why)}</p></div>`;$('design-check-result').innerHTML='';}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-design-answer]');if(!b||!$('design-check-question'))return;const items=designItems(),x=items[designIndex],answer=b.dataset.designAnswer;if(answer!=='yes'){$('design-check-result').innerHTML=`<div class="warning-box"><strong>Pause here before continuing.</strong><p>${esc(answer==='unsure'?'It is okay not to know yet. Talk it through, inspect the prototype, or ask your advisor.':'This part of the design needs another pass.')}</p><p><strong>What to do:</strong> ${esc(x.fix)}</p><p>When you have revised or checked this decision, answer this same question again.</p></div>`;return;}const saved=load().designCheckSteps||{};saved[x.k]='yes';save('designCheckSteps',saved);if(designIndex<items.length-1){designIndex++;renderDesignCheck();return;}save('designCheck',{answers:saved,aiUsed:items.length>designCore.length,ready:true});const path=journey().buildPath||load().productDecision?.path||'';const next=path==='b'?'<a class="button primary small" href="#prompt-builder">Next: Design the AI learning tool →</a>':'<a class="button primary small" href="#advisor-check">Next: Review the prototype with your advisor →</a>';$('design-check-result').innerHTML=`<div class="result-summary fit-high"><div><span class="result-kicker">Design check complete</span><h3>Ready for a small test</h3><p>You have thought through each required design decision. Testing may still show that one of your hypotheses is wrong—and that is useful.</p></div></div><div class="tool-actions">${next}</div>`;});
+window.addEventListener('league:build-path-changed',()=>{designIndex=0;renderDesignCheck();});
+renderDesignCheck();
 
 // Curated AI examples
 const examples={

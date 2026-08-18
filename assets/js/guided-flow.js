@@ -15,7 +15,13 @@
     if(flow.dataset.guidedReady==='true') return;
     flow.dataset.guidedReady='true';
     const key=flow.dataset.guidedKey||location.pathname;
-    const panels=[...flow.querySelectorAll(':scope > .guided-panel-stack > [data-guided-panel]')];
+    const allPanels=[...flow.querySelectorAll(':scope > .guided-panel-stack > [data-guided-panel]')];
+    const currentPanels=()=>{
+      let state={};
+      try{state=JSON.parse(localStorage.getItem('leagueJourneyStateV1')||'{}')||{}}catch(e){}
+      return allPanels.filter(p=>!p.dataset.guidedIfBuildPath||p.dataset.guidedIfBuildPath.split(/\s+/).includes(state.buildPath||''));
+    };
+    let panels=currentPanels();
     const status=flow.querySelector(':scope > .guided-progress-card [data-guided-status]');
     const meter=flow.querySelector(':scope > .guided-progress-card [data-guided-meter]');
     const navLabel=flow.querySelector(':scope > .guided-nav [data-guided-nav-label]');
@@ -27,8 +33,27 @@
     const saved=getSaved()[key];
     if(Number(saved)>=1&&Number(saved)<=panels.length) current=Number(saved);
 
+    function syncOverview(){
+      panels=currentPanels();
+      const buttons=[...flow.querySelectorAll(':scope > [data-guided-overview-panel] [data-guided-jump]')];
+      let visibleIndex=0;
+      buttons.forEach((b,allIndex)=>{
+        const p=allPanels[allIndex];
+        const eligible=!!p&&panels.includes(p);
+        b.hidden=!eligible;
+        if(eligible){
+          visibleIndex++;
+          b.dataset.guidedJump=String(visibleIndex);
+          b.textContent=`${visibleIndex}. ${p.dataset.guidedTitle||`Step ${visibleIndex}`}`;
+        }
+      });
+    }
+
     function show(step,{scroll=true,focus=true,updateUrl=true}={}){
+      panels=currentPanels();
+      syncOverview();
       const n=Math.max(1,Math.min(panels.length,Number(step)||1)); current=n;
+      allPanels.forEach(p=>{p.hidden=true;p.setAttribute('aria-hidden','true');});
       panels.forEach((p,i)=>{
         const on=i===n-1;
         p.hidden=!on;
@@ -74,8 +99,9 @@
       if(!target)return null;
       return target.closest('[data-guided-panel]');
     }
+    syncOverview();
     const hashPanel=panelForHash(location.hash);
-    if(hashPanel) current=panels.indexOf(hashPanel)+1||current;
+    if(hashPanel&&panels.includes(hashPanel)) current=panels.indexOf(hashPanel)+1||current;
     show(current,{scroll:false,focus:false,updateUrl:false});
 
     document.addEventListener('click',e=>{
@@ -83,10 +109,16 @@
       if(!a)return;
       const p=panelForHash(a.getAttribute('href'));
       if(p&&flow.contains(p)){
+        panels=currentPanels();
+        if(!panels.includes(p))return;
         e.preventDefault();
         show(panels.indexOf(p)+1);
       }
     });
+    if(allPanels.some(p=>p.dataset.guidedIfBuildPath)){
+      window.addEventListener('league:build-path-changed',()=>show(Math.min(current,currentPanels().length),{scroll:false,focus:false,updateUrl:false}));
+      window.addEventListener('storage',e=>{if(e.key==='leagueJourneyStateV1')show(Math.min(current,currentPanels().length),{scroll:false,focus:false,updateUrl:false});});
+    }
   }
 
   function sessionLabelFor(detail,panel){
