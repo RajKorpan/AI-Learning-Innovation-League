@@ -41,3 +41,22 @@ Phase 1 asks one question at a time to establish the tester, test question, exac
 ## Share — Sharing Event Builder
 
 Asks one question at a time about the challenge, what the team learned by listening, what it learned about human learning, what it learned about AI, the design and rationale, testing, revision, focused demo, limitations, next step, and accessible backup. It assembles these into a sharing-event outline.
+
+## Stage 3 revision: Define + Ideate
+
+The current Define and Ideate pages supersede the earlier descriptions of the Learning Breakdown Mapper, Strategy Explorer, and Resource Inventor above where they differ.
+
+### Learning Breakdown Mapper
+The mapper now has four progressive parts: set the task, build a step-by-step Task Map, set the learning target, and review. Each task step records the learner action, required knowledge/decision, current status, and direct evidence. The tool creates a focused learning objective and observable evidence of success, then stores these as project-wide variables.
+
+### Optional Task Breakdown Guide
+When students cannot identify the hidden steps, the site can generate a prompt for an advisor-approved AI tool. The prompt asks the AI to question the student and propose a draft hypothesis. It explicitly prohibits diagnosis and requires the student to return to the website, revise the Task Map, and review it with an advisor.
+
+### Strategy Explorer
+Students first learn a limited set of learning-challenge categories and complete short classification practice cases. The Explorer then returns three ranked strategy hypotheses. Every strategy output includes why it may fit, what the learner should actually do, what the learning tool should do, how to know whether the strategy helped, and concrete product possibilities.
+
+### Resource Inventor
+Resource Inventor now incorporates the project learning objective, selected strategy, available materials, learner interests, grouping, time, practical constraints, accessibility needs, and a request for multiple alternatives. It builds a prompt to use in an advisor-approved AI system; it does not call an AI service itself. Students bring generated ideas back to the site, explain which possibility or combination seems most useful and why, and can later complete a reflection after trying an activity.
+
+### Connected project state
+The focused problem, learning objective, observable evidence of success, selected learning strategy, and available resources are saved locally in the browser and are carried forward into later Prototype and Test tools where feasible.
