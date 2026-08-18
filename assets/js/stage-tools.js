@@ -23,10 +23,11 @@ function toolSaved(out,msg='Saved in this browser.'){if(out){const p=document.cr
 // --- Interview Coach ---
 if($('interview-person')) $('interview-person').value=(loadJourney().projectLens||'other')==='self'?'self':'learner';
 $('interview-form')?.addEventListener('submit',e=>{
- e.preventDefault();const who=val('interview-person'),purpose=val('interview-purpose'),focus=val('interview-focus')||'this learning task';
+ e.preventDefault();const who=val('interview-person'),purpose=val('interview-purpose'),focus=val('interview-focus')||'this learning task',custom=val('interview-custom-question');
  const self=who==='self';
  const open=self?`Think about the last time you tried ${focus}. What was happening?`:`Tell me about the last time you tried ${focus}. What was happening?`;
  const q=[open,
+  ...(custom?[custom]:[]),
   self?`Walk yourself through what you did from the beginning. Where did your approach change?`:`Can you walk me through what you did from the beginning?`,
   `What part feels easiest or most familiar? What makes that part work?`,
   purpose==='strategies'?`What do you usually try when you get stuck? What happens after you try it?`:`Where do you first hesitate, get confused, slow down, or change strategy?`,
