@@ -28,7 +28,7 @@
   const has=(cfg,v)=>cfg.supports.includes(v);
   const add=(arr,v)=>{if(v&&!arr.includes(v))arr.push(v)};
   const priority=(arr,level,text,reason)=>{if(!arr.some(x=>x.text===text))arr.push({level,text,reason})};
-  const clientReady=cfg=>['Advisor is the teacher-client','Another teacher is identified and available'].includes(cfg.client);
+  const clientReady=cfg=>['I will be the teacher students interview','Another teacher is identified and available'].includes(cfg.client);
 
   function normalize(raw){
     return {
@@ -38,7 +38,7 @@
       format:raw.format||'Small-group team',
       lessonPattern:raw.lessonPattern||'one',
       adults:raw.adults||'one',
-      client:raw.client||'Advisor is the teacher-client',
+      client:raw.client||'I will be the teacher students interview',
       tech:raw.tech||'Not yet confirmed',
       family:raw.family||'Not yet started',
       access:(raw.access||'').trim(),
@@ -87,7 +87,7 @@
         break;
       case 'Classroom integration':
         out.push(`Plan for approximately ${teams.count} project teams, common lesson milestones, and cross-team critique at Define, Prototype, and Test.`);
-        out.push('Use a small set of teacher-client challenges or allow each team to work from a teacher perspective that can be revisited during the five lessons.');
+        out.push('Use a small set of teacher challenges or allow each team to work from a teacher perspective that can be revisited during the five lessons.');
         break;
       case 'Virtual club':
         out.push('Use a shared project document, explicit agendas, optional camera use, clear turn-taking, and asynchronous contribution options.');
@@ -148,14 +148,14 @@
 
   function stakeholderRecommendations(cfg,priorities){
     const out=[];
-    if(cfg.client==='Advisor is the teacher-client') out.push('Use a real challenge from your own teaching. During Empathize, describe what you observe and what successful performance looks like, but let students determine the eventual solution.');
-    else if(cfg.client==='Another teacher is identified and available') out.push('Schedule the teacher-client for an early Empathize conversation and a later prototype or testing check-in. Brief them to describe the need rather than choose the product.');
-    else if(cfg.client==='Potential teacher-client identified'){
-      out.push('Confirm the teacher-client before students finalize the learning problem.');
-      priority(priorities,'strong','Confirm the teacher-client before Lesson 2 is completed.','Students need an authentic instructional perspective before they lock the problem definition.');
+    if(cfg.client==='I will be the teacher students interview') out.push('Use a real challenge from your own teaching. During Empathize, describe what you observe and what successful performance looks like, but let students determine the eventual solution.');
+    else if(cfg.client==='Another teacher is identified and available') out.push('Schedule the teacher for an early Empathize conversation and, when useful, a later prototype or testing check-in. Brief them to describe the need rather than choose the product.');
+    else if(cfg.client==='A teacher is likely but not confirmed'){
+      out.push('Confirm the teacher before students finalize the learning problem.');
+      priority(priorities,'strong','Confirm which teacher students will interview before Lesson 2 is completed.','Students need an authentic instructional perspective before they lock the problem definition.');
     } else {
-      out.push('Identify either yourself or another teacher as the teacher-client before students finalize the problem.');
-      priority(priorities,'required','Identify the teacher-client before Lesson 2 is completed.','The project should be anchored in a real learning challenge rather than a preselected app idea.');
+      out.push('Decide whether students will interview you or another teacher before they finalize the problem.');
+      priority(priorities,'required','Identify the teacher before Lesson 2 is completed.','The project should be anchored in a real learning challenge rather than a preselected app idea.');
     }
     if(cfg.family==='Information sent') out.push('Follow up with confirmed timing, access needs, testing expectations, and sharing-event information as those details become available.');
     else if(cfg.family==='Draft prepared'){
@@ -210,7 +210,7 @@
     const contact=cfg.lessonPattern==='one'?{sessions:5,hours:3.75,text:'5 × 45-minute sessions (about 3.75 contact hours)'}:{sessions:10,hours:7.5,text:'10 × 45-minute sessions across five lessons (about 7.5 contact hours)'};
 
     if(!has(cfg,'Protected project work time')) priority(priorities,'strong','Protect project work time during or between lesson meetings.','Students need reliable time for interviews, prototyping, testing, and revision inside the five-lesson sequence.');
-    if(!clientReady(cfg)) add(assumptions,'The project problem should remain provisional until a teacher-client is confirmed.');
+    if(!clientReady(cfg)) add(assumptions,'The project problem should remain provisional until a teacher is confirmed.');
     if(cfg.tech==='Not yet confirmed') add(assumptions,'Begin paper-first until an approved technology plan is confirmed.');
 
     const required=priorities.filter(x=>x.level==='required').length;
@@ -227,7 +227,7 @@
   function toHtml(plan){
     const c=plan.cfg;
     const config=[
-      ['Students',c.teamSize],['Grade band',label('grade',c.grade)],['Experience',label('experience',c.experience)],['Club format',c.format],['Teacher-client',c.client],['Technology',c.tech],['Family communication',c.family],['Lesson schedule','Five-week / five-lesson sequence'],['Lesson length',label('lessonPattern',c.lessonPattern)],['Estimated contact time',plan.contact.text]
+      ['Students',c.teamSize],['Grade band',label('grade',c.grade)],['Experience',label('experience',c.experience)],['Club format',c.format],['Teacher',c.client],['Technology',c.tech],['Family communication',c.family],['Lesson schedule','Five-week / five-lesson sequence'],['Lesson length',label('lessonPattern',c.lessonPattern)],['Estimated contact time',plan.contact.text]
     ].map(([k,v])=>`<div><small>${esc(k)}</small><strong>${esc(v)}</strong></div>`).join('');
     const lessonCards=LESSONS.map(l=>`<a class="plan-lesson-link" href="${l.href}"><span>${l.n}</span><div><strong>Lesson ${l.n} · ${esc(l.title)}</strong><small>${esc(l.subtitle)} · Use the ${c.lessonPattern==='one'?'45-minute':'90-minute / two-session'} plan</small></div></a>`).join('');
     const pri=plan.priorities.length?plan.priorities.map(p=>`<div class="plan-priority ${esc(p.level)}"><strong>${p.level==='required'?'Required':p.level==='strong'?'Strong recommendation':'Helpful'}: ${esc(p.text)}</strong><span>${esc(p.reason)}</span></div>`).join(''):'<p class="plan-empty">No major setup conflict was identified.</p>';
@@ -239,7 +239,7 @@
       ${sectionHtml('Scaffolding for this group',plan.studentRecs)}
       ${sectionHtml('Adult facilitation',plan.adultRecs)}
       ${sectionHtml('Technology and building',plan.techRecs)}
-      ${sectionHtml('Teacher-client and family communication',plan.stakeholderRecs)}
+      ${sectionHtml('Teacher and family communication',plan.stakeholderRecs)}
       ${sectionHtml('Accessibility and participation',plan.accessRecs)}
       ${sectionHtml('Using the five-lesson schedule',plan.lessonRecs)}
       <section class="plan-section"><h3>Go to the five facilitator lessons</h3><p class="plan-note">The planner does not create a separate calendar. Use these lesson pages as the implementation sequence.</p><div class="plan-lesson-links">${lessonCards}</div></section>
@@ -252,7 +252,7 @@
     const c=plan.cfg;
     const lessons=LESSONS.map(l=>`${l.n}. Lesson ${l.n} · ${l.title} — ${l.subtitle} (${c.lessonPattern==='one'?'use the 45-minute plan':'use the 90-minute/two-session plan'})`).join('\n');
     const pri=plan.priorities.length?plan.priorities.map((p,i)=>`${i+1}. [${p.level.toUpperCase()}] ${p.text}\n   Why: ${p.reason}`).join('\n'):'No major setup conflict identified.';
-    return `STUDENT AI LEARNING INNOVATION LEAGUE — CLUB PLAN\n\nSTATUS\n${plan.status.label}: ${plan.status.title}\n${plan.status.summary}\n\nSETUP\n- Students: ${c.teamSize}\n- Grade band: ${label('grade',c.grade)}\n- Experience: ${label('experience',c.experience)}\n- Club format: ${c.format}\n- Teacher-client: ${c.client}\n- Technology: ${c.tech}\n- Family communication: ${c.family}\n- Schedule: Five-week / five-lesson sequence\n- Lesson length: ${label('lessonPattern',c.lessonPattern)}\n- Estimated contact time: ${plan.contact.text}\n- Available supports: ${c.supports.join(', ')||'None selected'}\n- Access or participation needs: ${c.access||'To be confirmed with students and families'}\n\n${heading('TEAM STRUCTURE',[plan.teams.text,...plan.teams.roles])}\n\n${heading('FORMAT RECOMMENDATIONS',plan.formatRecs)}\n\n${heading('STUDENT SCAFFOLDING',plan.studentRecs)}\n\n${heading('ADULT FACILITATION',plan.adultRecs)}\n\n${heading('TECHNOLOGY AND BUILDING',plan.techRecs)}\n\n${heading('TEACHER-CLIENT AND FAMILY COMMUNICATION',plan.stakeholderRecs)}\n\n${heading('ACCESSIBILITY AND PARTICIPATION',plan.accessRecs)}\n\n${heading('USING THE FIVE-LESSON SCHEDULE',plan.lessonRecs)}\n\nFIVE FACILITATOR LESSONS\n${lessons}\n\nPRIORITY ACTIONS\n${pri}${plan.assumptions.length?`\n\n${heading('ITEMS TO CONFIRM',plan.assumptions)}`:''}`;
+    return `STUDENT AI LEARNING INNOVATION LEAGUE — CLUB PLAN\n\nSTATUS\n${plan.status.label}: ${plan.status.title}\n${plan.status.summary}\n\nSETUP\n- Students: ${c.teamSize}\n- Grade band: ${label('grade',c.grade)}\n- Experience: ${label('experience',c.experience)}\n- Club format: ${c.format}\n- Teacher: ${c.client}\n- Technology: ${c.tech}\n- Family communication: ${c.family}\n- Schedule: Five-week / five-lesson sequence\n- Lesson length: ${label('lessonPattern',c.lessonPattern)}\n- Estimated contact time: ${plan.contact.text}\n- Available supports: ${c.supports.join(', ')||'None selected'}\n- Access or participation needs: ${c.access||'To be confirmed with students and families'}\n\n${heading('TEAM STRUCTURE',[plan.teams.text,...plan.teams.roles])}\n\n${heading('FORMAT RECOMMENDATIONS',plan.formatRecs)}\n\n${heading('STUDENT SCAFFOLDING',plan.studentRecs)}\n\n${heading('ADULT FACILITATION',plan.adultRecs)}\n\n${heading('TECHNOLOGY AND BUILDING',plan.techRecs)}\n\n${heading('TEACHER AND FAMILY COMMUNICATION',plan.stakeholderRecs)}\n\n${heading('ACCESSIBILITY AND PARTICIPATION',plan.accessRecs)}\n\n${heading('USING THE FIVE-LESSON SCHEDULE',plan.lessonRecs)}\n\nFIVE FACILITATOR LESSONS\n${lessons}\n\nPRIORITY ACTIONS\n${pri}${plan.assumptions.length?`\n\n${heading('ITEMS TO CONFIRM',plan.assumptions)}`:''}`;
   }
 
   function readForm(form){

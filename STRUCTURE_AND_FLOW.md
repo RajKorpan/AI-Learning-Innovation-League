@@ -19,7 +19,7 @@ The process is iterative; later stages are not hard-locked.
 
 ## Advisor flow
 
-The Advisor page now starts with the advisor role and boundaries, including family communication. A step-by-step Build Your Club Plan wizard then integrates readiness, format choice, recruitment and teacher-client connection, team facilitation, and schedule selection before generating an adaptive plan. The page finishes with one five-lesson hub that maps the lessons to the six visible student stages. Safety and accessibility responsibilities are embedded in the relevant lesson rather than isolated on the Advisor hub.
+The Advisor page now starts with the advisor role and boundaries, including family communication. A step-by-step Build Your Club Plan wizard then integrates readiness, format choice, recruitment and deciding which teacher students will interview, team facilitation, and schedule selection before generating an adaptive plan. The page finishes with one five-lesson hub that maps the lessons to the six visible student stages. Safety and accessibility responsibilities are embedded in the relevant lesson rather than isolated on the Advisor hub.
 
 ## Student stage tools
 
@@ -42,7 +42,7 @@ Advisor lesson pages now begin with a choice between a 45-minute lesson and a 90
 The core student tool flow is intentionally stage-specific:
 
 - **Empathize:** Interview Coach.
-- **Define:** Learning Breakdown Mapper. Claim & Evidence Tracker is an optional supplement only when an outside claim needs verification.
+- **Define:** Learning Breakdown Mapper, with direct interview, observation, and learner-work evidence built into the map.
 - **Ideate:** guided Strategy Explorer → Resource Inventor prompt builder for an advisor-approved AI system → Five-Idea Sprint.
 - **Prototype:** Guided Build Planner combines product form, technical pathway, and low-resolution prototype planning. Prompt Builder appears when conversational/generative AI behavior is relevant.
 - **Test:** guided test planning → run the test → guided observation and revision record.

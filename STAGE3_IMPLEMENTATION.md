@@ -12,4 +12,4 @@ Implemented from the agreed Stage 3 plan:
 8. **Connected state** carries the focused problem, objective, evidence of success, strategy, and resources into Prototype and Test where feasible.
 9. Advisor **Lesson 2 (Define)** and **Lesson 3 (Ideate)** were updated so facilitation guidance matches the revised student tools.
 
-The optional Claim & Evidence Tracker remains supplemental rather than core.
+Outside research claims are not required in the core Define path; students rely primarily on direct interview, observation, and learner-work evidence.

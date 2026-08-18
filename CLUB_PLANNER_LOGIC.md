@@ -11,7 +11,7 @@ The planner currently uses:
 - prior design/AI experience;
 - club format selected through the format cards;
 - available adult facilitation;
-- teacher-client status, including whether the advisor is also the teacher-client;
+- which teacher students will interview, including whether the advisor is that teacher;
 - technology availability;
 - family-communication status;
 - stated accessibility, language, device, transportation, or scheduling needs;
@@ -41,7 +41,7 @@ The planner combines fields rather than treating every answer independently. Exa
 - many teams with one advisor produces an adult-capacity recommendation;
 - advanced application development without technical support produces a required simplification/support action;
 - new student teams using the one-session lesson version receive stronger scope and scaffolding recommendations;
-- a teacher-client who is not yet confirmed produces a Define-stage readiness action;
+- an unconfirmed teacher interview connection produces a readiness action;
 - unfinished family communication produces a required or strong next step before interviews, learner testing, or public sharing;
 - stated access needs generate targeted recommendations and can flag missing accessibility or language supports;
 - non-virtual formats without an identified meeting space produce a readiness action.
@@ -57,7 +57,7 @@ The output includes:
 5. student scaffolding recommendations;
 6. adult-facilitation recommendations;
 7. technology/building recommendations;
-8. teacher-client and family-communication recommendations;
+8. teacher-interview and family-communication recommendations;
 9. accessibility and participation recommendations;
 10. guidance for the selected 45- or 90-minute lesson pattern;
 11. direct links to the five facilitator lessons; and

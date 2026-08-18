@@ -127,7 +127,7 @@
       const title=items[index].querySelector('.activity-summary-copy strong')?.textContent.trim()||`Activity ${index+1}`;
       const s=controls.querySelector('[data-activity-status]');
       if(s)s.textContent=`${session?session+' · ':''}Activity ${index+1} of ${items.length} · ${title}`;
-      controls.querySelector('[data-activity-prev]').disabled=index===0;
+      controls.querySelector('[data-activity-prev]').hidden=index===0;
       controls.querySelector('[data-activity-next]').hidden=index===items.length-1;
       if(scroll)controls.scrollIntoView({behavior:'smooth',block:'center'});
     }

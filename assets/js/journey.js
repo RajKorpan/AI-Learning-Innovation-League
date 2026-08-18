@@ -163,6 +163,7 @@ document.querySelectorAll('[data-support-choice]').forEach(btn=>btn.addEventList
 document.querySelectorAll('[data-build-path]').forEach(btn=>btn.addEventListener('click',()=>{
   const s=getState(); s.buildPath=btn.dataset.buildPath; saveState(s); update();
 }));
+document.querySelectorAll('[data-build-path]').forEach(btn=>btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();btn.click();}}));
 document.querySelectorAll('[data-complete-stage]').forEach(btn=>btn.addEventListener('click',()=>{
   const n=Number(btn.dataset.completeStage),s=getState();
   if(!s.completed.includes(n))s.completed.push(n);

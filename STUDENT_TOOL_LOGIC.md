@@ -10,7 +10,7 @@ Uses project lens (self/other), interview purpose, and learning focus to generat
 
 A guided sequence asks for project lens, broad challenge, overall task, task sequence, existing success, first breakdown, possible prerequisite/process, direct evidence, possible access explanation, observable success, and scope. It calculates readiness and classifies the challenge as **Too broad**, **Almost there**, or **Ready to design**. Missing direct evidence, an undefined bottleneck, unchecked access explanations, an unobservable success target, or broad scope can block readiness. It synthesizes what the learner can already do, the likely breakdown, direct evidence, and a focused problem frame.
 
-## Define — Claim & Evidence Tracker (optional supplement)
+## Define — Direct evidence within the Learning Breakdown Mapper
 
 This is not required for the core Define stage. Use it when an outside learning-science claim materially affects a design choice or an advisor asks students to verify a claim. It stores claims, support/source, evidence type, strength, and design implication. AI suggestions are explicitly marked as not being evidence until independently verified.
 

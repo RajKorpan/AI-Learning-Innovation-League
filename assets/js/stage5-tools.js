@@ -16,12 +16,12 @@ function stageRecord(n){const s=load(STORE),j=load(JOURNEY),core=s.projectCore||
  return head;
 }
 const checks={
-1:[['interview','Interview plan created'],['empathyInsights','Empathy notes synthesized']],
-2:[['projectCore','Focused learning problem and Task Map saved']],
-3:[['selectedStrategy','Learning strategy selected'],['stage3Resource','Resources and constraints considered'],['ideaBoard','Multiple ideas generated']],
-4:[['productDecision','Build form selected'],['prototype','Smallest prototype planned']],
-5:[['testPlan','Focused test plan saved'],['tests','At least one test and evidence-linked revision recorded']],
-6:[['shareStory','Sharing-event story saved']]
+1:[['interview','Interview plan with open, neutral starter questions'],['empathyInsights','Interview/self-observation notes and empathy clues saved']],
+2:[['projectCore','Task Map + focused learning-problem hypothesis'],['projectCore','STEM connection + learning objective + observable evidence of success']],
+3:[['selectedStrategy','Learning-strategy hypothesis + what the learner should do'],['stage3Resource','Resource inventory with materials, people, spaces, technology, constraints, and access needs'],['ideaBoard','Several design ideas + one or two finalist directions']],
+4:[['productDecision','Build direction selected for a reason'],['prototype','Low-resolution prototype plan saved'],['designCheck','Learning-design check completed'],['promptDraft1','Prompt draft saved when conversational AI is part of the design']],
+5:[['testPlan','Focused test plan tied to the learning objective'],['tests','Testing record + at least one evidence-linked revision']],
+6:[['shareStory','Learning Showcase story + demonstration plan + limitations/next step']]
 };
 function present(v){return Array.isArray(v)?v.length>0:!!v&&(!(typeof v==='object')||Object.keys(v).length>0)}
 function updateSavePanels(){const s=load(STORE);$$('[data-stage-save-checklist]').forEach(ul=>{const n=Number(ul.dataset.stageSaveChecklist);ul.innerHTML=(checks[n]||[]).map(([k,label])=>`<li class="${present(s[k])?'is-ready':''}"><span aria-hidden="true">${present(s[k])?'✓':'○'}</span>${esc(label)}</li>`).join('')})}

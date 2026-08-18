@@ -19,7 +19,6 @@ Student support can be set to Guided, Supported, or Independent. Guided tools re
 
 - **Student-led:** Interview Coach, Resource Inventor AI-prompt builder, Five-Idea Sprint, Guided Prompt Builder when relevant, Testing & Revision, Sharing Event Builder.
 - **Student + advisor:** Learning Breakdown Mapper, Strategy Explorer, Guided Build Planner, and major testing/build checkpoints.
-- **Optional supplement:** Claim & Evidence Tracker, used when an outside claim needs verification; it is not required in the core Define stage.
 - **Advisor:** Build Your Club Plan, lesson facilitation, accessibility/family planning, and implementation decisions.
 
 ## Advisor lesson pages
