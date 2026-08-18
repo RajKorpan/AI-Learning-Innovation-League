@@ -984,3 +984,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .build-path-wizard-cards button.is-selected{border-color:var(--accent,#256d7b);box-shadow:0 0 0 3px rgba(37,109,123,.12)}
 .ai-example-explorer{margin-top:1rem}
 @media(max-width:760px){.design-check-actions,.build-path-wizard-cards{grid-template-columns:1fr}.build-path-wizard-cards button{min-height:0}}
+
+
+/* Stage 3 teaching package */
+.lesson-print-actions{margin-top:1rem}.print-lesson-action{display:inline-flex;align-items:center;gap:.35rem}.print-lesson-action::before{content:'🖨️'}
+@media print{.site-header,.page-header,.page-layout,.page-next,footer,.lesson-print-actions{display:none!important}.print-plan-page .site-header{display:none!important}}
+.teaching-package-grid{margin-top:2rem;padding:1rem;border:1px solid var(--border);border-radius:18px;background:#fff}.teaching-package-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem}.teaching-package-card{padding:.85rem}.teaching-package-card h4{margin:.1rem 0 .6rem}.teaching-package-card .actions{gap:.35rem}.teaching-package-card .button{font-size:.82rem;padding:.42rem .55rem}@media(max-width:1050px){.teaching-package-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.teaching-package-list{grid-template-columns:1fr}}

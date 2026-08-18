@@ -5,11 +5,21 @@ const LESSON_MODE_KEY=MODE_KEY+':'+location.pathname;
 const buttons=[...document.querySelectorAll('[data-lesson-length]')];
 const panels=[...document.querySelectorAll('[data-lesson-plan]')];
 const status=document.querySelector('[data-lesson-length-status]');
+
+function syncPrintLinks(value){
+  const v=value==='90'?'90':'45';
+  document.querySelectorAll('[data-print-lesson-link]').forEach(a=>{
+    const base=a.getAttribute('href').split('?')[0];
+    a.setAttribute('href',`${base}?length=${v}`);
+  });
+}
+
 function showLength(value){
   const v=value==='90'?'90':'45';
   buttons.forEach(b=>{const on=b.dataset.lessonLength===v;b.classList.toggle('is-selected',on);b.setAttribute('aria-pressed',on?'true':'false');});
   panels.forEach(p=>{p.hidden=p.dataset.lessonPlan!==v;});
   if(status)status.textContent=v==='45'?'Showing the 1 × 45-minute Lesson Plan.':'Showing the 2 × 45-minute Lesson Plan.';
+  syncPrintLinks(v);
   try{localStorage.setItem(LENGTH_KEY,v)}catch(e){}
 }
 if(buttons.length&&panels.length){let saved='45';try{saved=localStorage.getItem(LENGTH_KEY)||'45'}catch(e){}showLength(saved);buttons.forEach(b=>b.addEventListener('click',()=>showLength(b.dataset.lessonLength)));}
