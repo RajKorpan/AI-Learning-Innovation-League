@@ -75,6 +75,7 @@ function updateBuildPath(s){
 }
 
 function updateExample(){
+  if(!document.querySelector('[data-example-choice],[data-example-thread],[data-example-moment]'))return;
   const main=document.querySelector('main[data-journey-stage]');
   if(!main)return;
   const n=Number(main.dataset.journeyStage), key=currentExample(), data=exampleData[n]?.[key];
@@ -118,6 +119,7 @@ function update(){
     el.classList.toggle('is-preview',!complete.has(n)&&n!==next);
   });
   document.querySelectorAll('[data-process-stage]').forEach(el=>{const n=Number(el.dataset.processStage);el.classList.toggle('is-complete',complete.has(n));el.classList.toggle('is-current',!complete.has(n)&&n===next);});
+  document.querySelectorAll('[data-bottom-stage]').forEach(el=>{const n=Number(el.dataset.bottomStage);el.classList.toggle('is-complete',complete.has(n));el.classList.toggle('is-current',Number(document.querySelector('main[data-journey-stage]')?.dataset.journeyStage||0)===n);});
   document.querySelectorAll('[data-stage-sidebar]').forEach(el=>{
     const n=Number(el.dataset.stageSidebar);
     el.classList.toggle('is-complete',complete.has(n));
@@ -147,8 +149,8 @@ function update(){
   document.body.dataset.supportMode=s.support;
   document.querySelectorAll('[data-complete-stage]').forEach(btn=>{
     const n=Number(btn.dataset.completeStage);
-    if(complete.has(n)){btn.textContent=`Stage ${n} complete ✓`;btn.classList.add('is-complete');}
-    else{btn.textContent=`Mark Stage ${n} complete`;btn.classList.remove('is-complete');}
+    if(complete.has(n)){btn.textContent=`${stageNames[n-1]} complete ✓`;btn.classList.add('is-complete');}
+    else{btn.textContent=`Mark ${stageNames[n-1]} complete`;btn.classList.remove('is-complete');}
   });
   updateBuildPath(s);
   updateExample();
@@ -164,13 +166,6 @@ document.querySelectorAll('[data-build-path]').forEach(btn=>btn.addEventListener
   const s=getState(); s.buildPath=btn.dataset.buildPath; saveState(s); update();
 }));
 document.querySelectorAll('[data-build-path]').forEach(btn=>btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();btn.click();}}));
-document.querySelectorAll('[data-complete-stage]').forEach(btn=>btn.addEventListener('click',()=>{
-  const n=Number(btn.dataset.completeStage),s=getState();
-  if(!s.completed.includes(n))s.completed.push(n);
-  s.completed=s.completed.sort((a,b)=>a-b); saveState(s); update();
-  const msg=document.querySelector('[data-stage-completion-message]');
-  if(msg)msg.textContent=n<6?`Stage ${n} saved as complete. Stage ${n+1} is now your next stage.`:'Stage 6 saved as complete. Your journey map now shows all six stages complete.';
-}));
 document.querySelectorAll('[data-reset-journey]').forEach(btn=>btn.addEventListener('click',()=>{
   if(confirm('Reset stage completion, support level, and build path for this browser?')){localStorage.removeItem(KEY);update();}
 }));
