@@ -139,7 +139,7 @@
     const heading=panel.querySelector('.lesson-plan-heading');
     const controls=document.createElement('div');
     controls.className='lesson-activity-carousel';
-    controls.innerHTML='<div><span class="kicker">Lesson Plan</span><strong data-activity-status></strong></div><div class="lesson-activity-buttons"><button type="button" class="button secondary small" data-activity-prev>← Previous activity</button><button type="button" class="button primary small" data-activity-next>Next activity →</button></div>';
+    controls.innerHTML='<div><span class="kicker">Session Plan</span><strong data-activity-status></strong></div><div class="lesson-activity-buttons"><button type="button" class="button secondary small" data-activity-prev>← Previous activity</button><button type="button" class="button primary small" data-activity-next>Next activity →</button></div>';
     heading?.insertAdjacentElement('afterend',controls);
     let index=0;
     const dividers=[...panel.querySelectorAll('.session-divider')];

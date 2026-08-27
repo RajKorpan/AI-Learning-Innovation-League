@@ -12,8 +12,8 @@
   const LABELS={
     grade:{'upper-elementary':'Upper elementary (grades 4–5)','middle':'Middle school (grades 6–8)','high':'High school (grades 9–12)','mixed':'Mixed grade band'},
     experience:{'new':'Mostly new to design and AI','mixed':'Mixed experience','experienced':'Prior design or AI project experience'},
-    adults:{'one':'One advisor','two':'Two adults or co-advisors','tech-mentor':'Advisor plus technical mentor','multiple':'Multiple classroom adults or mentors'},
-    lessonPattern:{'one':'One 45-minute session per lesson','two':'Two 45-minute sessions per lesson'}
+    adults:{'one':'One facilitator','two':'Two adults or co-facilitators','tech-mentor':'Facilitator plus technical mentor','multiple':'Multiple classroom adults or mentors'},
+    lessonPattern:{'one':'One 45-minute meeting for each guided session','two':'Two 45-minute meetings for each guided session'}
   };
   const LESSONS=[
     {n:1,title:'Empathize',subtitle:'Understand the Challenge',href:'lesson-empathize.html'},
@@ -62,7 +62,7 @@
   }
 
   function teamStructure(cfg){
-    if(cfg.format==='One-on-one') return {count:1,text:'one student working with the advisor',roles:['Have the student rotate through Listen, Learning, Design, Test, and Share responsibilities across the five lessons.','Bring in another learner, teacher, peer, or reviewer at checkpoints so the project is not designed from only one perspective.']};
+    if(cfg.format==='One-on-one') return {count:1,text:'one student working with the facilitator',roles:['Have the student rotate through Listen, Learning, Design, Test, and Share responsibilities across the five sessions.','Bring in another learner, teacher, peer, or reviewer at checkpoints so the project is not designed from only one perspective.']};
     const ideal=cfg.format==='Classroom integration'?5:cfg.format==='Virtual club'?4:5;
     const count=Math.max(1,Math.ceil(cfg.teamSize/ideal));
     const low=Math.floor(cfg.teamSize/count), high=Math.ceil(cfg.teamSize/count);
@@ -82,19 +82,19 @@
         if(cfg.teamSize>6) priority(priorities,'strong',`Split the group into ${teams.count} smaller project teams.`,`A single group of ${cfg.teamSize} students makes interviewing, prototyping, testing, and ownership harder to distribute.`);
         break;
       case 'One-on-one':
-        out.push('Keep the student in charge of interviews, problem definition, design choices, testing observations, and presentation. The advisor should prompt rather than take over.');
+        out.push('Keep the student in charge of interviews, problem definition, design choices, testing observations, and presentation. The facilitator should prompt rather than take over.');
         if(cfg.teamSize!==1) priority(priorities,'required','Use one student for the one-on-one format or choose a group format.','The selected format and number of students do not match.');
         break;
       case 'Classroom integration':
-        out.push(`Plan for approximately ${teams.count} project teams, common lesson milestones, and cross-team critique at Define, Prototype, and Test.`);
-        out.push('Use a small set of teacher challenges or allow each team to work from a teacher perspective that can be revisited during the five lessons.');
+        out.push(`Plan for approximately ${teams.count} project teams, common session milestones, and cross-team critique at Define, Prototype, and Test.`);
+        out.push('Use a small set of teacher challenges or allow each team to work from a teacher perspective that can be revisited during the five sessions.');
         break;
       case 'Virtual club':
         out.push('Use a shared project document, explicit agendas, optional camera use, clear turn-taking, and asynchronous contribution options.');
         if(!has(cfg,'Devices and internet')) priority(priorities,'required','Confirm equitable device and internet access or choose another format.','The virtual format depends on reliable access or an equivalent offline pathway.');
         break;
       case 'Lunch or after-school club':
-        out.push('Keep the meeting routine predictable and use the 45-minute lesson plan unless the group has two dedicated meetings for each lesson.');
+        out.push('Keep the meeting routine predictable and use the 45-minute session guide unless the group has two dedicated meetings for each session.');
         out.push('Prepare materials before students arrive so short sessions are spent on learning design rather than account setup or logistics.');
         break;
     }
@@ -107,12 +107,12 @@
       out.push('Use short directions, concrete examples, visible checklists, structured roles, and paper-first prototyping.');
       if(['Gem or chatbot building available','Advanced application development available'].includes(cfg.tech)) priority(priorities,'required','Verify age, account, school, and family requirements before students use the selected building platform.','Younger students may need adult-managed access or a paper simulation instead of independent accounts.');
     } else if(cfg.grade==='middle') out.push('Use structured templates and role rotation while leaving the core learning problem, strategy, and product decisions with students.');
-    else if(cfg.grade==='high') out.push('Expect students to explain their reasoning, compare alternatives, document revisions, and take the lead in testing and presentation with advisor approval.');
+    else if(cfg.grade==='high') out.push('Expect students to explain their reasoning, compare alternatives, document revisions, and take the lead in testing and presentation with facilitator approval.');
     else out.push('Use age-appropriate scaffolds within the same team and prevent older students from becoming the permanent builders or presenters.');
 
     if(cfg.experience==='new'){
       out.push('Model one small example before students begin and keep the first project to one learning breakdown, one main strategy, and one small prototype.');
-      if(cfg.lessonPattern==='one'&&cfg.tech==='Advanced application development available') priority(priorities,'strong','Use a simpler prototype during the five-lesson League sequence.','Five 45-minute sessions should prioritize empathy, learning analysis, testing, and revision rather than full application development.');
+      if(cfg.lessonPattern==='one'&&cfg.tech==='Advanced application development available') priority(priorities,'strong','Use a simpler prototype during the five-session League sequence.','Five 45-minute sessions should prioritize empathy, learning analysis, testing, and revision rather than full application development.');
     } else if(cfg.experience==='mixed') out.push('Pair experienced and newer students for modeling, but rotate roles so technical experience does not become permanent control of the project.');
     else out.push('Increase challenge through better evidence, comparison of prototype versions, edge cases, and more independent reasoning—not just more features.');
     return out;
@@ -121,18 +121,18 @@
   function adultRecommendations(cfg,teams,priorities){
     const out=[];
     const capacity={one:2,two:4,'tech-mentor':3,multiple:6}[cfg.adults]||2;
-    if(cfg.adults==='one') out.push('Use common checkpoints, peer critique, and a visible help queue so one advisor is not the only source of feedback.');
+    if(cfg.adults==='one') out.push('Use common checkpoints, peer critique, and a visible help queue so one facilitator is not the only source of feedback.');
     if(cfg.adults==='two') out.push('Divide attention between facilitation and logistics/access/technology, while using the same student-facing expectations.');
-    if(cfg.adults==='tech-mentor') out.push('Keep educational, privacy, and accessibility decisions with the advisor; the technical mentor supports feasibility and debugging.');
-    if(cfg.adults==='multiple') out.push('Assign clear adult roles and use one shared set of lesson goals so students do not receive conflicting directions.');
+    if(cfg.adults==='tech-mentor') out.push('Keep educational, privacy, and accessibility decisions with the facilitator; the technical mentor supports feasibility and debugging.');
+    if(cfg.adults==='multiple') out.push('Assign clear adult roles and use one shared set of session goals so students do not receive conflicting directions.');
     if(teams.count>capacity) priority(priorities,'required','Reduce the number of simultaneously active teams or add adult support.',`The selected adult support is unlikely to cover ${teams.count} teams during interviews, tool use, testing, and checkpoints.`);
-    if(cfg.adults==='one'&&cfg.teamSize>12) priority(priorities,'strong','Add another adult or reduce the number of students in this club cycle.','One advisor will have difficulty giving timely attention to multiple teams during testing and accessibility decisions.');
+    if(cfg.adults==='one'&&cfg.teamSize>12) priority(priorities,'strong','Add another adult or reduce the number of students in this club cycle.','One facilitator will have difficulty giving timely attention to multiple teams during testing and accessibility decisions.');
     return out;
   }
 
   function technologyRecommendations(cfg,priorities){
     const out=[];
-    if(cfg.tech==='Paper and low-tech only') out.push('Use paper, cards, role-play, printed materials, and physical prototypes. AI can still be discussed or used by the advisor for demonstrations without becoming the student product.');
+    if(cfg.tech==='Paper and low-tech only') out.push('Use paper, cards, role-play, printed materials, and physical prototypes. AI can still be discussed or used by the facilitator for demonstrations without becoming the student product.');
     else if(cfg.tech==='Approved AI assistant available') out.push('Use AI for brainstorming, critique, examples, or draft materials only when it supports the learning goal. Students should verify outputs and keep identifiable learner information out of prompts.');
     else if(cfg.tech==='Gem or chatbot building available') out.push('Begin with a paper conversation or prompt skeleton before opening the platform. Define what the AI should do, what it should not do, and how students will test it.');
     else if(cfg.tech==='Advanced application development available'){
@@ -140,7 +140,7 @@
       if(!has(cfg,'Technical support')) priority(priorities,'required','Add technical support or choose a simpler build path.','Advanced development without support can consume the time needed for the learning-design process.');
     } else {
       out.push('Begin with paper-first work and confirm approved tools, accounts, privacy, accessibility, and sharing settings before students use digital platforms.');
-      priority(priorities,'required','Confirm the technology plan before students enter accounts, upload content, or build a digital prototype.','The first lessons can begin while technology decisions are being finalized.');
+      priority(priorities,'required','Confirm the technology plan before students enter accounts, upload content, or build a digital prototype.','The first sessions can begin while technology decisions are being finalized.');
     }
     if(cfg.tech!=='Paper and low-tech only'&&cfg.tech!=='Not yet confirmed'&&!has(cfg,'Devices and internet')) priority(priorities,'required','Confirm equitable device and internet access or change the technology plan.','The selected technology depends on devices or connectivity that are not marked as available.');
     return out;
@@ -152,10 +152,10 @@
     else if(cfg.client==='Another teacher is identified and available') out.push('Schedule the teacher for an early Empathize conversation and, when useful, a later prototype or testing check-in. Brief them to describe the need rather than choose the product.');
     else if(cfg.client==='A teacher is likely but not confirmed'){
       out.push('Confirm the teacher before students finalize the learning problem.');
-      priority(priorities,'strong','Confirm which teacher students will interview before Lesson 2 is completed.','Students need an authentic instructional perspective before they lock the problem definition.');
+      priority(priorities,'strong','Confirm which teacher students will interview before Session 2 is completed.','Students need an authentic instructional perspective before they lock the problem definition.');
     } else {
       out.push('Decide whether students will interview you or another teacher before they finalize the problem.');
-      priority(priorities,'required','Identify the teacher before Lesson 2 is completed.','The project should be anchored in a real learning challenge rather than a preselected app idea.');
+      priority(priorities,'required','Identify the teacher before Session 2 is completed.','The project should be anchored in a real learning challenge rather than a preselected app idea.');
     }
     if(cfg.family==='Information sent') out.push('Follow up with confirmed timing, access needs, testing expectations, and sharing-event information as those details become available.');
     else if(cfg.family==='Draft prepared'){
@@ -163,16 +163,16 @@
       priority(priorities,'strong','Send the prepared family communication.','Families need a clear explanation of the League, AI use, privacy expectations, support options, and participation.');
     } else {
       out.push('Prepare a plain-language family message explaining what students will do, how AI may or may not be used, privacy expectations, and how families can request support.');
-      priority(priorities,'required','Complete family communication before interviews, learner testing, or public sharing.','Family communication is part of the advisor role and should not be left until the event.');
+      priority(priorities,'required','Complete family communication before interviews, learner testing, or public sharing.','Family communication is part of the facilitator role and should not be left until the event.');
     }
-    if(!has(cfg,'Peer learners or testers')) priority(priorities,'strong','Identify an appropriate peer learner or another approved testing pathway before Lesson 5.','Students need someone appropriate to test with if they are going to make claims about usability or learning behavior.');
+    if(!has(cfg,'Peer learners or testers')) priority(priorities,'strong','Identify an appropriate peer learner or another approved testing pathway before Session 5.','Students need someone appropriate to test with if they are going to make claims about usability or learning behavior.');
     return out;
   }
 
   function accessRecommendations(cfg,priorities){
     const out=[];
     const parsed=parseAccessNeeds(cfg.access);
-    if(!cfg.access||/^(none|n\/a|na|not known|to be determined)/i.test(cfg.access)) out.push('Ask students and families about access, language, device, scheduling, and participation needs before finalizing how the lessons will run. An empty field should not be treated as evidence that no support is needed.');
+    if(!cfg.access||/^(none|n\/a|na|not known|to be determined)/i.test(cfg.access)) out.push('Ask students and families about access, language, device, scheduling, and participation needs before finalizing how the sessions will run. An empty field should not be treated as evidence that no support is needed.');
     else out.push('Confirm the stated needs directly with the student or family and ask what support is actually helpful.');
     parsed.forEach(x=>out.push(`${x.category}: ${x.recommendation}`));
     if(cfg.access&&!has(cfg,'Accessibility support')) priority(priorities,'strong','Identify who will help coordinate the stated accessibility or participation needs.','Needs are listed, but accessibility support is not marked as available.');
@@ -185,14 +185,14 @@
   function lessonPatternRecommendations(cfg,priorities){
     const out=[];
     if(cfg.lessonPattern==='one'){
-      out.push('Use the 45-minute Lesson Plan on each facilitator page. Keep each team focused on one learning breakdown and one small prototype question.');
+      out.push('Use the 45-minute session plan in each facilitation guide. Keep each team focused on one learning breakdown and one small prototype question.');
       out.push('Protect a small amount of between-session time for scheduling interviews, finishing a prototype, or preparing a test when needed.');
-      if(cfg.experience==='new') priority(priorities,'helpful','Use the examples and support options built into each lesson.','The single-session version moves quickly, so new teams benefit from stronger scaffolding and a tightly bounded project.');
-      if(cfg.teamSize>12) priority(priorities,'strong','Use smaller teams and common checkpoints, or add another adult.','The five 45-minute sessions leave limited time for one advisor to troubleshoot many groups individually.');
+      if(cfg.experience==='new') priority(priorities,'helpful','Use the examples and support options built into each session.','The single-session version moves quickly, so new teams benefit from stronger scaffolding and a tightly bounded project.');
+      if(cfg.teamSize>12) priority(priorities,'strong','Use smaller teams and common checkpoints, or add another adult.','The five 45-minute sessions leave limited time for one facilitator to troubleshoot many groups individually.');
     } else {
-      out.push('Use the 90-minute Lesson Plan on each facilitator page. It is already divided into two 45-minute sessions.');
+      out.push('Use the expanded session plan in each facilitation guide. It is already divided into two 45-minute meetings.');
       out.push('Use Session 1 for teaching, modeling, and first attempts; use Session 2 for deeper student work, feedback, and the stage checkpoint.');
-      out.push('The second session is additional working time within the same five-lesson sequence, not a separate curriculum.');
+      out.push('The second session is additional working time within the same five-session sequence, not a separate curriculum.');
     }
     return out;
   }
@@ -207,15 +207,15 @@
     const stakeholderRecs=stakeholderRecommendations(cfg,priorities);
     const accessRecs=accessRecommendations(cfg,priorities);
     const lessonRecs=lessonPatternRecommendations(cfg,priorities);
-    const contact=cfg.lessonPattern==='one'?{sessions:5,hours:3.75,text:'5 × 45-minute sessions (about 3.75 contact hours)'}:{sessions:10,hours:7.5,text:'10 × 45-minute sessions across five lessons (about 7.5 contact hours)'};
+    const contact=cfg.lessonPattern==='one'?{sessions:5,hours:3.75,text:'5 × 45-minute sessions (about 3.75 contact hours)'}:{sessions:10,hours:7.5,text:'10 × 45-minute sessions across five sessions (about 7.5 contact hours)'};
 
-    if(!has(cfg,'Protected project work time')) priority(priorities,'strong','Protect project work time during or between lesson meetings.','Students need reliable time for interviews, prototyping, testing, and revision inside the five-lesson sequence.');
+    if(!has(cfg,'Protected project work time')) priority(priorities,'strong','Protect project work time during or between guided sessions.','Students need reliable time for interviews, prototyping, testing, and revision inside the five-session sequence.');
     if(!clientReady(cfg)) add(assumptions,'The project problem should remain provisional until a teacher is confirmed.');
     if(cfg.tech==='Not yet confirmed') add(assumptions,'Begin paper-first until an approved technology plan is confirmed.');
 
     const required=priorities.filter(x=>x.level==='required').length;
     const strong=priorities.filter(x=>x.level==='strong').length;
-    const status=required?{level:'blocked',label:'Setup required',title:'Complete key setup before interviews, digital building, learner testing, or public sharing.',summary:`The planner identified ${required} required action${required===1?'':'s'} and ${strong} strong recommendation${strong===1?'':'s'}. You can still begin preparation while those items are resolved.`}:strong?{level:'adjust',label:'Ready with adjustments',title:'The five-lesson plan is workable with a few adjustments.',summary:`The planner identified ${strong} strong recommendation${strong===1?'':'s'} but no launch-blocking conflict.`}:{level:'ready',label:'Ready to begin',title:'Your selections support a feasible five-lesson starting plan.',summary:'Continue to confirm school requirements and student/family needs as the group moves through the lessons.'};
+    const status=required?{level:'blocked',label:'Setup required',title:'Complete key setup before interviews, digital building, learner testing, or public sharing.',summary:`The planner identified ${required} required action${required===1?'':'s'} and ${strong} strong recommendation${strong===1?'':'s'}. You can still begin preparation while those items are resolved.`}:strong?{level:'adjust',label:'Ready with adjustments',title:'The five-session plan is workable with a few adjustments.',summary:`The planner identified ${strong} strong recommendation${strong===1?'':'s'} but no launch-blocking conflict.`}:{level:'ready',label:'Ready to begin',title:'Your selections support a feasible five-session starting plan.',summary:'Continue to confirm school requirements and student/family needs as the group moves through the sessions.'};
     const order={required:0,strong:1,helpful:2}; priorities.sort((a,b)=>order[a.level]-order[b.level]);
 
     return {cfg,status,teams,contact,formatRecs,studentRecs,adultRecs,techRecs,stakeholderRecs,accessRecs,lessonRecs,priorities,assumptions};
@@ -227,9 +227,9 @@
   function toHtml(plan){
     const c=plan.cfg;
     const config=[
-      ['Students',c.teamSize],['Grade band',label('grade',c.grade)],['Experience',label('experience',c.experience)],['Club format',c.format],['Teacher',c.client],['Technology',c.tech],['Family communication',c.family],['Lesson schedule','Five-week / five-lesson sequence'],['Lesson length',label('lessonPattern',c.lessonPattern)],['Estimated contact time',plan.contact.text]
+      ['Students',c.teamSize],['Grade band',label('grade',c.grade)],['Experience',label('experience',c.experience)],['Club format',c.format],['Teacher',c.client],['Technology',c.tech],['Family communication',c.family],['Session sequence','Five guided sessions'],['Meeting pattern',label('lessonPattern',c.lessonPattern)],['Estimated contact time',plan.contact.text]
     ].map(([k,v])=>`<div><small>${esc(k)}</small><strong>${esc(v)}</strong></div>`).join('');
-    const lessonCards=LESSONS.map(l=>`<a class="plan-lesson-link" href="${l.href}"><span>${l.n}</span><div><strong>Lesson ${l.n} · ${esc(l.title)}</strong><small>${esc(l.subtitle)} · Use the ${c.lessonPattern==='one'?'45-minute':'90-minute / two-session'} plan</small></div></a>`).join('');
+    const lessonCards=LESSONS.map(l=>`<a class="plan-lesson-link" href="${l.href}"><span>${l.n}</span><div><strong>Session ${l.n} · ${esc(l.title)}</strong><small>${esc(l.subtitle)} · Use the ${c.lessonPattern==='one'?'45-minute':'90-minute / two-session'} plan</small></div></a>`).join('');
     const pri=plan.priorities.length?plan.priorities.map(p=>`<div class="plan-priority ${esc(p.level)}"><strong>${p.level==='required'?'Required':p.level==='strong'?'Strong recommendation':'Helpful'}: ${esc(p.text)}</strong><span>${esc(p.reason)}</span></div>`).join(''):'<p class="plan-empty">No major setup conflict was identified.</p>';
     return `
       <section class="plan-status-card ${esc(plan.status.level)}"><span class="plan-status-label">${esc(plan.status.label)}</span><h3>${esc(plan.status.title)}</h3><p>${esc(plan.status.summary)}</p></section>
@@ -241,8 +241,8 @@
       ${sectionHtml('Technology and building',plan.techRecs)}
       ${sectionHtml('Teacher and family communication',plan.stakeholderRecs)}
       ${sectionHtml('Accessibility and participation',plan.accessRecs)}
-      ${sectionHtml('Using the five-lesson schedule',plan.lessonRecs)}
-      <section class="plan-section"><h3>Go to the five facilitator lessons</h3><p class="plan-note">The planner does not create a separate calendar. Use these lesson pages as the implementation sequence.</p><div class="plan-lesson-links">${lessonCards}</div></section>
+      ${sectionHtml('Using the five-session schedule',plan.lessonRecs)}
+      <section class="plan-section"><h3>Go to the five facilitation guides</h3><p class="plan-note">The planner does not create a separate calendar. Use these session guides as the sequence.</p><div class="plan-lesson-links">${lessonCards}</div></section>
       <section class="plan-section"><h3>Priority actions</h3><div class="plan-priority-list">${pri}</div></section>
       ${plan.assumptions.length?sectionHtml('Items to confirm',plan.assumptions):''}`;
   }
@@ -250,9 +250,9 @@
   function heading(title,items){return `${title}\n${(items||[]).map(x=>`- ${x}`).join('\n')}`}
   function toText(plan){
     const c=plan.cfg;
-    const lessons=LESSONS.map(l=>`${l.n}. Lesson ${l.n} · ${l.title} — ${l.subtitle} (${c.lessonPattern==='one'?'use the 45-minute plan':'use the 90-minute/two-session plan'})`).join('\n');
+    const lessons=LESSONS.map(l=>`${l.n}. Session ${l.n} · ${l.title} — ${l.subtitle} (${c.lessonPattern==='one'?'use the 45-minute plan':'use the 90-minute/two-session plan'})`).join('\n');
     const pri=plan.priorities.length?plan.priorities.map((p,i)=>`${i+1}. [${p.level.toUpperCase()}] ${p.text}\n   Why: ${p.reason}`).join('\n'):'No major setup conflict identified.';
-    return `STUDENT AI LEARNING INNOVATION LEAGUE — CLUB PLAN\n\nSTATUS\n${plan.status.label}: ${plan.status.title}\n${plan.status.summary}\n\nSETUP\n- Students: ${c.teamSize}\n- Grade band: ${label('grade',c.grade)}\n- Experience: ${label('experience',c.experience)}\n- Club format: ${c.format}\n- Teacher: ${c.client}\n- Technology: ${c.tech}\n- Family communication: ${c.family}\n- Schedule: Five-week / five-lesson sequence\n- Lesson length: ${label('lessonPattern',c.lessonPattern)}\n- Estimated contact time: ${plan.contact.text}\n- Available supports: ${c.supports.join(', ')||'None selected'}\n- Access or participation needs: ${c.access||'To be confirmed with students and families'}\n\n${heading('TEAM STRUCTURE',[plan.teams.text,...plan.teams.roles])}\n\n${heading('FORMAT RECOMMENDATIONS',plan.formatRecs)}\n\n${heading('STUDENT SCAFFOLDING',plan.studentRecs)}\n\n${heading('ADULT FACILITATION',plan.adultRecs)}\n\n${heading('TECHNOLOGY AND BUILDING',plan.techRecs)}\n\n${heading('TEACHER AND FAMILY COMMUNICATION',plan.stakeholderRecs)}\n\n${heading('ACCESSIBILITY AND PARTICIPATION',plan.accessRecs)}\n\n${heading('USING THE FIVE-LESSON SCHEDULE',plan.lessonRecs)}\n\nFIVE FACILITATOR LESSONS\n${lessons}\n\nPRIORITY ACTIONS\n${pri}${plan.assumptions.length?`\n\n${heading('ITEMS TO CONFIRM',plan.assumptions)}`:''}`;
+    return `STUDENT AI LEARNING INNOVATION LEAGUE — CLUB PLAN\n\nSTATUS\n${plan.status.label}: ${plan.status.title}\n${plan.status.summary}\n\nSETUP\n- Students: ${c.teamSize}\n- Grade band: ${label('grade',c.grade)}\n- Experience: ${label('experience',c.experience)}\n- Club format: ${c.format}\n- Teacher: ${c.client}\n- Technology: ${c.tech}\n- Family communication: ${c.family}\n- Sequence: Five guided sessions\n- Meeting pattern: ${label('lessonPattern',c.lessonPattern)}\n- Estimated contact time: ${plan.contact.text}\n- Available supports: ${c.supports.join(', ')||'None selected'}\n- Access or participation needs: ${c.access||'To be confirmed with students and families'}\n\n${heading('TEAM STRUCTURE',[plan.teams.text,...plan.teams.roles])}\n\n${heading('FORMAT RECOMMENDATIONS',plan.formatRecs)}\n\n${heading('STUDENT SCAFFOLDING',plan.studentRecs)}\n\n${heading('ADULT FACILITATION',plan.adultRecs)}\n\n${heading('TECHNOLOGY AND BUILDING',plan.techRecs)}\n\n${heading('TEACHER AND FAMILY COMMUNICATION',plan.stakeholderRecs)}\n\n${heading('ACCESSIBILITY AND PARTICIPATION',plan.accessRecs)}\n\n${heading('USING THE FIVE GUIDED SESSIONS',plan.lessonRecs)}\n\nFIVE FACILITATION GUIDES\n${lessons}\n\nPRIORITY ACTIONS\n${pri}${plan.assumptions.length?`\n\n${heading('ITEMS TO CONFIRM',plan.assumptions)}`:''}`;
   }
 
   function readForm(form){
@@ -288,7 +288,7 @@
     document.getElementById('generate-club-plan')?.addEventListener('click',generate);
     document.getElementById('copy-club-plan')?.addEventListener('click',async()=>{if(!currentText)generate();try{await navigator.clipboard.writeText(currentText);status.textContent='Plan copied.'}catch(e){status.textContent='Select and copy the generated plan manually.'}});
     document.getElementById('download-club-plan')?.addEventListener('click',()=>{if(!currentText)generate();download('learning-league-club-plan.txt',currentText);status.textContent='Plan downloaded.'});
-    document.getElementById('reset-club-plan')?.addEventListener('click',()=>{form.reset();currentText='';output.innerHTML='<p class="generated-plan-placeholder">Complete the five setup steps, then generate your club plan.</p>';status.textContent='Planner reset.';try{localStorage.removeItem(DRAFT_KEY)}catch(e){}form.querySelectorAll('.format-choice-card input').forEach(i=>i.closest('.format-choice-card')?.classList.toggle('is-selected',i.checked));show(1)});
+    document.getElementById('reset-club-plan')?.addEventListener('click',()=>{form.reset();currentText='';output.innerHTML='<p class="generated-plan-placeholder">Complete the six setup steps, then generate your club plan.</p>';status.textContent='Planner reset.';try{localStorage.removeItem(DRAFT_KEY)}catch(e){}form.querySelectorAll('.format-choice-card input').forEach(i=>i.closest('.format-choice-card')?.classList.toggle('is-selected',i.checked));show(1)});
   }
 
   return {normalize,parseAccessNeeds,buildPlan,toHtml,toText,init};

@@ -990,3 +990,31 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .lesson-print-actions{margin-top:1rem}.print-lesson-action{display:inline-flex;align-items:center;gap:.35rem}.print-lesson-action::before{content:'🖨️'}
 @media print{.site-header,.page-header,.page-layout,.page-next,footer,.lesson-print-actions{display:none!important}.print-plan-page .site-header{display:none!important}}
 .teaching-package-grid{margin-top:2rem;padding:1rem;border:1px solid var(--border);border-radius:18px;background:#fff}.teaching-package-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem}.teaching-package-card{padding:.85rem}.teaching-package-card h4{margin:.1rem 0 .6rem}.teaching-package-card .actions{gap:.35rem}.teaching-package-card .button{font-size:.82rem;padding:.42rem .55rem}@media(max-width:1050px){.teaching-package-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.teaching-package-list{grid-template-columns:1fr}}
+
+
+/* Stage 1 core UX: less at once, clearer entry, persistent wayfinding */
+.skip-link{position:fixed;left:1rem;top:-5rem;z-index:9999;background:#fff;color:#10233f;padding:.75rem 1rem;border:2px solid currentColor;border-radius:.5rem;font-weight:800}
+.skip-link:focus{top:1rem}
+.facilitator-entry-hero{max-width:1180px}
+.facilitator-fast-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:1.5rem 0}
+.facilitator-fast-facts article{background:rgba(255,255,255,.96);color:#17304f;border-radius:1rem;padding:1rem;box-shadow:0 8px 22px rgba(22,48,79,.12);border:1px solid rgba(22,48,79,.12)}
+.facilitator-fast-facts span{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:#52647a;margin-bottom:.35rem}
+.facilitator-fast-facts strong{display:block;font-size:1.05rem;margin-bottom:.35rem}.facilitator-fast-facts p{font-size:.94rem;margin:0}
+.visual-story-row{display:grid;grid-template-columns:minmax(180px,320px) 1fr;align-items:center;gap:1.5rem}.visual-story-row img{width:100%;max-height:230px;object-fit:contain}
+.role-do-avoid li{margin:.45rem 0}.facilitator-identity-note{margin-top:1rem;padding:1rem 1.15rem;border-left:5px solid #216b75;background:#f1fbfb;border-radius:.75rem}
+.club-plan-low-burden{display:flex;gap:1rem;align-items:center;justify-content:space-between;background:#eef7ff;border:1px solid #bddaf1;border-radius:.9rem;padding:.8rem 1rem;margin:1rem 0 1.25rem}.club-plan-low-burden strong{font-size:1.05rem}.club-plan-low-burden span{font-size:.92rem;color:#445a6f}
+.implementation-layer-label{margin-bottom:1rem}.implementation-layer-label strong{display:block;font-size:1.05rem}
+.student-hook-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0}.student-hook-chips span{background:rgba(255,255,255,.92);color:#17304f;border-radius:999px;padding:.5rem .8rem;font-weight:750;font-size:.9rem}
+.club-energy-banner{max-width:1180px;margin:1.2rem auto 1.5rem;padding:1.1rem 1.25rem;display:grid;grid-template-columns:1fr minmax(160px,280px);gap:1rem;align-items:center;background:linear-gradient(135deg,#f1fbfb,#f4f0ff);border:1px solid #cddde8;border-radius:1.1rem}.club-energy-banner img{width:100%;max-height:180px;object-fit:contain}.club-energy-banner p{margin-bottom:0}
+.stage-advance-organizer{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:.75rem 0 1rem;padding:.65rem;background:#edf4f8;border-radius:1rem;border:1px solid #cddde8}.stage-advance-organizer span{background:white;border-radius:.75rem;padding:.65rem .75rem;min-width:0}.stage-advance-organizer small{display:block;color:#60758a;font-size:.68rem;letter-spacing:.08em;font-weight:850}.stage-advance-organizer strong{display:block;font-size:.86rem;line-height:1.25;margin-top:.2rem}
+.guided-progress-card{position:sticky;top:76px;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(22,48,79,.11)}
+.guided-artifact-chip{font-size:.8rem;font-weight:750;color:#38516a;background:#eff6fb;padding:.35rem .55rem;border-radius:.55rem;white-space:normal}
+.guided-nav{position:sticky;bottom:.5rem;z-index:45;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(22,48,79,.14);border:1px solid #d2dde6;border-radius:1rem;padding:.55rem .7rem}
+.plug-play-note{margin-top:1rem;background:rgba(255,255,255,.92);color:#17304f;border-radius:.8rem;padding:.75rem .9rem;border:1px solid rgba(23,48,79,.16);max-width:800px}
+.facilitator-definition{font-size:.92rem;background:#f8fbfd;border-left:4px solid #6a89a2;padding:.7rem .85rem;border-radius:.5rem}
+/* Clear keyboard focus, not hover-only help */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #0a6fb5;outline-offset:3px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(max-width:900px){.facilitator-fast-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.visual-story-row{grid-template-columns:1fr}.visual-story-row img{max-height:180px}.stage-advance-organizer{grid-template-columns:1fr}.guided-progress-card{top:64px}}
+@media(max-width:560px){.facilitator-fast-facts{grid-template-columns:1fr}.club-plan-low-burden{align-items:flex-start;flex-direction:column;gap:.25rem}.club-energy-banner{grid-template-columns:1fr}.club-energy-banner img{max-height:140px}.guided-progress-card{position:sticky;top:58px}.guided-nav{bottom:.25rem}.student-hook-chips span{font-size:.83rem}.guided-artifact-chip{display:none}}
