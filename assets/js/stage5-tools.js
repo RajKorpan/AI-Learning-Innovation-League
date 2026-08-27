@@ -12,7 +12,7 @@ function stageRecord(n){const s=load(STORE),j=load(JOURNEY),core=s.projectCore||
  if(n===3)return head+'\n'+lines('SELECTED STRATEGY',s.selectedStrategy)+'\n\n'+lines('RESOURCE INVENTORY / AI ACTIVITY PROMPT',s.stage3Resource||s.resourcePrompt)+'\n\n'+lines('RESOURCE IDEAS',s.resourceIdeas)+'\n\n'+lines('IDEA SPRINT',s.ideaBoard);
  if(n===4)return head+'\n'+lines('BUILD DECISION',s.productDecision)+'\n\n'+lines('PROTOTYPE PLAN',s.prototype)+'\n\n'+lines('DESIGN CHECK',s.designCheck)+'\n\n'+lines('FIRST PROMPT',s.firstPrompt)+'\n\n'+lines('PROMPT DRAFT 1',s.promptDraft1)+'\n\n'+lines('PROMPT DRAFT 2',s.promptDraft2)+'\n\n'+lines('PROMPT TEST 2',s.promptTest2);
  if(n===5)return head+'\n'+lines('TEST PLAN',s.testPlan)+'\n\n'+lines('TESTING AND VERSION HISTORY',s.tests);
- if(n===6)return head+'\n'+lines('SHARING EVENT STORY',s.shareStory);
+ if(n===6)return head+'\n'+lines('SHARE-OUT STORY',s.shareStory);
  return head;
 }
 const checks={
@@ -21,7 +21,7 @@ const checks={
 3:[['selectedStrategy','Learning-strategy hypothesis + what the learner should do'],['stage3Resource','Resource inventory with materials, people, spaces, technology, constraints, and access needs'],['ideaBoard','Several design ideas + one or two finalist directions']],
 4:[['productDecision','Build direction selected for a reason'],['prototype','Low-resolution prototype plan saved'],['designCheck','Learning-design check completed'],['promptDraft1','Prompt draft saved when conversational AI is part of the design']],
 5:[['testPlan','Focused test plan tied to the learning objective'],['tests','Testing record + at least one evidence-linked revision']],
-6:[['shareStory','Learning Showcase story + demonstration plan + limitations/next step']]
+6:[['shareStory','Share-out story + something useful to show + limitations/next step']]
 };
 function present(v){return Array.isArray(v)?v.length>0:!!v&&(!(typeof v==='object')||Object.keys(v).length>0)}
 function updateSavePanels(){const s=load(STORE);$$('[data-stage-save-checklist]').forEach(ul=>{const n=Number(ul.dataset.stageSaveChecklist);ul.innerHTML=(checks[n]||[]).map(([k,label])=>`<li class="${present(s[k])?'is-ready':''}"><span aria-hidden="true">${present(s[k])?'✓':'○'}</span>${esc(label)}</li>`).join('')})}

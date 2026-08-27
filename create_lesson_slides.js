@@ -73,7 +73,7 @@ const decks=[
  ['process','Plan and run one test',['Choose the lightest useful test.','State the learning objective.','Decide what to observe.','Run the test neutrally.','Record what happened.'],IMG.test,'Integrates lightest test into the test plan.'],
  ['challenge','Did the tool do too much?','Which test result is most concerning?',['The learner explains the idea independently','The AI immediately gives the answer','The learner asks a clarifying question'],1,IMG.ai,'Make this a signature design question.'],
  ['content','Revise one thing',['Change something because of evidence.','Do not just decorate the prototype.','If possible, retest the same target behavior.'],IMG.build,'Version history matters.'],
- ['content','Learning Showcase story',['The challenge','What we learned from listening','The learning breakdown','What we built','What testing showed','What we changed','What we learned about learning and AI'],IMG.share,'This is not just a product pitch.'],
+ ['content','Share-out story',['The challenge','What we learned from listening','The learning breakdown','What we built','What testing showed','What we changed','What we learned about learning and AI'],IMG.share,'This is not just a product pitch.'],
  ['content','Demo one focused interaction',['Show the learner action.','Explain why it supports learning.','Use a backup if technology fails.','Keep private details out.'],IMG.story,'Students should demonstrate the learning design.'],
  ['content','Ready to share',['Claims match evidence.','The demo is short and clear.','Students can explain limitations.','Everyone has a role.'],IMG.check,'Final advisor check.']
 ]}
