@@ -20,28 +20,56 @@ function isUnsure(v){return /^i['’]m not sure/i.test(String(v||'').trim())}
 function unsureControls(q,prefix){if(q.noUnsure)return '';return `<div class="wizard-uncertainty"><button class="button ghost tiny" type="button" data-wizard-unsure="${prefix}-current">I'm not sure yet</button><details><summary>Help me figure this out</summary><p>${esc(q.help||q.how||'Use a specific example, look at what the learner actually does, and ask your facilitator when you need another perspective.')}</p><p><strong>You can continue while uncertain.</strong> The goal is your best hypothesis right now. Mark uncertainty honestly instead of inventing an answer.</p></details></div>`}
 function toolSaved(out,msg='Saved in this browser.'){if(out){const p=document.createElement('p');p.className='local-save-note';p.textContent=msg;out.append(p)}}
 
-// --- Interview Coach ---
-if($('interview-person')) $('interview-person').value=(loadJourney().projectLens||'other')==='self'?'self':'learner';
+// --- Interview Coach + Empathy Map ---
+if($('interview-person')) $('interview-person').value=(loadJourney().projectLens||'other')==='self'?'self':'teacher';
 $('interview-form')?.addEventListener('submit',e=>{
- e.preventDefault();const who=val('interview-person'),purpose=val('interview-purpose'),focus=val('interview-focus')||'this learning task',custom=val('interview-custom-question');
- const self=who==='self';
- const open=self?`Think about the last time you tried ${focus}. What was happening?`:`Tell me about the last time you tried ${focus}. What was happening?`;
- const q=[open,
-  ...(custom?[custom]:[]),
-  self?`Walk yourself through what you did from the beginning. Where did your approach change?`:`Can you walk me through what you did from the beginning?`,
-  `What part feels easiest or most familiar? What makes that part work?`,
-  purpose==='strategies'?`What do you usually try when you get stuck? What happens after you try it?`:`Where do you first hesitate, get confused, slow down, or change strategy?`,
-  purpose==='context'?`When is this easier, and when is it harder? What is different about those situations?`:`Can you show or describe one specific example?`,
-  `If you could change one thing about the learning experience—not name a product—what would you want to be different?`
+ e.preventDefault();
+ const who=val('interview-person')||'teacher', focus=val('interview-focus'), custom=val('interview-custom-question');
+ const starters=[...document.querySelectorAll('input[name="interview-starter"]:checked')].map(x=>x.value);
+ const out=$('interview-plan');
+ if(!focus){out.innerHTML='<div class="warning-box"><strong>Add the learning situation first.</strong><p>Name the STEM topic, task, or situation you want to understand.</p></div>';return}
+ const base=starters.length?starters:[
+   'Tell me about the last time this happened. What were you trying to do?',
+   'Walk me through what you did from the beginning.',
+   'Where did you slow down, get confused, or change what you were doing?',
+   'What have you already tried when this gets hard?'
  ];
- const cautions=[];if(who==='teacher')cautions.push('Ask for examples of student work or behavior, not only the teacher’s interpretation of the cause.');if(who==='self')cautions.push('Self-study can miss habits you no longer notice. Ask a teammate or facilitator to observe one attempt if possible.');
- const out=$('interview-plan');out.innerHTML=`<div class="result-summary fit-high"><div><span class="result-kicker">Interview plan</span><h3>Listen before you design</h3><p>Use these as starters. Follow the person’s story instead of asking every question mechanically.</p></div></div><ol class="generated-question-list">${q.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>${cautions.length?`<div class="note-box"><strong>Watch for</strong>${list(cautions)}</div>`:''}<div class="tool-actions"><button class="button secondary small" id="download-interview-plan" type="button">Download plan</button></div>`;
- $('interview-notes').hidden=false;const plain='INTERVIEW PLAN\n\n'+q.map((x,i)=>`${i+1}. ${x}`).join('\n');savePart('interview',{who,purpose,focus,questions:q,plain});$('download-interview-plan')?.addEventListener('click',()=>download('league-interview-plan.txt',plain));toolSaved(out);
+ const questions=[...base,...(custom?[custom]:[])];
+ const cautions=[];
+ if(who==='teacher')cautions.push('Ask your teacher for a recent example of what students did or said, not only what they think the cause might be.');
+ if(who==='self')cautions.push('If you are studying yourself, ask a teammate or facilitator to watch one attempt if possible. They may notice something you miss.');
+ out.innerHTML=`<div class="result-summary fit-high"><div><span class="result-kicker">Interview plan ready</span><h3>Use a few questions, then follow the story</h3><p>You do not need to ask every question. Ask for examples when something important comes up.</p></div></div><ol class="generated-question-list">${questions.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>${cautions.length?`<div class="note-box"><strong>Watch for</strong>${list(cautions)}</div>`:''}<div class="tool-actions"><button class="button secondary small" id="download-interview-plan" type="button">Download plan</button></div>`;
+ const plain='INTERVIEW PLAN\n\nLearning situation: '+focus+'\n\n'+questions.map((x,i)=>`${i+1}. ${x}`).join('\n');
+ savePart('interview',{who,focus,questions,plain});
+ $('download-interview-plan')?.addEventListener('click',()=>download('league-interview-plan.txt',plain));
+ toolSaved(out);
 });
-$('interview-synthesize')?.addEventListener('click',()=>{
- const heard=val('interview-heard'),observed=val('interview-observed'),surprise=val('interview-surprise'),unknown=val('interview-unknown');
- const insights={heard,observed,surprise,unknown};savePart('empathyInsights',insights);const out=$('interview-insights');out.innerHTML=`<h3>Empathy insights</h3><div class="synthesis-grid"><p><strong>We heard:</strong> ${esc(heard||'[add repeated ideas]')}</p><p><strong>We observed:</strong> ${esc(observed||'[add observable evidence]')}</p><p><strong>We changed our mind about:</strong> ${esc(surprise||'[add a changed assumption]')}</p><p><strong>We still need to know:</strong> ${esc(unknown||'[add an open question]')}</p></div>`;toolSaved(out);
+
+// Restore a saved interview plan/map when students return.
+const savedInterview=load().interview||{};
+if($('interview-focus')&&savedInterview.focus&&!$('interview-focus').value)$('interview-focus').value=savedInterview.focus;
+const savedMap=load().empathyMap||{};
+const mapFields={goal:'empathy-goal',current:'empathy-current',hard:'empathy-hard',tried:'empathy-tried',evidence:'empathy-evidence',questions:'empathy-questions'};
+Object.entries(mapFields).forEach(([k,id])=>{if($(id)&&savedMap[k])$(id).value=savedMap[k]});
+if($('empathy-goal')&&!$('empathy-goal').value&&savedInterview.focus)$('empathy-goal').value=savedInterview.focus;
+
+function renderEmpathyMap(map){
+ const out=$('empathy-map-output'); if(!out)return;
+ out.innerHTML=`<div class="result-summary fit-high"><div><span class="result-kicker">Empathy Map</span><h3>Clues to carry into Define</h3><p>This map records what you know now. The difficulty is still a <strong>best guess to investigate</strong>, not a label or final answer.</p></div></div><div class="empathy-map-visual"><article><span>🎯</span><strong>Trying to do</strong><p>${esc(map.goal||'[not recorded]')}</p></article><article><span>▶</span><strong>What they do now</strong><p>${esc(map.current||'[not recorded]')}</p></article><article class="empathy-map-focus"><span>⚠</span><strong>Where it seems hard</strong><p>${esc(map.hard||'[still uncertain]')}</p></article><article><span>🧰</span><strong>Already tried</strong><p>${esc(map.tried||'[not recorded]')}</p></article><article><span>🔎</span><strong>Interview clues</strong><p>${esc(map.evidence||'[add something you heard or saw]')}</p></article><article><span>❓</span><strong>Still wondering</strong><p>${esc(map.questions||'[add a question for Define]')}</p></article></div><div class="tool-actions"><button class="button secondary small" id="download-empathy-map" type="button">Download Empathy Map</button></div>`;
+ const plain=`EMPATHY MAP\n\nTRYING TO DO\n${map.goal||''}\n\nWHAT THEY DO NOW\n${map.current||''}\n\nWHERE IT SEEMS HARD\n${map.hard||''}\n\nALREADY TRIED\n${map.tried||''}\n\nINTERVIEW CLUES\n${map.evidence||''}\n\nSTILL WONDERING\n${map.questions||''}\n\nReminder: this is a set of clues and a best guess to investigate, not a final answer.`;
+ $('download-empathy-map')?.addEventListener('click',()=>download('learning-league-empathy-map.txt',plain));
+ toolSaved(out,'Empathy Map saved in this browser and carried into Define.');
+}
+$('empathy-map-form')?.addEventListener('submit',e=>{
+ e.preventDefault();
+ const map={};Object.entries(mapFields).forEach(([k,id])=>map[k]=val(id));
+ if(!map.goal||!map.evidence){$('empathy-map-output').innerHTML='<div class="warning-box"><strong>Add two essential clues first.</strong><p>Record what the person is trying to do and at least one thing you heard or saw. The other parts can still be uncertain.</p></div>';return}
+ savePart('empathyMap',map);
+ // Backward-compatible summary for earlier stage records/components.
+ savePart('empathyInsights',{heard:map.current,observed:map.evidence,surprise:map.hard,unknown:map.questions});
+ renderEmpathyMap(map);
 });
+if(Object.keys(savedMap).length)renderEmpathyMap(savedMap);
 
 // --- Learning Breakdown Mapper wizard ---
 const breakdownQ=[
@@ -84,7 +112,7 @@ const strategies={
  retrieval:{name:'Retrieval practice + spacing',desc:'Ask the learner to bring information to mind instead of only rereading or re-seeing it.',products:['Printable question deck','Partner recall challenge','Low-stakes practice quiz','Short retrieval routine','AI-generated question bank that students curate'],test:'Use a new or delayed recall task and compare accuracy/support needed.',caution:'Do not use pure recall practice when the main problem is conceptual understanding rather than access to learned information.'},
  elaboration:{name:'Elaboration + self-explanation',desc:'Have the learner explain why, connect ideas, justify a step, or generate an example.',products:['Explain-it cards','Teach-back routine','Why/how question deck','Concept connection map','AI conversation that asks for explanations without giving them'],test:'Ask for an explanation or application on a new example and examine whether important relationships appear.',caution:'Novices may need examples or prompts before open-ended self-explanation is productive.'},
  worked:{name:'Worked examples + fading',desc:'Show a model of the process, then gradually remove steps so the learner takes over.',products:['Faded worksheet','Step-strip cards','Worked-example comparison','Human role-play tutor','Guided digital sequence'],test:'Reduce one support at a time and observe whether the learner completes the missing step independently.',caution:'Do not leave all steps visible forever; the support should fade.'},
- error:{name:'Error analysis + targeted feedback',desc:'Help the learner inspect an attempt, locate the error, explain it, and try again.',products:['Find-the-error cards','Correction routine','Annotated examples','Peer debugging challenge','AI coach that asks the learner to diagnose before giving a cue'],test:'Use a new error pattern and track whether the learner identifies and corrects it with less help.',caution:'Feedback should point to a useful next action rather than only mark wrong/correct.'},
+ error:{name:'Error analysis + targeted feedback',desc:'Help the learner inspect an attempt, locate the error, explain it, and try again.',products:['Find-the-error cards','Correction routine','Annotated examples','Peer debugging challenge','AI coach that asks the learner to explain the error before giving a cue'],test:'Use a new error pattern and track whether the learner identifies and corrects it with less help.',caution:'Feedback should point to a useful next action rather than only mark wrong/correct.'},
  chunking:{name:'Task decomposition + chunking',desc:'Break a complex task into meaningful components and support planning across them.',products:['Step map','Decision checklist','Question-decomposition mat','Sequence card sort','Guided task navigator'],test:'Ask the learner to plan or sequence a fresh task and record where support is still needed.',caution:'Avoid creating so many micro-steps that the learner loses the overall goal.'},
  metacognition:{name:'Metacognitive monitoring + self-regulation',desc:'Prompt the learner to plan, monitor understanding, choose a strategy, and reflect on evidence.',products:['Self-check routine','Confidence-with-reason cards','Strategy chooser','Learning log','Reflection coach'],test:'Observe whether the learner notices a problem and chooses a useful next strategy without being told.',caution:'Reflection prompts must connect to actual task evidence, not vague feelings.'},
  comparison:{name:'Comparison + contrasting cases',desc:'Place examples side by side so the learner must notice the feature that matters.',products:['Card sort','Which-one-and-why challenge','Side-by-side examples','Physical comparison activity','Interactive comparison screen'],test:'Give a new pair and ask the learner to name the critical difference and use it.',caution:'The compared cases must differ on the feature you want the learner to notice.'},

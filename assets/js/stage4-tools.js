@@ -63,11 +63,25 @@ document.querySelectorAll('[data-ai-example-choice]').forEach(btn=>btn.addEventL
   const select=$('ai-example-select'); if(select) select.value=key;
 }));
 
-// Empathy interview practice prompt
+// Empathy interview practice prompt — structured and intentionally brief.
 $('make-empathy-practice')?.addEventListener('click',()=>{
- const topic=($('practice-topic')?.value||'a STEM topic').trim(), level=($('practice-level')?.value||'a secondary student').trim(), difficulty=($('practice-difficulty')?.value||'a realistic learning difficulty').trim();
- const text=`Pretend you are ${level} working on ${topic}. Privately use this general difficulty to guide your answers: ${difficulty}. Do not announce the difficulty or diagnose yourself. Answer my interview questions naturally and reveal the experience gradually through specific examples. If I ask a leading question, answer naturally rather than agreeing automatically. After I say “end interview,” step out of role and give me feedback on: (1) which questions were open and neutral, (2) which questions were leading or solution-focused, (3) one follow-up I could have asked, and (4) whether I listened for evidence before guessing the cause. This is interview practice only; do not claim the simulation represents a real learner.`;
- const out=$('empathy-practice-result');out.innerHTML=`<div class="result-summary fit-high"><div><span class="result-kicker">Practice prompt</span><h3>Practice the questioning—not the diagnosis</h3></div></div><pre>${esc(text)}</pre><div class="tool-actions"><button class="button secondary small" id="copy-empathy-practice" type="button">Copy practice prompt</button></div><p class="status" id="empathy-practice-status"></p>`;$('copy-empathy-practice')?.addEventListener('click',()=>copy(text,$('empathy-practice-status')));
+ const topicMap={math:'mathematics',science:'science',computing:'computing / computer science',engineering:'engineering / design',data:'data / quantitative reasoning'};
+ const levelMap={middle:'a middle-school learner',earlyhigh:'an early high-school learner',high:'a high-school learner'};
+ const difficultyMap={
+  remember:'the learner can follow along during practice but has trouble remembering later',
+  explain:'the learner can carry out a familiar step but has trouble explaining why it works',
+  apply:'the learner can succeed on familiar examples but has trouble using the idea in a new situation',
+  steps:'the learner can do some parts but loses track of the sequence or next decision',
+  errors:'the learner makes mistakes but often does not notice when the reasoning goes off track',
+  representation:'the learner has trouble connecting graphs, symbols, diagrams, tables, equations, or words'
+ };
+ const area=topicMap[$('practice-topic')?.value]||'a STEM topic';
+ const level=levelMap[$('practice-level')?.value]||'a secondary learner';
+ const difficulty=difficultyMap[$('practice-difficulty')?.value]||'a realistic learning difficulty';
+ const specific=($('practice-specific')?.value||'').trim();
+ const subject=specific?`${specific} (${area})`:area;
+ const text=`Pretend you are ${level} working on ${subject}. Privately use this situation to guide your answers: ${difficulty}. Do not announce the difficulty or label yourself. Answer my questions naturally through specific examples. If I ask a leading question, do not simply agree with it. Keep this practice interview short—about 5 questions. After I say “end interview,” step out of role and tell me: (1) one question that was open and useful, (2) one question that was leading or solution-focused, and (3) one neutral follow-up I could try. This is practice only; do not claim the simulation represents a real learner.`;
+ const out=$('empathy-practice-result');out.innerHTML=`<div class="result-summary fit-high"><div><span class="result-kicker">3-minute practice prompt</span><h3>Practice asking—not figuring out the answer</h3><p>Use this only if a rehearsal would help. Then interview a real person.</p></div></div><pre>${esc(text)}</pre><div class="tool-actions"><button class="button secondary small" id="copy-empathy-practice" type="button">Copy practice prompt</button></div><p class="status" id="empathy-practice-status"></p>`;$('copy-empathy-practice')?.addEventListener('click',()=>copy(text,$('empathy-practice-status')));
 });
 
 // Prompt history visual
